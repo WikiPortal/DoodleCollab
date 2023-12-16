@@ -1,5 +1,6 @@
-import React, { useRef, useState } from 'react';
-import { Stage, Layer, Line } from 'react-konva';
+import React, { useRef, useState } from "react";
+import { Stage, Layer, Line } from "react-konva";
+import Navbar from "../../constants/Navbar/Navbar";
 
 const Sketchbook = () => {
   const [lines, setLines] = useState([]);
@@ -26,26 +27,29 @@ const Sketchbook = () => {
   };
 
   return (
-    <Stage
-      width={window.innerWidth}
-      height={window.innerHeight}
-      onMouseDown={handleMouseDown}
-      onMousemove={handleMouseMove}
-      onMouseup={handleMouseUp}
-    >
-      <Layer>
-        {lines.map((line, i) => (
-          <Line
-            key={i}
-            points={line.points}
-            stroke="black"
-            strokeWidth={2}
-            tension={0.5}
-            lineCap="round"
-          />
-        ))}
-      </Layer>
-    </Stage>
+    <>
+      <Navbar />
+      <Stage
+        width={window.innerWidth}
+        height={window.innerHeight}
+        onMouseDown={handleMouseDown}
+        onMousemove={handleMouseMove}
+        onMouseup={handleMouseUp}
+      >
+        <Layer>
+          {lines.map((line, i) => (
+            <Line
+              key={i}
+              points={line.points}
+              stroke="black"
+              strokeWidth={2}
+              tension={0.5}
+              lineCap="round"
+            />
+          ))}
+        </Layer>
+      </Stage>
+    </>
   );
 };
 
