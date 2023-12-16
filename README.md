@@ -1,7 +1,7 @@
 <p align="center">
 
    <h3 align="center">DoodleCollab</h3>
-   <video src="./src/assets/ReadMe/DoodleCollab.mp4" autoplay muted loop title="DoodleCollab Banner"></video>
+   <video autoplay muted loop title="DoodleCollab Banner"> <source  src="./src/assets/ReadMe/DoodleCollab.mp4" type="video/mp4"></video>
    <p align="center">Your Ultimate Whiteboard and Sharing Solution</p>
 </p>
 
@@ -27,8 +27,6 @@ This might be the debut repo for you, you can contribute to this repo, solve the
 - **Take a look at the [Contributing Guidelines](CONTRIBUTING.md) for proper contributions**
 - **Take a look at the [Setup Guidelines](rules/Setup.md) to setup the react app locally**
 
-
-
 ## Technologies used 💻
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
@@ -40,6 +38,7 @@ This might be the debut repo for you, you can contribute to this repo, solve the
 ![verce](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=verce&logoColor=#00C7B7)
 
 ---
+
 ## 🙏 Support
 
 This project needs a ⭐️ from you. Don't forget to leave a star ⭐️
