@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Stage, Layer, Line } from "react-konva";
+import { Stack, Button } from "@mui/material";
 import Navbar from "../../constants/Navbar/Navbar";
 
 const Sketchbook = () => {
@@ -29,6 +30,19 @@ const Sketchbook = () => {
   return (
     <>
       <Navbar />
+
+      <Stack
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        mt="1rem"
+        spacing={2}
+      >
+        <Button variant="outlined" size="small" onClick={() => setLines([])}>
+          Clear
+        </Button>
+      </Stack>
+
       <Stage
         width={window.innerWidth}
         height={window.innerHeight}
