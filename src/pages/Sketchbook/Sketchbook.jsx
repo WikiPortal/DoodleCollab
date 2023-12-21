@@ -1,26 +1,36 @@
 import React, { useRef, useState } from "react";
 import { Stage, Layer, Line } from "react-konva";
-import { Stack, Button, Paper, Slider, Modal, Select, MenuItem } from "@mui/material";
+import {
+  Stack,
+  Button,
+  Paper,
+  Slider,
+  Modal,
+  Select,
+  MenuItem,
+} from "@mui/material";
 import Navbar from "../../constants/Navbar/Navbar";
-import { MuiColorInput } from 'mui-color-input'
+import { MuiColorInput } from "mui-color-input";
 import Input from "@mui/material/Input";
 import jsPDF from "jspdf";
-
 
 const Sketchbook = () => {
   const [lines, setLines] = useState([]);
   const isDrawing = useRef(false);
   const [brushSz, setBrushSz] = useState(2);
-  const [brushColor, setBrushColor] = useState('#000000');
+  const [brushColor, setBrushColor] = useState("#000000");
   const [open, setOpen] = useState(false);
-  const [fileName, setFileName] = useState('file');
+  const [fileName, setFileName] = useState("file");
   const stageRef = useRef(null);
-  const [ftype, setFtype] = useState('png');
+  const [ftype, setFtype] = useState("png");
 
   const handleMouseDown = (e) => {
     isDrawing.current = true;
     const pos = e.target.getStage().getPointerPosition();
-    setLines([...lines, { points: [pos.x, pos.y], brushSize: brushSz, stroke: brushColor }]);
+    setLines([
+      ...lines,
+      { points: [pos.x, pos.y], brushSize: brushSz, stroke: brushColor },
+    ]);
   };
 
   const handleMouseMove = (e) => {
@@ -41,61 +51,50 @@ const Sketchbook = () => {
 
   const handleBSChange = (e) => {
     setBrushSz(e.target.value);
-  }
+  };
 
   const handleColorChange = (e) => {
     setBrushColor(e);
-  }
+  };
 
   const downloadURI = (uri, name) => {
-    const link = document.createElement('a');
+    const link = document.createElement("a");
     link.download = name;
     link.href = uri;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-  }
+  };
 
   const handleSave = () => {
     console.log(ftype);
     setOpen(false);
     const dataURL = stageRef.current.toDataURL();
-    const canvas = document.createElement('canvas');
+    const canvas = document.createElement("canvas");
     canvas.width = stageRef.current.width();
     canvas.height = stageRef.current.height();
-    const context = canvas.getContext('2d');
-    if(ftype !== 'png'){
-      context.fillStyle = '#ffffff';
+    const context = canvas.getContext("2d");
+    if (ftype !== "png") {
+      context.fillStyle = "#ffffff";
       context.fillRect(0, 0, canvas.width, canvas.height);
     }
     const image = new Image();
     image.src = dataURL;
     image.onload = () => {
       context.drawImage(image, 0, 0);
-      if(ftype === 'pdf'){
-        const pdf = new jsPDF('l', 'px', [canvas.width, canvas.height]);
-        pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0);
+      if (ftype === "pdf") {
+        const pdf = new jsPDF("l", "px", [canvas.width, canvas.height]);
+        pdf.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0);
         pdf.save(`${fileName}.pdf`);
         return;
       }
       downloadURI(canvas.toDataURL(), `${fileName}.${ftype}`);
-    }
-  }
+    };
+  };
 
   return (
     <>
       <Navbar />
-
-      <Stack
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-        mt="1rem"
-        spacing={2}
-      >
-        
-      </Stack>
-
       <Stage
         width={window.innerWidth}
         height={window.innerHeight}
@@ -117,22 +116,69 @@ const Sketchbook = () => {
           ))}
         </Layer>
       </Stage>
-      <Paper style={{position: 'fixed', top: '10vh', left: '80vw', width: '10vw', display: 'flex', flexDirection: 'column', padding: '20px'}}>
-        <h1 style={{textAlign: 'center'}}>Menu</h1>
+      <Paper
+        style={{
+          position: "fixed",
+          top: "10vh",
+          left: "80vw",
+          width: "10vw",
+          display: "flex",
+          flexDirection: "column",
+          padding: "20px",
+        }}
+      >
+        <h1 style={{ textAlign: "center" }}>Menu</h1>
         <h3>Brush size: {brushSz}</h3>
-        <Slider defaultValue={2} aria-label="Small" valueLabelDisplay="auto" min={1} max={10} onChange={handleBSChange}/>
+        <Slider
+          defaultValue={2}
+          aria-label="Small"
+          valueLabelDisplay="auto"
+          min={1}
+          max={10}
+          onChange={handleBSChange}
+        />
         <h3>Brush color</h3>
-        <MuiColorInput defaultValue="#000000" onChange={handleColorChange} value={brushColor}/>
-        <h3>Clear</h3>
-        <Button variant="outlined" size="small" onClick={() => setLines([])}>Clear</Button>
-        <h3>Save</h3>
-        <Button variant="outlined" size="small" onClick={() => setOpen(true)}>Save</Button>
+        <MuiColorInput
+          defaultValue="#000000"
+          onChange={handleColorChange}
+          value={brushColor}
+        />
+        <Stack justifyContent="center" alignItems="center" mt="1em" spacing={1}>
+          <Button variant="outlined" size="small" onClick={() => setLines([])}>
+            Clear
+          </Button>
+          <Button
+            variant="outlined"
+            size="small"
+            onClick={() => setLines((prev) => prev.slice(0, -1))}
+          >
+            Undo
+          </Button>
+          <Button variant="outlined" size="small" onClick={() => setOpen(true)}>
+            Save
+          </Button>
+        </Stack>
       </Paper>
-      <Modal open={open} onClose={() => setOpen((false))}>
-        <Paper style={{width:"25vw", height:"50vh", position:"fixed", top:"25vh", left: "35vw", display: "flex", flexDirection: "column", padding: '10px'}}>
-          <h1 style={{textAlign: 'center'}}>Save</h1>
+      <Modal open={open} onClose={() => setOpen(false)}>
+        <Paper
+          style={{
+            width: "25vw",
+            height: "50vh",
+            position: "fixed",
+            top: "25vh",
+            left: "35vw",
+            display: "flex",
+            flexDirection: "column",
+            padding: "10px",
+          }}
+        >
+          <h1 style={{ textAlign: "center" }}>Save</h1>
           <h3>File name</h3>
-          <Input placeholder="File name" onChange={(e) => setFileName(e.target.value)} defaultValue="file"/>
+          <Input
+            placeholder="File name"
+            onChange={(e) => setFileName(e.target.value)}
+            defaultValue="file"
+          />
           <h3>File type</h3>
           <Select defaultValue="png" onChange={(e) => setFtype(e.target.value)}>
             <MenuItem value="png">PNG</MenuItem>
@@ -140,7 +186,9 @@ const Sketchbook = () => {
             <MenuItem value="pdf">PDF</MenuItem>
           </Select>
           <h3>Save</h3>
-          <Button variant="outlined" size="small" onClick={handleSave}>Save</Button>
+          <Button variant="outlined" size="small" onClick={handleSave}>
+            Save
+          </Button>
         </Paper>
       </Modal>
     </>
