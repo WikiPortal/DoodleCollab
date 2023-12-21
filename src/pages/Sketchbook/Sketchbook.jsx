@@ -4,6 +4,7 @@ import { Stack, Button, Paper, Slider, Modal, Select, MenuItem } from "@mui/mate
 import Navbar from "../../constants/Navbar/Navbar";
 import { MuiColorInput } from 'mui-color-input'
 import Input from "@mui/material/Input";
+import jsPDF from "jspdf";
 
 
 const Sketchbook = () => {
@@ -11,6 +12,10 @@ const Sketchbook = () => {
   const isDrawing = useRef(false);
   const [brushSz, setBrushSz] = useState(2);
   const [brushColor, setBrushColor] = useState('#000000');
+  const [open, setOpen] = useState(false);
+  const [fileName, setFileName] = useState('file');
+  const stageRef = useRef(null);
+  const [ftype, setFtype] = useState('png');
 
   const handleMouseDown = (e) => {
     isDrawing.current = true;
@@ -42,6 +47,40 @@ const Sketchbook = () => {
     setBrushColor(e);
   }
 
+  const downloadURI = (uri, name) => {
+    const link = document.createElement('a');
+    link.download = name;
+    link.href = uri;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+  const handleSave = () => {
+    console.log(ftype);
+    setOpen(false);
+    const dataURL = stageRef.current.toDataURL();
+    const canvas = document.createElement('canvas');
+    canvas.width = stageRef.current.width();
+    canvas.height = stageRef.current.height();
+    const context = canvas.getContext('2d');
+    if(ftype !== 'png'){
+      context.fillStyle = '#ffffff';
+      context.fillRect(0, 0, canvas.width, canvas.height);
+    }
+    const image = new Image();
+    image.src = dataURL;
+    image.onload = () => {
+      context.drawImage(image, 0, 0);
+      if(ftype === 'pdf'){
+        const pdf = new jsPDF('l', 'px', [canvas.width, canvas.height]);
+        pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0);
+        pdf.save(`${fileName}.pdf`);
+        return;
+      }
+      downloadURI(canvas.toDataURL(), `${fileName}.${ftype}`);
+    }
+  }
 
   return (
     <>
@@ -63,6 +102,7 @@ const Sketchbook = () => {
         onMouseDown={handleMouseDown}
         onMousemove={handleMouseMove}
         onMouseup={handleMouseUp}
+        ref={stageRef}
       >
         <Layer>
           {lines.map((line, i) => (
@@ -85,7 +125,24 @@ const Sketchbook = () => {
         <MuiColorInput defaultValue="#000000" onChange={handleColorChange} value={brushColor}/>
         <h3>Clear</h3>
         <Button variant="outlined" size="small" onClick={() => setLines([])}>Clear</Button>
+        <h3>Save</h3>
+        <Button variant="outlined" size="small" onClick={() => setOpen(true)}>Save</Button>
       </Paper>
+      <Modal open={open} onClose={() => setOpen((false))}>
+        <Paper style={{width:"25vw", height:"50vh", position:"fixed", top:"25vh", left: "35vw", display: "flex", flexDirection: "column", padding: '10px'}}>
+          <h1 style={{textAlign: 'center'}}>Save</h1>
+          <h3>File name</h3>
+          <Input placeholder="File name" onChange={(e) => setFileName(e.target.value)} defaultValue="file"/>
+          <h3>File type</h3>
+          <Select defaultValue="png" onChange={(e) => setFtype(e.target.value)}>
+            <MenuItem value="png">PNG</MenuItem>
+            <MenuItem value="jpg">JPG</MenuItem>
+            <MenuItem value="pdf">PDF</MenuItem>
+          </Select>
+          <h3>Save</h3>
+          <Button variant="outlined" size="small" onClick={handleSave}>Save</Button>
+        </Paper>
+      </Modal>
     </>
   );
 };
