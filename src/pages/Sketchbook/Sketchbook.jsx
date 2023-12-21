@@ -1,16 +1,26 @@
 import React, { useRef, useState } from "react";
 import { Stage, Layer, Line } from "react-konva";
-import { Stack, Button } from "@mui/material";
+import { Stack, Button, Paper, Slider, Modal, Select, MenuItem } from "@mui/material";
 import Navbar from "../../constants/Navbar/Navbar";
+import { MuiColorInput } from 'mui-color-input'
+import Input from "@mui/material/Input";
+import jsPDF from "jspdf";
+
 
 const Sketchbook = () => {
   const [lines, setLines] = useState([]);
   const isDrawing = useRef(false);
+  const [brushSz, setBrushSz] = useState(2);
+  const [brushColor, setBrushColor] = useState('#000000');
+  const [open, setOpen] = useState(false);
+  const [fileName, setFileName] = useState('file');
+  const stageRef = useRef(null);
+  const [ftype, setFtype] = useState('png');
 
   const handleMouseDown = (e) => {
     isDrawing.current = true;
     const pos = e.target.getStage().getPointerPosition();
-    setLines([...lines, { points: [pos.x, pos.y] }]);
+    setLines([...lines, { points: [pos.x, pos.y], brushSize: brushSz, stroke: brushColor }]);
   };
 
   const handleMouseMove = (e) => {
@@ -19,6 +29,8 @@ const Sketchbook = () => {
     const pos = e.target.getStage().getPointerPosition();
     let lastLine = lines[lines.length - 1];
     lastLine.points = lastLine.points.concat([pos.x, pos.y]);
+    lastLine.brushSize = brushSz;
+    lastLine.stroke = brushColor;
 
     setLines([...lines.slice(0, -1), lastLine]);
   };
@@ -26,6 +38,49 @@ const Sketchbook = () => {
   const handleMouseUp = () => {
     isDrawing.current = false;
   };
+
+  const handleBSChange = (e) => {
+    setBrushSz(e.target.value);
+  }
+
+  const handleColorChange = (e) => {
+    setBrushColor(e);
+  }
+
+  const downloadURI = (uri, name) => {
+    const link = document.createElement('a');
+    link.download = name;
+    link.href = uri;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+  const handleSave = () => {
+    console.log(ftype);
+    setOpen(false);
+    const dataURL = stageRef.current.toDataURL();
+    const canvas = document.createElement('canvas');
+    canvas.width = stageRef.current.width();
+    canvas.height = stageRef.current.height();
+    const context = canvas.getContext('2d');
+    if(ftype !== 'png'){
+      context.fillStyle = '#ffffff';
+      context.fillRect(0, 0, canvas.width, canvas.height);
+    }
+    const image = new Image();
+    image.src = dataURL;
+    image.onload = () => {
+      context.drawImage(image, 0, 0);
+      if(ftype === 'pdf'){
+        const pdf = new jsPDF('l', 'px', [canvas.width, canvas.height]);
+        pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0);
+        pdf.save(`${fileName}.pdf`);
+        return;
+      }
+      downloadURI(canvas.toDataURL(), `${fileName}.${ftype}`);
+    }
+  }
 
   return (
     <>
@@ -38,9 +93,7 @@ const Sketchbook = () => {
         mt="1rem"
         spacing={2}
       >
-        <Button variant="outlined" size="small" onClick={() => setLines([])}>
-          Clear
-        </Button>
+        
       </Stack>
 
       <Stage
@@ -49,20 +102,47 @@ const Sketchbook = () => {
         onMouseDown={handleMouseDown}
         onMousemove={handleMouseMove}
         onMouseup={handleMouseUp}
+        ref={stageRef}
       >
         <Layer>
           {lines.map((line, i) => (
             <Line
               key={i}
               points={line.points}
-              stroke="black"
-              strokeWidth={2}
+              stroke={line.stroke}
+              strokeWidth={line.brushSize}
               tension={0.5}
               lineCap="round"
             />
           ))}
         </Layer>
       </Stage>
+      <Paper style={{position: 'fixed', top: '10vh', left: '80vw', width: '10vw', display: 'flex', flexDirection: 'column', padding: '20px'}}>
+        <h1 style={{textAlign: 'center'}}>Menu</h1>
+        <h3>Brush size: {brushSz}</h3>
+        <Slider defaultValue={2} aria-label="Small" valueLabelDisplay="auto" min={1} max={10} onChange={handleBSChange}/>
+        <h3>Brush color</h3>
+        <MuiColorInput defaultValue="#000000" onChange={handleColorChange} value={brushColor}/>
+        <h3>Clear</h3>
+        <Button variant="outlined" size="small" onClick={() => setLines([])}>Clear</Button>
+        <h3>Save</h3>
+        <Button variant="outlined" size="small" onClick={() => setOpen(true)}>Save</Button>
+      </Paper>
+      <Modal open={open} onClose={() => setOpen((false))}>
+        <Paper style={{width:"25vw", height:"50vh", position:"fixed", top:"25vh", left: "35vw", display: "flex", flexDirection: "column", padding: '10px'}}>
+          <h1 style={{textAlign: 'center'}}>Save</h1>
+          <h3>File name</h3>
+          <Input placeholder="File name" onChange={(e) => setFileName(e.target.value)} defaultValue="file"/>
+          <h3>File type</h3>
+          <Select defaultValue="png" onChange={(e) => setFtype(e.target.value)}>
+            <MenuItem value="png">PNG</MenuItem>
+            <MenuItem value="jpg">JPG</MenuItem>
+            <MenuItem value="pdf">PDF</MenuItem>
+          </Select>
+          <h3>Save</h3>
+          <Button variant="outlined" size="small" onClick={handleSave}>Save</Button>
+        </Paper>
+      </Modal>
     </>
   );
 };
