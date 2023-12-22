@@ -1,7 +1,7 @@
 <p align="center">
 
    <h3 align="center">DoodleCollab</h3>
-   <video autoplay muted loop title="DoodleCollab Banner"> <source  src="./src/assets/ReadMe/DoodleCollab.mp4" type="video/mp4"></video>
+   <video autoplay muted loop title="DoodleCollab Banner"> <source  src="./src/assets/ReadMe/doodleCollab.gif" type="video/mp4"></video>
    <p align="center">Your Ultimate Whiteboard and Sharing Solution</p>
 </p>
 
