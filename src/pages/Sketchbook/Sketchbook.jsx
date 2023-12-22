@@ -23,6 +23,7 @@ const Sketchbook = () => {
   const [fileName, setFileName] = useState("file");
   const stageRef = useRef(null);
   const [ftype, setFtype] = useState("png");
+  const [removedLines, setRemovedLines] = useState([]);
 
   const handleMouseDown = (e) => {
     isDrawing.current = true;
@@ -92,6 +93,13 @@ const Sketchbook = () => {
     };
   };
 
+  const handleUndo = () => {
+    if (lines.length > 0) {
+      setRemovedLines((prev) => [...prev, lines[lines.length - 1]]);
+    }
+    setLines((prev) => prev.slice(0, -1));
+  };
+
   return (
     <>
       <Navbar />
@@ -147,11 +155,7 @@ const Sketchbook = () => {
           <Button variant="outlined" size="small" onClick={() => setLines([])}>
             Clear
           </Button>
-          <Button
-            variant="outlined"
-            size="small"
-            onClick={() => setLines((prev) => prev.slice(0, -1))}
-          >
+          <Button variant="outlined" size="small" onClick={() => handleUndo()}>
             Undo
           </Button>
           <Button variant="outlined" size="small" onClick={() => setOpen(true)}>
