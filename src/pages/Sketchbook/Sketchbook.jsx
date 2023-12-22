@@ -26,6 +26,9 @@ const Sketchbook = () => {
   const [removedLines, setRemovedLines] = useState([]);
 
   const handleMouseDown = (e) => {
+    // clear history for redo button when continue drawing
+    setRemovedLines([]);
+
     isDrawing.current = true;
     const pos = e.target.getStage().getPointerPosition();
     setLines([
