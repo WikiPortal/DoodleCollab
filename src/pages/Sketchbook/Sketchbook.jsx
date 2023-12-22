@@ -96,6 +96,11 @@ const Sketchbook = () => {
     };
   };
 
+  const handleClear = () => {
+    setRemovedLines(lines);
+    setLines([]);
+  };
+
   const handleUndo = () => {
     if (lines.length > 0) {
       setRemovedLines((prev) => [...prev, lines[lines.length - 1]]);
@@ -105,6 +110,13 @@ const Sketchbook = () => {
 
   const handleRedo = () => {
     if (removedLines.length === 0) return;
+
+    // redo all lines after using clear button
+    if (lines.length === 0 && removedLines.length > 0) {
+      setLines(removedLines);
+      setRemovedLines([]);
+      return;
+    }
 
     setLines((prev) => [...prev, removedLines[removedLines.length - 1]]);
     setRemovedLines((prev) => prev.slice(0, -1));
@@ -162,7 +174,7 @@ const Sketchbook = () => {
           value={brushColor}
         />
         <Stack justifyContent="center" alignItems="center" mt="1em" spacing={1}>
-          <Button variant="outlined" size="small" onClick={() => setLines([])}>
+          <Button variant="outlined" size="small" onClick={() => handleClear()}>
             Clear
           </Button>
           <Button variant="outlined" size="small" onClick={() => handleUndo()}>
