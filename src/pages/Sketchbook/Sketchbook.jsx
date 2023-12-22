@@ -100,6 +100,13 @@ const Sketchbook = () => {
     setLines((prev) => prev.slice(0, -1));
   };
 
+  const handleRedo = () => {
+    if (removedLines.length === 0) return;
+
+    setLines((prev) => [...prev, removedLines[removedLines.length - 1]]);
+    setRemovedLines((prev) => prev.slice(0, -1));
+  };
+
   return (
     <>
       <Navbar />
@@ -157,6 +164,9 @@ const Sketchbook = () => {
           </Button>
           <Button variant="outlined" size="small" onClick={() => handleUndo()}>
             Undo
+          </Button>
+          <Button variant="outlined" size="small" onClick={() => handleRedo()}>
+            Redo
           </Button>
           <Button variant="outlined" size="small" onClick={() => setOpen(true)}>
             Save
