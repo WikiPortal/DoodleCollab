@@ -1,7 +1,8 @@
    <h3 align="center">DoodleCollab</h3>
    <div align="center">
 
-![doodleCollab](https://github.com/isayanpal/DoodleCollab/assets/102523492/729608af-0467-4747-bbae-ceda529ae892)
+![DoodleCollab](https://raw.github.com/ItsRoy69/DoodleCollab/main/src/assets/ReadMe/doodleCollab.gif)
+
 
    </div>
    <h4 align="center">Your Ultimate Whiteboard and Sharing Solution</h4>
