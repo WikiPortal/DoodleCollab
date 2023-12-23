@@ -23,8 +23,12 @@ const Sketchbook = () => {
   const [fileName, setFileName] = useState("file");
   const stageRef = useRef(null);
   const [ftype, setFtype] = useState("png");
+  const [removedLines, setRemovedLines] = useState([]);
 
   const handleMouseDown = (e) => {
+    // clear history for redo button when continue drawing
+    setRemovedLines([]);
+
     isDrawing.current = true;
     const pos = e.target.getStage().getPointerPosition();
     setLines([
@@ -92,6 +96,32 @@ const Sketchbook = () => {
     };
   };
 
+  const handleClear = () => {
+    setRemovedLines(lines);
+    setLines([]);
+  };
+
+  const handleUndo = () => {
+    if (lines.length > 0) {
+      setRemovedLines((prev) => [...prev, lines[lines.length - 1]]);
+    }
+    setLines((prev) => prev.slice(0, -1));
+  };
+
+  const handleRedo = () => {
+    if (removedLines.length === 0) return;
+
+    // redo all lines after using clear button
+    if (lines.length === 0 && removedLines.length > 0) {
+      setLines(removedLines);
+      setRemovedLines([]);
+      return;
+    }
+
+    setLines((prev) => [...prev, removedLines[removedLines.length - 1]]);
+    setRemovedLines((prev) => prev.slice(0, -1));
+  };
+
   return (
     <>
       <Navbar />
@@ -144,15 +174,14 @@ const Sketchbook = () => {
           value={brushColor}
         />
         <Stack justifyContent="center" alignItems="center" mt="1em" spacing={1}>
-          <Button variant="outlined" size="small" onClick={() => setLines([])}>
+          <Button variant="outlined" size="small" onClick={() => handleClear()}>
             Clear
           </Button>
-          <Button
-            variant="outlined"
-            size="small"
-            onClick={() => setLines((prev) => prev.slice(0, -1))}
-          >
+          <Button variant="outlined" size="small" onClick={() => handleUndo()}>
             Undo
+          </Button>
+          <Button variant="outlined" size="small" onClick={() => handleRedo()}>
+            Redo
           </Button>
           <Button variant="outlined" size="small" onClick={() => setOpen(true)}>
             Save
