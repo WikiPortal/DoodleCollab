@@ -1,9 +1,12 @@
-<p align="center">
-
    <h3 align="center">DoodleCollab</h3>
-   <video autoplay muted loop title="DoodleCollab Banner"> <source  src="./src/assets/ReadMe/DoodleCollab.mp4" type="video/mp4"></video>
-   <p align="center">Your Ultimate Whiteboard and Sharing Solution</p>
-</p>
+   <div align="center">
+
+![DoodleCollab](https://raw.github.com/ItsRoy69/DoodleCollab/main/src/assets/ReadMe/doodleCollab.gif)
+
+
+   </div>
+   <h4 align="center">Your Ultimate Whiteboard and Sharing Solution</h4>
+
 
 <div align="center">
 
