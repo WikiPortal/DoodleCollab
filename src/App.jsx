@@ -3,6 +3,9 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Authentication from './pages/Authentication/Authentication';
 import Sketchbook from './pages/Sketchbook/Sketchbook';
+import Whiteboard from './Whiteboard/Whiteboard';
+
+
 
 function App() {
   return (
@@ -11,6 +14,7 @@ function App() {
         <Route path="/" element={<Authentication />} />
         <Route path="/sketchbook" element={<Sketchbook />} />
       </Routes>
+     <Whiteboard/>
     </Router>
   );
 }
