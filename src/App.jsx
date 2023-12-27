@@ -1,10 +1,9 @@
-// Assuming you are using react-router-dom v6
+
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Authentication from './pages/Authentication/Authentication';
 import Sketchbook from './pages/Sketchbook/Sketchbook';
-import Whiteboard from './Whiteboard/Whiteboard';
-
+import Darkmode from './Darkmode/Darkmode';
 
 
 function App() {
@@ -14,7 +13,7 @@ function App() {
         <Route path="/" element={<Authentication />} />
         <Route path="/sketchbook" element={<Sketchbook />} />
       </Routes>
-     <Whiteboard/>
+      <Darkmode/>
     </Router>
   );
 }
