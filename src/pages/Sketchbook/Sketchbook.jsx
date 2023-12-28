@@ -18,6 +18,8 @@ const Sketchbook = () => {
   const [lines, setLines] = useState([]);
   const isDrawing = useRef(false);
   const [brushSz, setBrushSz] = useState(2);
+  const [selectedColor, setSelectedColor] = useState("#000");
+ const [selectedTool, setSelectedTool] = useState("brush");
   const [brushColor, setBrushColor] = useState("#000000");
   const [open, setOpen] = useState(false);
   const [fileName, setFileName] = useState("file");
@@ -33,7 +35,8 @@ const Sketchbook = () => {
     const pos = e.target.getStage().getPointerPosition();
     setLines([
       ...lines,
-      { points: [pos.x, pos.y], brushSize: brushSz, stroke: brushColor },
+      { points: [pos.x, pos.y], brushSize: brushSz, stroke: selectedTool === "eraser" ? "#fff" : selectedColor,
+     },
     ]);
   };
 
@@ -44,10 +47,12 @@ const Sketchbook = () => {
     let lastLine = lines[lines.length - 1];
     lastLine.points = lastLine.points.concat([pos.x, pos.y]);
     lastLine.brushSize = brushSz;
-    lastLine.stroke = brushColor;
+    lastLine.stroke = selectedTool === "eraser" ? "#fff" : selectedColor;
 
     setLines([...lines.slice(0, -1), lastLine]);
   };
+
+ 
 
   const handleMouseUp = () => {
     isDrawing.current = false;
@@ -108,6 +113,10 @@ const Sketchbook = () => {
     setLines((prev) => prev.slice(0, -1));
   };
 
+  const handleToolChange = (e) => {
+    setSelectedTool(e.target.value);
+ };
+ 
   const handleRedo = () => {
     if (removedLines.length === 0) return;
 
@@ -174,6 +183,9 @@ const Sketchbook = () => {
           value={brushColor}
         />
         <Stack justifyContent="center" alignItems="center" mt="1em" spacing={1}>
+        <Button variant="outlined" size="small" onClick={handleToolChange} value ="eraser">
+            Eraser
+          </Button>
           <Button variant="outlined" size="small" onClick={() => handleClear()}>
             Clear
           </Button>
