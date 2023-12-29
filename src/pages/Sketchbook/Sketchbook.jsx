@@ -8,18 +8,27 @@ import {
   Modal,
   Select,
   MenuItem,
+  IconButton,
+  Grid,
 } from "@mui/material";
 import Navbar from "../../constants/Navbar/Navbar";
 import { MuiColorInput } from "mui-color-input";
 import Input from "@mui/material/Input";
 import jsPDF from "jspdf";
+import {
+  FaEraser,
+  FaRedo,
+  FaRegTrashAlt,
+  FaSave,
+  FaUndo,
+} from "react-icons/fa";
 
 const Sketchbook = () => {
   const [lines, setLines] = useState([]);
   const isDrawing = useRef(false);
   const [brushSz, setBrushSz] = useState(2);
   const [selectedColor, setSelectedColor] = useState("#000");
- const [selectedTool, setSelectedTool] = useState("brush");
+  const [selectedTool, setSelectedTool] = useState("brush");
   const [brushColor, setBrushColor] = useState("#000000");
   const [open, setOpen] = useState(false);
   const [fileName, setFileName] = useState("file");
@@ -35,8 +44,11 @@ const Sketchbook = () => {
     const pos = e.target.getStage().getPointerPosition();
     setLines([
       ...lines,
-      { points: [pos.x, pos.y], brushSize: brushSz, stroke: selectedTool === "eraser" ? "#fff" : selectedColor,
-     },
+      {
+        points: [pos.x, pos.y],
+        brushSize: brushSz,
+        stroke: selectedTool === "eraser" ? "#fff" : selectedColor,
+      },
     ]);
   };
 
@@ -51,8 +63,6 @@ const Sketchbook = () => {
 
     setLines([...lines.slice(0, -1), lastLine]);
   };
-
- 
 
   const handleMouseUp = () => {
     isDrawing.current = false;
@@ -115,8 +125,8 @@ const Sketchbook = () => {
 
   const handleToolChange = (e) => {
     setSelectedTool(e.target.value);
- };
- 
+  };
+
   const handleRedo = () => {
     if (removedLines.length === 0) return;
 
@@ -182,23 +192,33 @@ const Sketchbook = () => {
           onChange={handleColorChange}
           value={brushColor}
         />
-        <Stack justifyContent="center" alignItems="center" mt="1em" spacing={1}>
-        <Button variant="outlined" size="small" onClick={handleToolChange} value ="eraser">
-            Eraser
-          </Button>
-          <Button variant="outlined" size="small" onClick={() => handleClear()}>
-            Clear
-          </Button>
-          <Button variant="outlined" size="small" onClick={() => handleUndo()}>
-            Undo
-          </Button>
-          <Button variant="outlined" size="small" onClick={() => handleRedo()}>
-            Redo
-          </Button>
-          <Button variant="outlined" size="small" onClick={() => setOpen(true)}>
-            Save
-          </Button>
-        </Stack>
+        <Grid container spacing={1} marginTop={2}>
+          <Grid item xs={4}>
+            <IconButton onClick={handleToolChange} value="eraser">
+              <FaEraser />
+            </IconButton>
+          </Grid>
+          <Grid item xs={4}>
+            <IconButton onClick={() => handleClear()}>
+              <FaRegTrashAlt />
+            </IconButton>
+          </Grid>
+          <Grid item xs={4}>
+            <IconButton onClick={() => handleUndo()}>
+              <FaUndo />
+            </IconButton>
+          </Grid>
+          <Grid item xs={4}>
+            <IconButton onClick={() => handleRedo()}>
+              <FaRedo />
+            </IconButton>
+          </Grid>
+          <Grid item xs={4}>
+            <IconButton onClick={() => setOpen(true)}>
+              <FaSave />
+            </IconButton>
+          </Grid>
+        </Grid>
       </Paper>
       <Modal open={open} onClose={() => setOpen(false)}>
         <Paper
