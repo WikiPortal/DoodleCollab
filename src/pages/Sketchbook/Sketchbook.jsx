@@ -11,7 +11,6 @@ import {
   IconButton,
   Grid,
 } from "@mui/material";
-import Navbar from "../../constants/Navbar/Navbar";
 import { MuiColorInput } from "mui-color-input";
 import Input from "@mui/material/Input";
 import jsPDF from "jspdf";
@@ -143,7 +142,6 @@ const Sketchbook = () => {
 
   return (
     <>
-      <Navbar />
       <Stage
         width={window.innerWidth}
         height={window.innerHeight}
