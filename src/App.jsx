@@ -21,7 +21,6 @@ function App() {
           <Route path="/sketchbook" element={<Sketchbook />} />
         )}
       </Routes>
-      <Darkmode />
     </Router>
   );
 }

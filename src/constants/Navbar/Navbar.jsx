@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Darkmode from "../../Darkmode/Darkmode";
 
 const Navbar = () => {
   const isUserLoggedIn = !!localStorage.getItem("token");
@@ -25,6 +26,9 @@ const Navbar = () => {
               <li>Home</li>
             </Link>
             <li>
+              <Darkmode />
+            </li>
+            <li>
               <button onClick={handleLogOut}>Log Out</button>
             </li>
           </>
@@ -36,6 +40,9 @@ const Navbar = () => {
             <Link to="/register">
               <li>Signup</li>
             </Link>
+            <li>
+              <Darkmode />
+            </li>
           </>
         )}
       </ul>
