@@ -72,7 +72,7 @@ const Sketchbook = () => {
   };
 
   const handleColorChange = (e) => {
-    setBrushColor(e);
+    setBrushColor(e.target.value);
   };
 
   const downloadURI = (uri, name) => {
