@@ -19,7 +19,7 @@ const Sketchbook = () => {
   const isDrawing = useRef(false);
   const [brushSz, setBrushSz] = useState(2);
   const [selectedColor, setSelectedColor] = useState("#000");
- const [selectedTool, setSelectedTool] = useState("brush");
+  const [selectedTool, setSelectedTool] = useState("brush");
   const [brushColor, setBrushColor] = useState("#000000");
   const [open, setOpen] = useState(false);
   const [fileName, setFileName] = useState("file");
@@ -35,8 +35,11 @@ const Sketchbook = () => {
     const pos = e.target.getStage().getPointerPosition();
     setLines([
       ...lines,
-      { points: [pos.x, pos.y], brushSize: brushSz, stroke: selectedTool === "eraser" ? "#fff" : selectedColor,
-     },
+      {
+        points: [pos.x, pos.y],
+        brushSize: brushSz,
+        stroke: selectedTool === "eraser" ? "#fff" : selectedColor,
+      },
     ]);
   };
 
@@ -51,8 +54,6 @@ const Sketchbook = () => {
 
     setLines([...lines.slice(0, -1), lastLine]);
   };
-
- 
 
   const handleMouseUp = () => {
     isDrawing.current = false;
@@ -115,8 +116,8 @@ const Sketchbook = () => {
 
   const handleToolChange = (e) => {
     setSelectedTool(e.target.value);
- };
- 
+  };
+
   const handleRedo = () => {
     if (removedLines.length === 0) return;
 
@@ -158,8 +159,8 @@ const Sketchbook = () => {
       <Paper
         style={{
           position: "fixed",
-          top: "10vh",
-          left: "80vw",
+          top: "15vh",
+          left: "83vw",
           width: "10vw",
           display: "flex",
           flexDirection: "column",
@@ -183,7 +184,12 @@ const Sketchbook = () => {
           value={brushColor}
         />
         <Stack justifyContent="center" alignItems="center" mt="1em" spacing={1}>
-        <Button variant="outlined" size="small" onClick={handleToolChange} value ="eraser">
+          <Button
+            variant="outlined"
+            size="small"
+            onClick={handleToolChange}
+            value="eraser"
+          >
             Eraser
           </Button>
           <Button variant="outlined" size="small" onClick={() => handleClear()}>
