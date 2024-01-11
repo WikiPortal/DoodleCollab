@@ -166,8 +166,8 @@ const Sketchbook = () => {
       <Paper
         style={{
           position: "fixed",
-          top: "10vh",
-          left: "80vw",
+          top: "15vh",
+          left: "83vw",
           width: "10vw",
           display: "flex",
           flexDirection: "column",
@@ -190,6 +190,30 @@ const Sketchbook = () => {
           onChange={handleColorChange}
           value={brushColor}
         />
+
+        <Stack justifyContent="center" alignItems="center" mt="1em" spacing={1}>
+          <Button
+            variant="outlined"
+            size="small"
+            onClick={handleToolChange}
+            value="eraser"
+          >
+            Eraser
+          </Button>
+          <Button variant="outlined" size="small" onClick={() => handleClear()}>
+            Clear
+          </Button>
+          <Button variant="outlined" size="small" onClick={() => handleUndo()}>
+            Undo
+          </Button>
+          <Button variant="outlined" size="small" onClick={() => handleRedo()}>
+            Redo
+          </Button>
+          <Button variant="outlined" size="small" onClick={() => setOpen(true)}>
+            Save
+          </Button>
+        </Stack>
+
         <Grid container spacing={1} marginTop={2}>
           <Grid item xs={4}>
             <IconButton onClick={handleToolChange} value="eraser">
@@ -217,6 +241,7 @@ const Sketchbook = () => {
             </IconButton>
           </Grid>
         </Grid>
+
       </Paper>
       <Modal open={open} onClose={() => setOpen(false)}>
         <Paper

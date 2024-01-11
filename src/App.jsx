@@ -1,11 +1,17 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import Authentication from "./pages/Authentication/Authentication";
+import Sketchbook from "./pages/Sketchbook/Sketchbook";
+import Darkmode from "./Darkmode/Darkmode";
+
 import Sketchbook from "./pages/Sketchbook/Sketchbook";
 import Darkmode from "./Darkmode/Darkmode";
 import Register from "./pages/Authentication/Register";
 import Navbar from "./constants/Navbar/Navbar";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Authentication/Login";
+
 
 function App() {
   const isUserLoggedIn = !!localStorage.getItem("token");
