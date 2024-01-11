@@ -8,11 +8,19 @@ import {
   Modal,
   Select,
   MenuItem,
+  IconButton,
+  Grid,
 } from "@mui/material";
-import Navbar from "../../constants/Navbar/Navbar";
 import { MuiColorInput } from "mui-color-input";
 import Input from "@mui/material/Input";
 import jsPDF from "jspdf";
+import {
+  FaEraser,
+  FaRedo,
+  FaRegTrashAlt,
+  FaSave,
+  FaUndo,
+} from "react-icons/fa";
 
 const Sketchbook = () => {
   const [lines, setLines] = useState([]);
@@ -64,7 +72,7 @@ const Sketchbook = () => {
   };
 
   const handleColorChange = (e) => {
-    setBrushColor(e);
+    setBrushColor(e.target.value);
   };
 
   const downloadURI = (uri, name) => {
@@ -134,7 +142,6 @@ const Sketchbook = () => {
 
   return (
     <>
-      <Navbar />
       <Stage
         width={window.innerWidth}
         height={window.innerHeight}
@@ -183,6 +190,7 @@ const Sketchbook = () => {
           onChange={handleColorChange}
           value={brushColor}
         />
+
         <Stack justifyContent="center" alignItems="center" mt="1em" spacing={1}>
           <Button
             variant="outlined"
@@ -205,6 +213,35 @@ const Sketchbook = () => {
             Save
           </Button>
         </Stack>
+
+        <Grid container spacing={1} marginTop={2}>
+          <Grid item xs={4}>
+            <IconButton onClick={handleToolChange} value="eraser">
+              <FaEraser />
+            </IconButton>
+          </Grid>
+          <Grid item xs={4}>
+            <IconButton onClick={() => handleClear()}>
+              <FaRegTrashAlt />
+            </IconButton>
+          </Grid>
+          <Grid item xs={4}>
+            <IconButton onClick={() => handleUndo()}>
+              <FaUndo />
+            </IconButton>
+          </Grid>
+          <Grid item xs={4}>
+            <IconButton onClick={() => handleRedo()}>
+              <FaRedo />
+            </IconButton>
+          </Grid>
+          <Grid item xs={4}>
+            <IconButton onClick={() => setOpen(true)}>
+              <FaSave />
+            </IconButton>
+          </Grid>
+        </Grid>
+
       </Paper>
       <Modal open={open} onClose={() => setOpen(false)}>
         <Paper
