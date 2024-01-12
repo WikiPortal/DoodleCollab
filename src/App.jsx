@@ -1,12 +1,12 @@
-import React from "react";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Authentication from "./pages/Authentication/Authentication";
-import Sketchbook from "./pages/Sketchbook/Sketchbook";
-import Darkmode from "./Darkmode/Darkmode";
 
 import Sketchbook from "./pages/Sketchbook/Sketchbook";
-import Darkmode from "./Darkmode/Darkmode";
+
+
+
+
 import Register from "./pages/Authentication/Register";
 import Navbar from "./constants/Navbar/Navbar";
 import Home from "./pages/Home/Home";
@@ -19,6 +19,7 @@ function App() {
   return (
     <Router>
       <Navbar />
+      
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
@@ -26,8 +27,9 @@ function App() {
         {isUserLoggedIn && (
           <Route path="/sketchbook" element={<Sketchbook />} />
         )}
+         
       </Routes>
-      <Darkmode />
+      
     </Router>
   );
 }
