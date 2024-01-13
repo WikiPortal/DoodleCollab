@@ -1,6 +1,6 @@
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
@@ -123,6 +123,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://itsroy69.github.io/Portfolio-Minimal/"><img src="https://avatars.githubusercontent.com/u/78967360?v=4?s=100" width="100px;" alt="Jyotirmoy Roy"/><br /><sub><b>Jyotirmoy Roy</b></sub></a><br /><a href="https://github.com/WikiPortal/DoodleCollab/commits?author=ItsRoy69" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/davidkrupa"><img src="https://avatars.githubusercontent.com/u/126403373?v=4?s=100" width="100px;" alt="davidkrupa"/><br /><sub><b>davidkrupa</b></sub></a><br /><a href="https://github.com/WikiPortal/DoodleCollab/commits?author=davidkrupa" title="Code">💻</a></td>
     </tr>
   </tbody>
   <tfoot>
