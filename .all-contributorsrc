@@ -35,6 +35,13 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/147527266?v=4",
       "profile": "https://github.com/Paarisha1",
       "contributions": ["code"]
+    },
+    {
+      "login": "Bikram-ghuku",
+      "name": "Bikram Ghuku",
+      "avatar_url": "https://avatars.githubusercontent.com/u/37508038?v=4",
+      "profile": "https://bikram-ghuku.github.io/portfolio",
+      "contributions": ["code"]
     }
   ],
   "contributorsPerLine": 7,
