@@ -1,6 +1,6 @@
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
@@ -120,6 +120,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://bikram-ghuku.github.io/portfolio"><img src="https://avatars.githubusercontent.com/u/37508038?v=4?s=100" width="100px;" alt="Bikram Ghuku"/><br /><sub><b>Bikram Ghuku</b></sub></a><br /><a href="https://github.com/WikiPortal/DoodleCollab/commits?author=Bikram-ghuku" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Souvik34"><img src="https://avatars.githubusercontent.com/u/98397984?v=4?s=100" width="100px;" alt="Souvik"/><br /><sub><b>Souvik</b></sub></a><br /><a href="https://github.com/WikiPortal/DoodleCollab/commits?author=Souvik34" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/isayanpal"><img src="https://avatars.githubusercontent.com/u/102523492?v=4?s=100" width="100px;" alt="Sayan Snigdha Pal"/><br /><sub><b>Sayan Snigdha Pal</b></sub></a><br /><a href="https://github.com/WikiPortal/DoodleCollab/commits?author=isayanpal" title="Code">💻</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://itsroy69.github.io/Portfolio-Minimal/"><img src="https://avatars.githubusercontent.com/u/78967360?v=4?s=100" width="100px;" alt="Jyotirmoy Roy"/><br /><sub><b>Jyotirmoy Roy</b></sub></a><br /><a href="https://github.com/WikiPortal/DoodleCollab/commits?author=ItsRoy69" title="Code">💻</a></td>
     </tr>
   </tbody>
   <tfoot>
