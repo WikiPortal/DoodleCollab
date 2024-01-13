@@ -21,6 +21,13 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/118926308?v=4",
       "profile": "https://github.com/adityaslyf",
       "contributions": ["code"]
+    },
+    {
+      "login": "KeyurGK",
+      "name": "Keyur G Kulkarni",
+      "avatar_url": "https://avatars.githubusercontent.com/u/56074740?v=4",
+      "profile": "https://keyurgk.vercel.app/",
+      "contributions": ["code"]
     }
   ],
   "contributorsPerLine": 7,
