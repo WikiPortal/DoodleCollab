@@ -1,5 +1,12 @@
-   <h3 align="center">DoodleCollab</h3>
-   <div align="center">
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+
+---
+
+<h1 align="center">DoodleCollab</h1>
+<div align="center">
 
 ![DoodleCollab](https://github.com/WikiPortal/DoodleCollab/blob/main/src/assets/ReadMe/doodleCollab.gif)
 
@@ -17,17 +24,54 @@ DoodleCollab is a cutting-edge application designed to transform the way we coll
 
 ## Willing to help ? 👩🏻‍💻
 
-**A beginner to Open Source, Web Development ?**  
+*A beginner to Open Source, Web Development ?*  
 <br/>
 
-This might be the debut repo for you, you can contribute to this repo, solve the issues, raise one and learn more about web as well as get started with Open Source and contributing to projects. Remember, we believe in **Quality**.
+This might be the debut repo for you, you can contribute to this repo, solve the issues, raise one and learn more about web as well as get started with Open Source and contributing to projects. Remember, we believe in *Quality*.
 
 ---
 
 ## Hello Contributors 👋🏻
 
-- **Take a look at the [Contributing Guidelines](CONTRIBUTING.md) for proper contributions**
-- **Take a look at the [Setup Guidelines](rules/Setup.md) to setup the react app locally**
+---
+
+## Setup Steps
+
+Follow these steps to set up the DoodleCollab app locally:
+
+1. *Clone the repository:*
+   bash
+   git clone https://github.com/WikiPortal/DoodleCollab.git
+   
+
+2. *Navigate to the project directory:*
+   bash
+   cd DoodleCollab
+   
+
+3. *Install dependencies:*
+   bash
+   npm install
+   
+
+4. *If vite is not installed:*
+   bash
+   npm i vite
+   npm install --legacy-peer-deps
+   
+
+5. *Start the development server:*
+   bash
+   npm run start
+   
+
+6. *Open your browser and visit [http://localhost:5173](http://localhost:5173)*
+
+---
+
+- *You can also have a look at the [Contributing Guidelines](CONTRIBUTING.md) for proper contributions*
+- *and at the [Setup Guidelines](rules/Setup.md) to setup the react app locally*
+- *also at the [Workflow Guidelines](workflow.md) to see the workflow of the project.*
 
 ## Technologies used 💻
 
@@ -41,9 +85,15 @@ This might be the debut repo for you, you can contribute to this repo, solve the
 
 ---
 
+## Related image (Project under progress) 🚧
+
+![Screenshot](https://i.postimg.cc/65rBwdy5/Screenshot.png)
+
+---
+
 ## 🙏 Support
 
-This project needs a ⭐️ from you. Don't forget to leave a star ⭐️
+This project needs a ⭐ from you. Don't forget to leave a star ⭐
 
 ---
 
