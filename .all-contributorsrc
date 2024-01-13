@@ -1,0 +1,22 @@
+{
+  "projectName": "DoodleCollab",
+  "projectOwner": "WikiPortal",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": ["README.md"],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "gitmoji",
+  "contributors": [
+    {
+      "login": "AaadityaG",
+      "name": "Aditya",
+      "avatar_url": "https://avatars.githubusercontent.com/u/114663382?v=4",
+      "profile": "https://github.com/AaadityaG",
+      "contributions": ["code"]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "linkToUsage": true
+}
+
