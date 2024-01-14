@@ -4,21 +4,20 @@
 ![DoodleCollab](https://github.com/WikiPortal/DoodleCollab/blob/main/src/assets/ReadMe/doodleCollab.gif)
 
    </div>
-   <h4 align="center">Your Ultimate Whiteboard and Sharing Solution</h4>
+   <h4 align="center">Your ultimate Whiteboard and Sharing Solution</h4>
 
 
 <div align="center">
 
 </div>
 
-## What is DoodleCollab ? 🤔
+## What is DoodleCollab? 🤔
 
 DoodleCollab is a cutting-edge application designed to transform the way we collaborate, offering an unparalleled whiteboard and sharing experience. Developed using the powerful ReactJS framework, our app seamlessly combines intuitive design with advanced functionalities to enhance your collaborative efforts.
 
-## Willing to help ? 👩🏻‍💻
+## Willing to help? 👩🏻‍💻
 
-**A beginner to Open Source, Web Development ?**  
-<br/>
+**A beginner to Open Source, Web Development?**  
 
 This might be the debut repo for you, you can contribute to this repo, solve the issues, raise one and learn more about web as well as get started with Open Source and contributing to projects. Remember, we believe in **Quality**.
 
@@ -26,8 +25,8 @@ This might be the debut repo for you, you can contribute to this repo, solve the
 
 ## Hello Contributors 👋🏻
 
-- **Take a look at the [Contributing Guidelines](CONTRIBUTING.md) for proper contributions**
-- **Take a look at the [Setup Guidelines](rules/Setup.md) to setup the react app locally**
+- **Take a look at the [Contributing Guidelines](CONTRIBUTING.md) for proper contributions.**
+- **Take a look at the [Set-up Guidelines](rules/Setup.md) to setup the react app locally.**
 
 ## Technologies used 💻
 
@@ -37,14 +36,14 @@ This might be the debut repo for you, you can contribute to this repo, solve the
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![MUI](https://img.shields.io/badge/MUI-%23563D7C.svg?style=for-the-badge&logo=MUI&logoColor=white)
-![verce](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=verce&logoColor=#00C7B7)
+![vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=verce&logoColor=#00C7B7)
 
 ---
 
 ## 🙏 Support
 
-This project needs a ⭐️ from you. Don't forget to leave a star ⭐️
+This project needs a ⭐️ from you. Don't forget to leave a star. ⭐️
 
 ---
 
-## Happy Contributions !!
+## Happy Contrubutiong !!
