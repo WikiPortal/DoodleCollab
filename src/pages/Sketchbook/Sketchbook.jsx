@@ -1,26 +1,9 @@
 import React, { useRef, useState } from "react";
 import { Stage, Layer, Line } from "react-konva";
-import {
-  Stack,
-  Button,
-  Paper,
-  Slider,
-  Modal,
-  Select,
-  MenuItem,
-  IconButton,
-  Grid,
-} from "@mui/material";
+import {  Stack,  Button,  Paper,  Slider,  Modal,  Select,  MenuItem,  IconButton,  Grid,  Input } from "@mui/material";
 import { MuiColorInput } from "mui-color-input";
-import Input from "@mui/material/Input";
 import jsPDF from "jspdf";
-import {
-  FaEraser,
-  FaRedo,
-  FaRegTrashAlt,
-  FaSave,
-  FaUndo,
-} from "react-icons/fa";
+import {  FaEraser,  FaRedo,  FaRegTrashAlt,  FaSave,  FaUndo } from "react-icons/fa";
 
 const Sketchbook = () => {
   const [lines, setLines] = useState([]);
@@ -36,7 +19,6 @@ const Sketchbook = () => {
   const [removedLines, setRemovedLines] = useState([]);
 
   const handleMouseDown = (e) => {
-    // clear history for redo button when continue drawing
     setRemovedLines([]);
 
     isDrawing.current = true;
@@ -129,7 +111,6 @@ const Sketchbook = () => {
   const handleRedo = () => {
     if (removedLines.length === 0) return;
 
-    // redo all lines after using clear button
     if (lines.length === 0 && removedLines.length > 0) {
       setLines(removedLines);
       setRemovedLines([]);
@@ -185,11 +166,7 @@ const Sketchbook = () => {
           onChange={handleBSChange}
         />
         <h3>Brush color</h3>
-        <MuiColorInput
-          defaultValue="#000000"
-          onChange={handleColorChange}
-          value={brushColor}
-        />
+        <MuiColorInput onChange={handleColorChange} value={brushColor} />
 
         <Stack justifyContent="center" alignItems="center" mt="1em" spacing={1}>
           <Button
@@ -241,7 +218,6 @@ const Sketchbook = () => {
             </IconButton>
           </Grid>
         </Grid>
-
       </Paper>
       <Modal open={open} onClose={() => setOpen(false)}>
         <Paper

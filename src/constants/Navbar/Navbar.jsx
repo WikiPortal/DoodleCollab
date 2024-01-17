@@ -1,26 +1,17 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
+import {  AppBar,  Box,  Toolbar,  IconButton,  Typography,  Menu,  MenuItem,  Container,  Avatar,  Button,  Tooltip } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { Navigate, useNavigate } from "react-router-dom";
 import Darkmode from "../../Darkmode/Darkmode";
 
 const pages = ["Home", "Sketchbook", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+
   const navigate = useNavigate();
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -33,6 +24,7 @@ function ResponsiveAppBar() {
     setAnchorElNav(null);
   };
   const handleLogout = () => {
+    setIsLoggedIn(false);
     navigate("/");
   };
 
@@ -44,6 +36,11 @@ function ResponsiveAppBar() {
     }
   };
 
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+    navigate("/login");
+  };
+
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -53,7 +50,6 @@ function ResponsiveAppBar() {
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -137,7 +133,7 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Profile Pic" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
             <Menu
@@ -156,19 +152,31 @@ function ResponsiveAppBar() {
               open={Boolean(anchorElUser)}
               onClose={() => handleCloseUserMenu("")}
             >
-              {settings.map((setting) => (
-                <MenuItem
-                  key={setting}
-                  onClick={() => handleCloseUserMenu(setting)}
-                >
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
+              {isLoggedIn
+                ? [
+                    <MenuItem key="home" onClick={() => navigate("/")}>
+                      <Typography textAlign="center">Home</Typography>
+                    </MenuItem>,
+                    <MenuItem key="logout" onClick={handleLogout}>
+                      <Typography textAlign="center">Logout</Typography>
+                    </MenuItem>,
+                  ]
+                : [
+                    <MenuItem key="login" onClick={handleLogin}>
+                      <Typography textAlign="center">Login</Typography>
+                    </MenuItem>,
+                    <MenuItem
+                      key="register"
+                      onClick={() => navigate("/register")}
+                    >
+                      <Typography textAlign="center">Register</Typography>
+                    </MenuItem>,
+                  ]}
             </Menu>
           </Box>
-          <Box sx={{ pl: 4, width: { xs: '100%', md: 'auto' } }}>
-  <Darkmode />
-  </Box>
+          <Box sx={{ pl: 4, width: { xs: "100%", md: "auto" } }}>
+            <Darkmode />
+          </Box>
         </Toolbar>
       </Container>
     </AppBar>

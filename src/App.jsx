@@ -1,17 +1,11 @@
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-
 import Sketchbook from "./pages/Sketchbook/Sketchbook";
-
-
-
-
 import Register from "./pages/Authentication/Register";
 import Navbar from "./constants/Navbar/Navbar";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Authentication/Login";
-
 
 function App() {
   const isUserLoggedIn = !!localStorage.getItem("token");
