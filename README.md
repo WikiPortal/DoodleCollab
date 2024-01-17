@@ -23,6 +23,14 @@ DoodleCollab is a cutting-edge application designed to transform the way we coll
 
 ---
 
+## Deployed Links :
+
+Frontend - https://doodlecollab.vercel.app/
+
+Backend - https://doodlecollab-backend.onrender.com
+
+---
+
 ## Technologies used 💻
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
