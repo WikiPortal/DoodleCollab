@@ -1,15 +1,24 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const User = require("../models/userModel");
-
+const { validationResult } = require("express-validator");
 // Register user
 const registerUser = async (req, res) => {
   const { name, email, password } = req.body;
 
   try {
-    if (!name || !email || !password) {
-      return res.status(400).json({ message: "Please enter all fields" });
+    // if (!name || !email || !password) {
+    //   return res.status(400).json({ message: "Please enter all fields" });
+    // }
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({
+        message: "Invalid inputs",
+        error: errors,
+      });
     }
+
     // check if user already exists
     const userExists = await User.findOne({ email });
     if (userExists) {
