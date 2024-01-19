@@ -35,6 +35,6 @@ Run the following command to start your backend server:
 npm start
 ```
 
-Now, your backend is all set up, and you can start working on the project.
+Now, the backend is all set up, and you can start working on the project.
 
 Happy coding!
