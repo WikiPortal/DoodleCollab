@@ -6,7 +6,7 @@ import Register from "./pages/Authentication/Register";
 import Navbar from "./constants/Navbar/Navbar";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Authentication/Login";
-import Footer from "./constants/Navbar/Footer/Footer"
+import Footer from "./constants/Footer/Footer"
 
 function App() {
   const isUserLoggedIn = !!localStorage.getItem("token");
