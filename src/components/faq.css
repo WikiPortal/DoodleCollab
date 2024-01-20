@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700&display=swap");
+   
+.accordion {
+    display: flex;
+    flex-direction: column;
+    font-family: "Sora", sans-serif;
+    max-width: 991px;
+    min-width: 320px;
+    margin: 50px auto;
+    padding: 0 50px;
+}
+.accordion h1 {
+    font-size: 32px;
+    text-align: center;
+    font-weight: bold;
+}
+.accordion_item {
+    margin-top: 16px;
+    font-weight: bold;
+    border: 1px solid #fcfcfc;
+    border-radius: 6px;
+    background: #F6F4EB;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+}
+.dark-mode .accordion_item{
+    background-color: #333;
+}
+.accordion_item .accordion_item-title {
+    position: relative;
+    margin: 0;
+    display: flex;
+    width: 100%;
+    font-size: 15px;
+    cursor: pointer;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    padding: 14px 20px;
+    box-sizing: border-box;
+    align-items: center;
+}
+.accordion_item .accordion_item-desc {
+    display: none;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 300;
+    color: #444;
+    border-top: 1px dashed #ddd;
+    padding: 10px 20px 20px;
+    box-sizing: border-box;
+}
+.accordion_item input[type="checkbox"] {
+    position: absolute;
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
+.accordion_item input[type="checkbox"]:checked ~ .accordion_item-desc {
+    display: block;
+}
+.accordion_item
+    input[type="checkbox"]:checked
+    ~ .accordion_item-title
+    .icon:after {
+    content: "-";
+    font-size: 20px;
+}
+.accordion_item input[type="checkbox"] ~ .accordion_item-title .icon:after {
+    content: "+";
+    font-size: 20px;
+}
+.accordion_item:first-child {
+    margin-top: 0;
+}
+.accordion_item .icon {
+    margin-left: 14px;
+}
+
+@media screen and (max-width: 767px) {
+    .accordion {
+        padding: 0 16px;
+    }
+    .accordion h1 {
+        font-size: 22px;
+    }
+}
