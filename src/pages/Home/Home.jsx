@@ -1,6 +1,6 @@
 import React from "react";
 import JoinUs from "../../components/JoinUs/JoinUs"
-import Faq from "../../components/Faq";
+import Faq from "../../components/Faq/Faq";
 import './home.css';
 
 const Home = () => {
