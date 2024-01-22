@@ -36,12 +36,11 @@ const Faq = () => {
           {questions.map((data, index) => (
             <div className='q_container' key={index}>
               <li>
-                <div className='q_area'>
+                <div className='q_area' onClick={() => handleToggleAnswer(index)}>
                   {data.question}
                   <span >
                     <motion.div
                       className="add_icon"
-                      onClick={() => handleToggleAnswer(index)}
                       initial={{ rotate: 0 }}
                       animate={{ rotate: isAnswerOpenArray[index] ? '45deg' : 0 }}
                       exit={{ rotate: '0' }}
