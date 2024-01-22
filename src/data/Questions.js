@@ -1,5 +1,5 @@
 export const questionsArray = [
-   {  question : "What is the definition of 'Doodle Collab' ?",
+   {  question : "What is the definition of 'DoodleCollab' ?",
       answer : "Answer of q1"   
    },
    {  question : "What is the turnaround time for the competition of the designs?",

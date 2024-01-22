@@ -12,7 +12,9 @@ const JoinUs = () => {
           <h1>discord community</h1>
           <p>Your Ultimate Whiteboard and Sharing Solution</p>
         </div>
-        <button className="join-button">Join Discord</button>
+        <a href="https://discord.com/invite/Ar84xkXkZt">
+          <button className="join-button">Join Discord</button>
+        </a>
       </div>
     </section>
   );

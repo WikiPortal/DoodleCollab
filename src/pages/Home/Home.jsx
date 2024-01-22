@@ -1,17 +1,24 @@
 import React from "react";
-import JoinUs from "../../components/JoinUs/JoinUs"
+import JoinUs from "../../components/JoinUs/JoinUs";
 import Faq from "../../components/Faq/Faq";
-import './home.css';
+import { useTheme } from "../../context/ThemeContext";
+import "./home.css";
+import HomeBanner from "../../components/Banner/HomeBanner";
+import FooterMenu from "../../components/NavFooter/FooterMenu";
 
 const Home = () => {
+  const { isDarkMode, toggleDarkMode } = useTheme();
+
   return (
-    <div className="home_container">Home
+    <section className={`home-section ${isDarkMode ? "dark-mode" : "white-mode"}`}>
+      <HomeBanner />
+        <JoinUs />
       <footer className="faq_section">
-          <JoinUs/>
-          <Faq/>
+        <Faq />
+        <FooterMenu />
       </footer>
-    </div>
-  )
+    </section>
+  );
 };
 
 export default Home;

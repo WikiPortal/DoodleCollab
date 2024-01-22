@@ -1,28 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import logo from "../../assets/logo.png";
+import { useTheme } from "../../context/ThemeContext";
 import "./navbar.css";
 
 const Navbar = () => {
-  const [isDarkMode, setDarkMode] = useState(false);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!isDarkMode);
-    if (isDarkMode) {
-      document.body.classList.remove("dark-mode");
-    } else {
-      document.body.classList.add("dark-mode");
-    }
-  };
+  const { isDarkMode, toggleDarkMode } = useTheme();
 
   return (
     <nav className={`navbar ${isDarkMode ? "dark-mode" : "white-mode"}`}>
-      <img src={logo} alt="DoodleCollab logo" className="logo" />
-      <div className="nav-items">
-        <div className="nav-item">GitHub</div>
-        <div className="nav-item">Features</div>
-        <div className="nav-item">Blogs</div>
-        <div className="nav-item">Signup</div>
+      <a className="navbar-brand" href="/">
+        <img src={logo} alt="DoodleCollab logo" className="logo" />
+      </a>
+      <div className="navbar-middle">
+        <div className="nav-items">
+          <a className="nav-item" href="https://github.com/WikiPortal/DoodleCollab">GitHub</a>
+          <a className="nav-item">Features</a>
+          <a className="nav-item" href="/blogs">Blogs</a>
+        </div>
+          <a className={`nav-signup ${isDarkMode ? "dark-mode" : "white-mode"}`} href="/register" >Signup</a>
       </div>
+      
       <div className="navbar-right">
         <input className="nav-checkbox" type="checkbox" id="switch" onClick={toggleDarkMode} />
         <label className="nav-toggle" htmlFor="switch">Toggle</label>

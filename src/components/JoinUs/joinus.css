@@ -9,7 +9,7 @@
   justify-content: space-between;
   align-items: center;
   background: linear-gradient(163deg, #022d2b, #000000);
-  color: white;
+  color: #ffffff;
   padding: 2vh 8vh;
   border-radius: 4vh;
   width: 120vh;
@@ -25,7 +25,7 @@
 }
 
 .highlight-text {
-  color: #15deb2;
+  color: #157dde;
 }
 
 .invite-content p {
@@ -39,7 +39,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: rgb(255, 255, 255);
-  color: #05ac88;
+  color: #055eac;
   font-weight: 502;
   font-size: 1.9vh;
   padding: 1.8vh 6.5vh;
