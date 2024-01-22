@@ -6,3 +6,11 @@ body.dark-mode {
   background-color: #1a1a1a;
   color: #ffffff;
 }
+
+body.white-mode {
+  background-color: linear-gradient(
+    rgb(255, 255, 255),
+    rgb(241, 234, 250) 48%,
+    rgb(255, 255, 255)
+  );
+}
