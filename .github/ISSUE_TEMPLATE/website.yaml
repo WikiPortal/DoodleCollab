@@ -1,11 +1,11 @@
 name: 🌐 Website issue
 description: Found an issue in the Website? You can use this one!
-title: "Docs: Write a small description here"
+title: "Website issue: Write a small description here"
 labels:
   [
     "status: todo ⏳",
     "🌐 website"
-  ]
+  ]  
 body:
   - type: textarea
     id: description
