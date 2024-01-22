@@ -21,7 +21,7 @@ body:
       description: Please add screenshots/videos if applicable
     validations:
       required: false
-  - type: dropdown
+ - type: dropdown
     id: browser
     attributes:
       label: "🥦 Browser"
