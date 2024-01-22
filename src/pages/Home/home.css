@@ -18,9 +18,8 @@
   );
 }
 
-.faq_section{
-    position : absolute;
-    bottom: 0;
+.faq_section{   
+   position: absolute;
     width : 100%;
 }
 
@@ -29,6 +28,6 @@
     justify-content: flex-start;
     position: relative;
     margin-bottom: 20px;
-    margin-top: 20px;
+    margin-top: 40px;
 
 }

@@ -1,5 +1,6 @@
 .faq_container{
     max-width: 100%;
+    min-height: 100vh;
     background-image:  linear-gradient(rgb(255, 255, 255), rgb(241, 234, 250) 48%, rgb(255, 255, 255));
     background-repeat: no-repeat;
     background-position: initial;
