@@ -36,7 +36,10 @@ const Faq = () => {
           {questions.map((data, index) => (
             <div className='q_container' key={index}>
               <li>
-                <div className='q_area'>
+              <div
+                  className='q_area'
+                  onClick={() => handleToggleAnswer(index)} //to enable the entire question clickable
+                >
                   {data.question}
                   <span >
                     <motion.div
