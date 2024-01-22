@@ -1,14 +1,27 @@
-.home_container {
-    position: relative;
-    min-height: 100vh;
-    width: 100%;
-    justify-content: center;
-
+.home-section {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 
-.faq_section {
+.home-section.dark-mode {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.home-section.white-mode {
+  background-image: linear-gradient(
+    rgb(255, 255, 255),
+    rgb(241, 234, 250) 48%,
+    rgb(255, 255, 255)
+  );
+}
+
+.faq_section{
+    position : absolute;
     bottom: 0;
-    width: 100%;
+    width : 100%;
 }
 
 .about_section {

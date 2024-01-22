@@ -1,7 +1,5 @@
 # Contribution guidelines 🔐
 
-<!-- **This time VestTech is participating in [JWOC 2K22](https://leaderboard.jwoc.tech/) and we have a set of guidelines to be followed.** -->
-
 **Hello contributors , i want you to stick to the below listed contribution guidelines. Happy contributing.**
 
 <br/>
@@ -41,4 +39,4 @@
 
 <br/>
 
-**You'll be needing to follow the [Setup Guidelines](https://github.com/WikiPortal/DoodleCollab/blob/main/rules/Setup.md) for more details on setting up the code in your local machine**
+**You'll be needing to follow the [Setup Guidelines](https://github.com/WikiPortal/DoodleCollab/blob/main/Setup.md) for more details on setting up the code in your local machine**

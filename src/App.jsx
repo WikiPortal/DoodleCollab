@@ -7,25 +7,26 @@ import Navbar from "./constants/Navbar/Navbar";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Authentication/Login";
 import Footer from "./constants/Footer/Footer"
+import Blog from "./pages/Blog/Blog";
+import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
   const isUserLoggedIn = !!localStorage.getItem("token");
 
   return (
-    <Router>
-      <Navbar />
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        {isUserLoggedIn && (
-          <Route path="/sketchbook" element={<Sketchbook />} />
-        )}
-
-      </Routes>
-      <Footer />
-    </Router>
+    <ThemeProvider>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          {isUserLoggedIn && <Route path="/sketchbook" element={<Sketchbook />} />}
+          <Route path="/blogs" element={<Blog />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </ThemeProvider>
   );
 }
 
