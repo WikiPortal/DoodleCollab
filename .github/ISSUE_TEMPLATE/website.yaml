@@ -21,7 +21,7 @@ body:
       description: Please add screenshots/videos if applicable
     validations:
       required: false
-  - type: dropdown
+ - type: dropdown
     id: browser
     attributes:
       label: "🥦 Browser"
@@ -37,7 +37,7 @@ body:
     validations:
       required: true
 
-    - type: checkboxes
+  - type: checkboxes
     id: no-duplicate-issues
     attributes:
       label: "Checklist ✅"
@@ -47,6 +47,19 @@ body:
 
         - label: "I have read the [Contributing Guidelines](https://github.com/WikiPortal/DoodleCollab/blob/main/CONTRIBUTING.md)"
           required: true
-
-        - label: "I am willing to work on this issue (leave this unchecked for no)."
+          
+        - label: "I am participating in JWOC"
           required: false
+
+        - label: "I am participating in IWOC"
+          required: false
+
+
+        - label: "I am willing to work on this issue (blank for no)"
+          required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        In case of emergencies contact me on [Twitter](https://twitter.com/itsmeroy69)
+        Feel free to check out other cool repositories [here](https://github.com/itsroy69)
