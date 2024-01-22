@@ -1,12 +1,21 @@
-.home_container{
+.home_container {
     position: relative;
     min-height: 100vh;
     width: 100%;
-    
+    justify-content: center;
+
 }
 
-.faq_section{
-    position : absolute;
+.faq_section {
     bottom: 0;
-    width : 100%;
+    width: 100%;
+}
+
+.about_section {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    margin-bottom: 20px;
+    margin-top: 20px;
+
 }

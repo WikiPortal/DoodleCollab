@@ -14,7 +14,7 @@ function App() {
   return (
     <Router>
       <Navbar />
-      
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
@@ -22,7 +22,7 @@ function App() {
         {isUserLoggedIn && (
           <Route path="/sketchbook" element={<Sketchbook />} />
         )}
-         
+
       </Routes>
       <Footer />
     </Router>
