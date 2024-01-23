@@ -9,6 +9,7 @@ import Login from "./pages/Authentication/Login";
 import Footer from "./constants/Footer/Footer"
 import Blog from "./pages/Blog/Blog";
 import { ThemeProvider } from "./context/ThemeContext";
+import Features from "./pages/Features/Features";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/features" element={<Features />} />
           <Route path="/sketchbook" element={<Sketchbook />} />
           <Route path="/blogs" element={<Blog />} />
         </Routes>

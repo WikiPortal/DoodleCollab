@@ -14,7 +14,7 @@ const Navbar = () => {
       <div className="navbar-middle">
         <div className="nav-items">
           <a className="nav-item" href="https://github.com/WikiPortal/DoodleCollab">GitHub</a>
-          <a className="nav-item">Features</a>
+          <a className="nav-item" href="/features">Features</a>
           <a className="nav-item" href="/blogs">Blogs</a>
         </div>
           <a className={`nav-signup ${isDarkMode ? "dark-mode" : "white-mode"}`} href="/register" >Signup</a>
