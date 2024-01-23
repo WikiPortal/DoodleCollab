@@ -11,8 +11,6 @@ import Blog from "./pages/Blog/Blog";
 import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
-  const isUserLoggedIn = !!localStorage.getItem("token");
-
   return (
     <ThemeProvider>
       <Router>
@@ -21,7 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          {isUserLoggedIn && <Route path="/sketchbook" element={<Sketchbook />} />}
+          <Route path="/sketchbook" element={<Sketchbook />} />
           <Route path="/blogs" element={<Blog />} />
         </Routes>
         <Footer />

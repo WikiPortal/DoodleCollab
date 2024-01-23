@@ -1,9 +1,10 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Stage, Layer, Line } from "react-konva";
 import {  Stack,  Button,  Paper,  Slider,  Modal,  Select,  MenuItem,  IconButton,  Grid,  Input } from "@mui/material";
 import { MuiColorInput } from "mui-color-input";
 import jsPDF from "jspdf";
 import {  FaEraser,  FaRedo,  FaRegTrashAlt,  FaSave,  FaUndo } from "react-icons/fa";
+import LoginRequired from "../Login Required/loginRequired";
 
 const Sketchbook = () => {
   const [lines, setLines] = useState([]);
@@ -17,6 +18,16 @@ const Sketchbook = () => {
   const stageRef = useRef(null);
   const [ftype, setFtype] = useState("png");
   const [removedLines, setRemovedLines] = useState([]);
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if(!token) {
+      setLoggedIn(false);
+    } else {
+      setLoggedIn(true);
+    }
+  }, []);
 
   const handleMouseDown = (e) => {
     setRemovedLines([]);
@@ -122,7 +133,7 @@ const Sketchbook = () => {
   };
 
   return (
-    <>
+    loggedIn ? <>
       <Stage
         width={window.innerWidth}
         height={window.innerHeight}
@@ -251,7 +262,8 @@ const Sketchbook = () => {
           </Button>
         </Paper>
       </Modal>
-    </>
+    </> :
+    <LoginRequired />
   );
 };
 
