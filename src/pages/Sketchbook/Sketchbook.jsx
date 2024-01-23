@@ -5,6 +5,7 @@ import { MuiColorInput } from "mui-color-input";
 import jsPDF from "jspdf";
 import {  FaEraser,  FaRedo,  FaRegTrashAlt,  FaSave,  FaUndo } from "react-icons/fa";
 import LoginRequired from "../Login Required/loginRequired";
+import axios from "axios";
 
 const Sketchbook = () => {
   const [lines, setLines] = useState([]);
@@ -18,14 +19,24 @@ const Sketchbook = () => {
   const stageRef = useRef(null);
   const [ftype, setFtype] = useState("png");
   const [removedLines, setRemovedLines] = useState([]);
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
     if(!token) {
       setLoggedIn(false);
     } else {
-      setLoggedIn(true);
+      axios.get("https://doodlecollab-backend.onrender.com/api/users/validateToken", {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }).then(res => {
+        setLoggedIn(true);
+      }).catch(error => {
+        setLoggedIn(false);
+        localStorage.removeItem('token');
+      });
+      
     }
   }, []);
 
