@@ -8,12 +8,12 @@
   position: relative;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(163deg, #022d2b, #000000);
+  background: linear-gradient(163deg,#000000,#0b1059);
   color: #ffffff;
   padding: 2vh 8vh;
   border-radius: 4vh;
-  width: 120vh;
-  height: 27vh;
+  width: 83vw;
+  height: 35vh;
 }
 
 .invite-content h1 {
