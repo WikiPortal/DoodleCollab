@@ -26,7 +26,7 @@ const Faq = () => {
         <p className="faq-head">
           Frequently Asked <br /> Questions
         </p>
-        <div className="q-list">
+        <div className="faq-list">
           <ul>
             {questions.map((data, index) => (
               <div className="q-container" key={index}>
