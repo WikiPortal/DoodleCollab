@@ -1,11 +1,11 @@
 name: 🌐 Website issue
 description: Found an issue in the Website? You can use this one!
-title: "Docs: Write a small description here"
+title: "Website issue: Write a small description here"
 labels:
   [
     "status: todo ⏳",
     "🌐 website"
-  ]
+  ]  
 body:
   - type: textarea
     id: description
@@ -36,17 +36,23 @@ body:
         - Other
     validations:
       required: true
-
-    - type: checkboxes
+  - type: checkboxes
     id: no-duplicate-issues
     attributes:
       label: "Checklist ✅"
       options:
         - label: "I checked and didn't find similar [issue](https://github.com/WikiPortal/DoodleCollab/issues)"
           required: true
-
         - label: "I have read the [Contributing Guidelines](https://github.com/WikiPortal/DoodleCollab/blob/main/CONTRIBUTING.md)"
           required: true
-
-        - label: "I am willing to work on this issue (leave this unchecked for no)."
+        - label: "I am participating in JWOC"
           required: false
+        - label: "I am participating in IWOC"
+          required: false
+        - label: "I am willing to work on this issue (blank for no)"
+          required: false
+  - type: markdown
+    attributes:
+      value: |
+        In case of emergencies contact me on [Twitter](https://twitter.com/itsmeroy69)
+        Feel free to check out other cool repositories [here](https://github.com/itsroy69)

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence, easeInOut } from "framer-motion";
-import { questionsArray } from "../../data/Questions";
 
+import { questionsArray } from "../../data/Questions";
+//style
+import { motion, AnimatePresence, easeInOut } from "framer-motion";
 import "./faq.css";
 
 const Faq = () => {
   const [questions, setQuestions] = useState([]);
   const [isAnswerOpenArray, setIsAnswerOpenArray] = useState([]);
-  const [isIconRotated, setIsIconRotated] = useState(false);
 
   useEffect(() => {
     setQuestions(questionsArray);
@@ -20,11 +20,6 @@ const Faq = () => {
     setIsAnswerOpenArray(newArray);
   };
 
-  const handleCloseInput = (index) => {
-    const newArray = [...isAnswerOpenArray];
-    newArray[index] = false;
-    setIsAnswerOpenArray(newArray);
-  };
   return (
     <section className="faq-section">
       <div className="faq_container">

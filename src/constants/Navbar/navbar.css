@@ -23,30 +23,46 @@
   width: 150px;
 }
 
+.navbar-middle {
+  display: flex;
+  flex-direction: row;
+}
+
 .nav-items {
   display: flex;
 }
 
 .nav-item {
   margin: 0 25px;
+  padding-top: 10px;
   cursor: pointer;
 }
 
-.nav-item:nth-child(4) {
-  background-color: #f1f2f4;
-  border-radius: 4px;
-  width: 100px;
-  text-align: center;
+.nav-signup {
+  border-radius: 8px;
+  padding: 10px 28px;
+  margin: 0 25px;
   color: #000;
   transition: background-color 0.3s ease;
+  display: flex;
 }
 
-.nav-item:nth-child(4):hover {
+.nav-signup.dark-mode,
+.nav-signup.white-mode:hover {
+  background-color: #f1f2f4;
+  box-shadow: 0 0 1px rgba(69, 66, 66, 0.5);
+}
+
+.nav-signup.white-mode,
+.nav-signup.dark-mode:hover {
   background-color: #d1d2d4;
 }
 
 .navbar-right {
   width: 150px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .nav-checkbox[type="checkbox"] {
