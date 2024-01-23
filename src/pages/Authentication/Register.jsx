@@ -10,7 +10,7 @@ const Register = () => {
 
   useEffect(() => fetchUsers(), []);
   const fetchUsers = () => {
-    axios.get("http://localhost:5000/api/users/register").then((res) => {
+    axios.get("https://doodlecollab-backend.onrender.com/api/users/register").then((res) => {
       console.log(res.data);
     });
   };
@@ -18,7 +18,7 @@ const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:5000/api/users/register", {
+      .post("https://doodlecollab-backend.onrender.com/api/users/register", {
         name,
         email,
         password,

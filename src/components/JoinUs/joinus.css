@@ -1,0 +1,48 @@
+.joinus-section {
+  justify-content: center;
+  display: flex;
+}
+
+.joinus-container {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(163deg,#000000,#0b1059);
+  color: #ffffff;
+  padding: 2vh 8vh;
+  border-radius: 4vh;
+  width: 83vw;
+  height: 35vh;
+}
+
+.invite-content h1 {
+  color: #ffffff;
+  font-size: 3.9vh;
+  text-align: left;
+  font-weight: 550;
+  line-height: 1.2;
+}
+
+.highlight-text {
+  color: #157dde;
+}
+
+.invite-content p {
+  font-size: 1.9vh;
+  color: #a0f3e1;
+  margin-top: 1vh;
+}
+
+.join-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  color: #055eac;
+  font-weight: 502;
+  font-size: 1.9vh;
+  padding: 1.8vh 6.5vh;
+  border-radius: 2vh;
+  border: none;
+}

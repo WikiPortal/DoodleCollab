@@ -12,7 +12,7 @@ const Login = () => {
     fetchUsers();
   }, []);
   const fetchUsers = () => {
-    axios.get("http://localhost:5000/api/users/register");
+    axios.get("https://doodlecollab-backend.onrender.com/api/users/register");
     // .then((res) => {
     //   console.log(res.data);
     // });
@@ -22,7 +22,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/users/login",
+        "https://doodlecollab-backend.onrender.com/api/users/login",
         { email, password }
       );
       const token = response.data.token;

@@ -1,0 +1,135 @@
+.faq-container {
+  max-width: 100%;
+  margin-top: 2.75rem;
+  background-repeat: no-repeat;
+  background-position: initial;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.faq-head {
+  font-family: sans-serif;
+  font-size: 3.75rem;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+}
+.faq-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  max-width: 83vw;
+}
+.faq-list ul {
+  list-style: none;
+  min-width: 80vw;
+  max-height: 600px;
+  line-height: 1.5rem;
+}
+.q-area {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  padding-top: 1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  font-family: sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+.faq-list li {
+  min-width: 70%;
+  display: flex;
+  flex-direction: column;
+  color: black;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  min-height: 80px;
+  max-height: 160px;
+  line-height: 1.75rem;
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 10px;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+.faq-list li span {
+  padding-right: 10px;
+}
+
+.ans-section {
+  padding-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  overflow-wrap: break-word;
+}
+.ans-text {
+  text-align: left;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+.add-icon {
+  padding-left: 0.5rem;
+  height: 2rem;
+  width: 2rem;
+  font: bold;
+}
+@media only screen and (max-width: 1096px) {
+  .faq-head {
+    font-size: 3.5rem;
+  }
+
+  .faq-list ul {
+    min-width: auto;
+  }
+  .ans-section {
+    min-width: auto;
+  }
+
+  .q-area {
+    font-family: sans-serif;
+    font-size: 1rem;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .faq-list ul {
+    min-width: auto;
+  }
+  .ans-section {
+    min-width: auto;
+  }
+  .faq-list ul li {
+    font-family: sans-serif;
+    font-size: 13px;
+  }
+}
+@media only screen and (max-width: 530px) {
+  .faq-list ul {
+    min-width: auto;
+  }
+  .ans-section {
+    min-width: auto;
+  }
+  .faq-list ul li {
+    font-family: sans-serif;
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .faq-head {
+    font-size: 2.5rem;
+  }
+  .faq-list ul {
+    min-width: auto;
+  }
+  .ans-section {
+    min-width: auto;
+  }
+  .faq-list ul li {
+    font-size: 12px;
+  }
+}
