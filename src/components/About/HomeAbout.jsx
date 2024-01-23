@@ -1,13 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import idea from "../../assets/Home/creative-writing.png";
 import component from "../../assets/Home/abstract.png";
 import project from "../../assets/Home/blueprint.png";
 import collaborate from "../../assets/Home/collaborate.png";
+import darkBackground from "../../assets/Home/dark-background.png";
 
+import { useTheme } from "../../context/ThemeContext";
 import "./homeabout.css";
 
 const HomeAbout = () => {
+  const { isDarkMode } = useTheme();
+
+  useEffect(() => {
+    const aboutBox = document.querySelectorAll(".about-box");
+
+    aboutBox.forEach((box) => {
+      if (isDarkMode) {
+        box.style.backgroundImage = `url(${darkBackground})`;
+        box.style.backgroundSize = "cover";
+      } else {
+        box.style.backgroundImage = "none";
+      }
+    });
+  }, [isDarkMode]);
+
   return (
     <section className="about-section">
       <div className="about-container">
