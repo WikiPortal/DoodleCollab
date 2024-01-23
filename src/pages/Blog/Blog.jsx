@@ -13,6 +13,11 @@ export default function Blog() {
     color: dark ? 'black' : 'white',
     height: '100%',
     maxWidth: '80%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    padding: '20px',
+    borderRadius: '10px',
   };
     const items = [
         {'id':1, 'heading':'Heading', 'content':"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet justo nec orci efficitur dictum.", "link":"https://google.com"},
@@ -30,29 +35,26 @@ export default function Blog() {
     ];
 
     return (
-        <div style={{ overflowY: 'auto', maxHeight: '500px', padding: '0' }}>
-            <Grid container spacing={3} style={{ margin: '0 auto', maxWidth: '100%', overflowX: 'hidden', padding: '0' }}>
-                {items.map((item) => (
-                    <Grid key={item.id} item xs={12} sm={6} md={4} style={{ margin: '0' }}>
-                        <Box style={{ height: '100%' }}>
-                            <Card style={cardStyle}>
-                                <CardContent>
-                                    <Typography variant='h4' paddingBottom={10}>{item.heading}</Typography>
-                                    <div style={{ borderTop: dark ? '2px solid black' : '2px solid white',  maxWidth:'70%' }}>
-                                        <Typography variant='p' padding={1} fontSize={10}>{item.content}</Typography>
-                                    </div>
-                                    <br />
-                                    <Link to={item.link} style={{ display: 'flex', alignItems: 'center', fontSize: '18px', whiteSpace: 'nowrap' }}>
-                                        <span style={{ paddingRight: '10px' }}>Learn more</span>
-                                        <FaArrowAltCircleRight />
-                                    </Link>
-                                </CardContent>
-                            </Card>
-                        </Box>
-                    </Grid>
-                ))}
+        <div style={{ overflowY: 'auto', maxHeight: '500px', padding: '20px' }}>
+        <Grid container spacing={3} style={{ margin: '0 auto', maxWidth: '100%', overflowX: 'hidden' }}>
+          {items.map((item) => (
+            <Grid key={item.id} item xs={12} sm={6} md={4} style={{ margin: '0' }}>
+              <Card style={cardStyle}>
+                <CardContent>
+                  <Typography variant='h4' paddingBottom={2}>{item.heading}</Typography>
+                  <div style={{ borderTop: dark ? '2px solid black' : '2px solid white', margin: '10px 0', maxWidth: '80%' }}>
+                    <Typography variant='body1' fontSize={14}>{item.content}</Typography>
+                  </div>
+                  <Link to={item.link} style={{ display: 'flex', alignItems: 'center', fontSize: '18px', whiteSpace: 'nowrap' }}>
+                    <span style={{ paddingRight: '10px' }}>Learn more</span>
+                    <FaArrowAltCircleRight />
+                  </Link>
+                </CardContent>
+              </Card>
             </Grid>
-        </div>
+          ))}
+        </Grid>
+      </div>
     );
     
                 }    
