@@ -1,9 +1,11 @@
 import React from 'react';
+//images
 
 import idea from '../../assets/creative-writing.png';
 import component from '../../assets/abstract.png';
 import project from '../../assets/blueprint.png';
 import collaborate from '../../assets/collaborate.png';
+//style
 
 import './homeabout.css';
 
