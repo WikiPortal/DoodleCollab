@@ -22,23 +22,23 @@ const Faq = () => {
 
   return (
     <section className="faq-section">
-      <div className="faq_container">
-        <p className="faq_head">
+      <div className="faq-container">
+        <p className="faq-head">
           Frequently Asked <br /> Questions
         </p>
-        <div className="q_list">
+        <div className="q-list">
           <ul>
             {questions.map((data, index) => (
-              <div className="q_container" key={index}>
+              <div className="q-container" key={index}>
                 <li>
                 <div
-                  className='q_area'
+                  className='q-area'
                   onClick={() => handleToggleAnswer(index)} 
                 >
                     {data.question}
                     <span>
                       <motion.div
-                        className="add_icon"
+                        className="add-icon"
                         onClick={() => handleToggleAnswer(index)}
                         initial={{ rotate: 0 }}
                         animate={{
@@ -66,12 +66,12 @@ const Faq = () => {
                   <AnimatePresence>
                     {isAnswerOpenArray[index] && (
                       <motion.section
-                        className="ans_section"
+                        className="ans-section"
                         initial={{ height: 0 }}
                         animate={{ height: "auto" }}
                         exit={{ height: 0, opacity: 0 }}
                       >
-                        <p className="ans_text" key={index}>
+                        <p className="ans-text" key={index}>
                           {data.answer}
                         </p>
                       </motion.section>

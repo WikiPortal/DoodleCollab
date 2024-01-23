@@ -1,4 +1,4 @@
-.faq_container {
+.faq-container {
   max-width: 100%;
   margin-top: 2.75rem;
   background-repeat: no-repeat;
@@ -10,27 +10,27 @@
   margin-bottom: 20px;
 }
 
-.faq_head {
+.faq-head {
   font-family: sans-serif;
   font-size: 3.75rem;
   font-weight: 600;
   line-height: 1;
   text-align: center;
 }
-.q_list {
+.q-list {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 30px;
-  max-width: 56rem;
+  max-width: 83vw;
 }
-.q_list ul {
+.q-list ul {
   list-style: none;
-  min-width: 1040px;
+  min-width: 80vw;
   max-height: 600px;
   line-height: 1.5rem;
 }
-.q_area {
+.q-area {
   display: flex;
   justify-content: space-between;
   text-align: left;
@@ -41,7 +41,7 @@
   font-weight: 600;
   font-size: 1.25rem;
 }
-.q_list li {
+.q-list li {
   min-width: 70%;
   display: flex;
   flex-direction: column;
@@ -58,79 +58,79 @@
   margin-left: 1rem;
   /* box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1); */
 }
-.q_list li span {
+.q-list li span {
   padding-right: 10px;
 }
 
-.ans_section {
+.ans-section {
   padding-bottom: 0.5rem;
   padding-left: 1.5rem;
   overflow-wrap: break-word;
 }
-.ans_text {
+.ans-text {
   text-align: left;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
-.add_icon {
+.add-icon {
   padding-left: 0.5rem;
   height: 2rem;
   width: 2rem;
   font: bold;
 }
 @media only screen and (max-width: 1096px) {
-  .faq_head {
+  .faq-head {
     font-size: 3.5rem;
   }
 
-  .q_list ul {
+  .q-list ul {
     min-width: auto;
   }
-  .ans_section {
+  .ans-section {
     min-width: auto;
   }
 
-  .q_area {
+  .q-area {
     font-family: sans-serif;
     font-size: 1rem;
   }
 }
 @media only screen and (max-width: 768px) {
-  .q_list ul {
+  .q-list ul {
     min-width: auto;
   }
-  .ans_section {
+  .ans-section {
     min-width: auto;
   }
-  .q_list ul li {
+  .q-list ul li {
     font-family: sans-serif;
     font-size: 13px;
   }
 }
 @media only screen and (max-width: 530px) {
-  .q_list ul {
+  .q-list ul {
     min-width: auto;
   }
-  .ans_section {
+  .ans-section {
     min-width: auto;
   }
-  .q_list ul li {
+  .q-list ul li {
     font-family: sans-serif;
     font-size: 13px;
   }
 }
 
 @media only screen and (max-width: 430px) {
-  .faq_head {
+  .faq-head {
     font-size: 2.5rem;
   }
-  .q_list ul {
+  .q-list ul {
     min-width: auto;
   }
-  .ans_section {
+  .ans-section {
     min-width: auto;
   }
-  .q_list ul li {
+  .q-list ul li {
     font-size: 12px;
   }
 }
