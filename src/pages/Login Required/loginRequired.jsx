@@ -4,7 +4,7 @@ const LoginRequired = () => {
     return(
         <div className="login-required">
             <img src={login_required} className='login-required-logo'></img>
-            <h1 className="login-message">Sorry, Please Login First Page!</h1>
+            <h1 className="login-message">Sorry, Please Login First!</h1>
         </div>
     )
 };
