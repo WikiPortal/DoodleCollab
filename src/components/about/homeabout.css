@@ -185,7 +185,12 @@
 @media only screen and (max-width:767px) {
     .about_container {
         margin-left: 0;
+        overflow: hidden;
+        width :100%;
 
+    }
+    .box{
+        width : 100%;
     }
 
     .about_head {
