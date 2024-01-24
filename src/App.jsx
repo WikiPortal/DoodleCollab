@@ -12,8 +12,6 @@ import { ThemeProvider } from "./context/ThemeContext";
 import Features from "./pages/Features/Features";
 
 function App() {
-  const isUserLoggedIn = !!localStorage.getItem("token");
-
   return (
     <ThemeProvider>
       <Router>
@@ -23,7 +21,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/features" element={<Features />} />
-          {isUserLoggedIn && <Route path="/sketchbook" element={<Sketchbook />} />}
+          <Route path="/sketchbook" element={<Sketchbook />} />
           <Route path="/blogs" element={<Blog />} />
         </Routes>
         <Footer />
