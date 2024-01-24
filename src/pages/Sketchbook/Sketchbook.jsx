@@ -4,7 +4,7 @@ import {  Stack,  Button,  Paper,  Slider,  Modal,  Select,  MenuItem,  IconButt
 import { MuiColorInput } from "mui-color-input";
 import jsPDF from "jspdf";
 import {  FaEraser,  FaRedo,  FaRegTrashAlt,  FaSave,  FaUndo } from "react-icons/fa";
-import LoginRequired from "../Login Required/loginRequired";
+import LoginRequired from "../Login Required/LoginRequired";
 import axios from "axios";
 
 const Sketchbook = () => {
