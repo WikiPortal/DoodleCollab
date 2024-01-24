@@ -5,10 +5,11 @@
 
 .joinus-container {
   display: flex;
+  gap: 1rem;
   position: relative;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(163deg,#000000,#0b1059);
+  background: linear-gradient(163deg, #000000, #0b1059);
   color: #ffffff;
   padding: 2vh 8vh;
   border-radius: 4vh;
@@ -45,4 +46,15 @@
   padding: 1.8vh 6.5vh;
   border-radius: 2vh;
   border: none;
+  width: max-content;
+}
+
+@media screen and (max-width: 768px) {
+  .joinus-container {
+    flex-direction: column;
+    height: auto;
+  }
+  .invite-content :is(h1, p) {
+    text-align: center;
+  }
 }
