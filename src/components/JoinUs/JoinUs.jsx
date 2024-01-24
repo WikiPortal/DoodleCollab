@@ -1,4 +1,3 @@
-import React from "react";
 import "./joinus.css";
 
 const JoinUs = () => {
