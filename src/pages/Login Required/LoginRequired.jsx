@@ -1,4 +1,4 @@
-import './loginRequired.css';
+import './loginrequired.css';
 import login_required from '../../assets/login-required.png';
 const LoginRequired = () => {
     return(
