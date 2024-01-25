@@ -23,7 +23,7 @@ const Navbar = () => {
       <div className="navbar-right">
         <input className="nav-checkbox" type="checkbox" id="switch" onClick={toggleDarkMode} />
         <label className="nav-toggle" htmlFor="switch">Toggle</label>
-      </div> 
+      </div>
     </nav>
   );
 };
