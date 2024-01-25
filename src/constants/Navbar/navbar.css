@@ -66,10 +66,11 @@
 }
 
 .nav-checkbox[type="checkbox"] {
-  height: 0;
-  width: 0;
+  display: none;
   visibility: hidden;
+  position: absolute; /* Added position: absolute */
 }
+
 .nav-toggle {
   cursor: pointer;
   text-indent: -9999px;
@@ -79,7 +80,10 @@
   display: block;
   border-radius: 100px;
   position: relative;
+  transition: 0.3s;
+
 }
+
 .nav-toggle:after {
   content: "";
   position: absolute;
@@ -90,15 +94,16 @@
   background: #fff;
   border-radius: 90px;
   transition: 0.3s;
+
 }
 
-.nav-checkbox:checked + .nav-toggle {
-  background: #000000;
-}
 .nav-checkbox:checked + .nav-toggle:after {
   left: calc(100% - 5px);
   transform: translateX(-100%);
+
 }
+
 .nav-toggle:active:after {
-  width: 100px;
+  width: 60px;
+
 }
