@@ -107,18 +107,3 @@
   width: 60px;
 
 }
-@media screen and (max-width: 600px) {
-  .navbar {
-    float: none;
-    display: block;
-    width: 100%;
-    text-align: left;
-
-  }
-  .nav-toggle {
-    transform: translate(-50%,-50%);
-   position: fixed;
-   top: 10%;
-   left: 85%;
-  }
-}
