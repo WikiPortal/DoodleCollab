@@ -8,16 +8,17 @@ const Navbar = () => {
 
   return (
     <nav className={`navbar ${isDarkMode ? "dark-mode" : "white-mode"}`}>
-      <a className="navbar-brand" href="/">
+      <a className="navbar-brand" href="">
         <img src={logo} alt="DoodleCollab logo" className="logo" />
       </a>
       <div className="navbar-middle">
         <div className="nav-items">
-          <a className="nav-item" href="https://github.com/WikiPortal/DoodleCollab">GitHub</a>
-          <a className="nav-item" href="/features">Features</a>
-          <a className="nav-item" href="/blogs">Blogs</a>
-        </div>
+          <a className={`nav-signup ${isDarkMode ? "dark-mode" : "white-mode"}`} href=" /">Home</a>
+          <a className={`nav-signup ${isDarkMode ? "dark-mode" : "white-mode"}`} href="https://github.com/WikiPortal/DoodleCollab">GitHub</a>
+          <a className={`nav-signup ${isDarkMode ? "dark-mode" : "white-mode"}`} href="/features">Features</a>
+          <a className={`nav-signup ${isDarkMode ? "dark-mode" : "white-mode"}`} href="/blogs">Blogs</a>
           <a className={`nav-signup ${isDarkMode ? "dark-mode" : "white-mode"}`} href="/register" >Signup</a>
+      </div>
       </div>
       
       <div className="navbar-right">

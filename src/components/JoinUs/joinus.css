@@ -40,13 +40,27 @@
   justify-content: space-between;
   align-items: center;
   background-color: rgb(255, 255, 255);
-  color: #055eac;
-  font-weight: 502;
+  color: #000000;
+  font-weight: bold;
   font-size: 1.9vh;
   padding: 1.8vh 6.5vh;
   border-radius: 2vh;
   border: none;
   width: max-content;
+  font-family: sans-serif;
+}
+
+.join-button:hover {
+  background-image: linear-gradient(
+    to right, 
+    #E7484F,
+    #F68B1D, 
+    #FCED00,
+    #009E4F,
+    #00AAC3,
+    #732982
+  );
+animation:slidebg 2s linear infinite;
 }
 
 @media screen and (max-width: 768px) {
