@@ -1,0 +1,25 @@
+/* src/components/Banner/HomeBanner.css */
+.home-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 120px;
+  }
+  
+  .banner-image {
+    width: 800px; 
+    height: auto;
+  }
+  
+  .banner-text {
+    margin-top: 20px;
+    max-width: 800px;
+    text-align: center;
+  }
+
+  .banner-text p {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+  
