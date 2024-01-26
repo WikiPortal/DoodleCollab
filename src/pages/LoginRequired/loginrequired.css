@@ -1,0 +1,17 @@
+.login-required {
+    display: flex;
+    align-items: center;
+    margin-top: 10%;
+    flex-direction: column;
+}
+
+.login-message {
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: x-large;
+}
+
+.login-required-logo {
+    width: 200px;
+    height: 200px;
+}

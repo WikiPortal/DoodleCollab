@@ -94,4 +94,23 @@ const getUser = async (req, res) => {
   }
 };
 
-module.exports = { registerUser, loginUser, getUser };
+const validateToken = (req, res) => {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+
+  if (!token) {
+    return res.status(401).json({ message: 'Unauthorized: No token provided' });
+  }
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    if (decoded.exp*1000 < Date.now()) {
+      return res.status(401).json({ message: 'Unauthorized: Token has expired' });
+    }
+    res.status(200).send();
+  } catch (error) {
+    return res.status(401).json({ message: 'Unauthorized: Invalid token' });
+  }
+};
+
+module.exports = { registerUser, loginUser, getUser, validateToken };

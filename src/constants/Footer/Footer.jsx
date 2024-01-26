@@ -5,9 +5,9 @@ import './footer.css';
 const Footer = () => {
  
   return (
-    <footer className='basic'>
+    <section className='basic'>
       <p> Made with ❤️ by &copy; Developers</p>
-    </footer>
+    </section>
   );
 };
 

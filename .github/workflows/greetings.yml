@@ -1,0 +1,21 @@
+name: Greetings
+
+on:
+  pull_request:
+  issues:
+    types:
+      - opened
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: 'Hey, @${{ github.actor }} welcome to DoodleCollab repository.🎊 Thank you so much for taking the time to point this out.🙌'
+        pr-message: 'Hey, @${{ github.actor }} welcome to DoodleCollab repository.🎊 Thank you so much for taking the effort to make our project better! 🙌 Keep making such awesome contributions!'
