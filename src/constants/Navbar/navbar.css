@@ -1,5 +1,9 @@
 .navbar {
   display: flex;
+  position: fixed;
+  top: 0;
+  z-index: 5;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
   background-color: #ffffff;
