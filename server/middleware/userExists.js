@@ -1,4 +1,3 @@
-const { defineConfig } = require("vite");
 const User = require("../models/userModel");
 
 const userExists = async (req, res, next) => {
