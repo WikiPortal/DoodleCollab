@@ -1,9 +1,14 @@
 .navbar {
   display: flex;
+  position: fixed;
+  top: 0;
+  z-index: 5;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
   background-color: #ffffff;
   padding: 20px 20px;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.4);
 }
 
 .navbar.dark-mode {
