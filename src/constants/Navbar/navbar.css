@@ -1,7 +1,14 @@
 .navbar {
   display: flex;
+<<<<<<< HEAD
   width: 100%;
   height: 80px;
+=======
+  position: fixed;
+  top: 0;
+  z-index: 5;
+  width: 100%;
+>>>>>>> c760fec6c9e6e9f29cb88c63367c9a950ba010d2
   align-items: center;
   justify-content: space-between;
   background-color: #ffffff;
@@ -70,10 +77,11 @@
 }
 
 .nav-checkbox[type="checkbox"] {
-  height: 0;
-  width: 0;
+  display: none;
   visibility: hidden;
+  position: absolute; /* Added position: absolute */
 }
+
 .nav-toggle {
   cursor: pointer;
   text-indent: -9999px;
@@ -83,7 +91,10 @@
   display: block;
   border-radius: 100px;
   position: relative;
+  transition: 0.3s;
+
 }
+
 .nav-toggle:after {
   content: "";
   position: absolute;
@@ -94,17 +105,18 @@
   background: #fff;
   border-radius: 90px;
   transition: 0.3s;
+
 }
 
-.nav-checkbox:checked + .nav-toggle {
-  background: #000000;
-}
 .nav-checkbox:checked + .nav-toggle:after {
   left: calc(100% - 5px);
   transform: translateX(-100%);
+
 }
+
 .nav-toggle:active:after {
-  width: 100px;
+  width: 60px;
+
 }
 .navbar-hamburger {
   display: none;

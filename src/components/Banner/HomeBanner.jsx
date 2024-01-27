@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import './homebanner.css';
 import { useTheme } from "../../context/ThemeContext";
@@ -20,12 +21,19 @@ import profile from '../../assets/Home/woman.png';
 import homeBannerUI from '../../assets/Home/homeBannerUI.png';
 import johnDoe from '../../assets/Home/johnDoe.png';
 
+=======
+// src/components/Banner/HomeBanner.js
+import React from "react";
+import doodleCollabGif from "../../assets/ReadMe/doodleCollab.gif";
+import "./homebanner.css";
+>>>>>>> c760fec6c9e6e9f29cb88c63367c9a950ba010d2
 
 const HomeBanner = () => {
 
   const { isDarkMode, toggleDarkMode } = useTheme();
 
   return (
+<<<<<<< HEAD
     <section className="homebanner-section">
         <div className="homebanner-container">
           <p className="homebanner-head">DoodleCollab</p>
@@ -140,3 +148,25 @@ const HomeBanner = () => {
 }
 
 export default HomeBanner
+=======
+    <div className="home-banner">
+      <br></br>
+      <br></br>
+      <img src={doodleCollabGif} alt="DoodleCollab" className="banner-image" />
+      <div className="banner-text">
+      </div>
+      <br></br>
+      <br></br>
+      <p style={{ fontFamily: 'Indie Flower', fontSize: '1.2rem', lineHeight: '1.5' }}>
+      <span style={{ color: 'purple' }}>DoodleCollab</span> is a <span style={{ color: 'red' }}>cutting-edge</span> application designed to <span style={{ color: 'blue' }}>transform</span> the
+          way we <span style={{ color: 'green' }}>collaborate</span>, offering an <span style={{ color: 'orange' }}>unparalleled</span> whiteboard and sharing experience.
+        </p>
+        <br></br>
+        <br></br>
+        <br></br>
+    </div>
+  );
+};
+
+export default HomeBanner;
+>>>>>>> c760fec6c9e6e9f29cb88c63367c9a950ba010d2

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .homebanner-container{
     font-family: sans-serif;
     text-align: center;
@@ -450,3 +451,30 @@
   color:#d1d2d4;
 }
 
+=======
+/* src/components/Banner/HomeBanner.css */
+.home-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 120px;
+  }
+  
+  .banner-image {
+    width: 800px; 
+    height: auto;
+  }
+  
+  .banner-text {
+    margin-top: 20px;
+    max-width: 800px;
+    text-align: center;
+  }
+
+  .banner-text p {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+  
+>>>>>>> c760fec6c9e6e9f29cb88c63367c9a950ba010d2

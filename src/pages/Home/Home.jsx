@@ -8,6 +8,7 @@ import FooterMenu from "../../components/NavFooter/FooterMenu";
 
 import { useTheme } from "../../context/ThemeContext";
 import "./home.css";
+import TrustDevelopers from "../../components/TrustDevelopers/TrustDevelopers";
 
 const Home = () => {
   const { isDarkMode, toggleDarkMode } = useTheme();
@@ -17,6 +18,7 @@ const Home = () => {
       className={`home-section ${isDarkMode ? "dark-mode" : "white-mode"}`}
     >
       <HomeBanner />
+      <TrustDevelopers />
       <HomeAbout />
       <JoinUs />
       <Faq />
