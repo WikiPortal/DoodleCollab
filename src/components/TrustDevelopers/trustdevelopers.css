@@ -1,0 +1,18 @@
+h5{
+    color: grey;
+}
+.trust-developers-container {
+    text-align: center;
+  }
+  
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .logo-container img {
+    width: 100px; 
+    margin: 0 55px; 
+  }
+  

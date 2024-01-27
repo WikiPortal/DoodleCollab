@@ -34,8 +34,7 @@ const HomeAbout = () => {
             <p>Why use DoodleCollab ?</p>
           </div>
           <div className="about-para">
-            Lorem ipsum is typically a corrupted version of De finibus bonorum
-            et malorum, a 1st-century BC text by the Roman statesman{" "}
+            DoodleCollab revolutionizes collaboration with intuitive whiteboard features and seamless real-time sharing.{" "}
           </div>
         </div>
         <div className="about-boxes">
@@ -45,10 +44,10 @@ const HomeAbout = () => {
               <b>Bring Ideas to Live</b>
             </div>
             <div className="box-text">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              has been the industrys
+              DoodleCollab empowers users to bring their ideas to life, fostering creativity and innovation.
             </div>
             <a href="#" className="box-link">
+              <br></br>
               See How
             </a>
           </div>
@@ -58,42 +57,39 @@ const HomeAbout = () => {
               <b>Component Templates</b>
             </div>
             <div className="box-text">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              has been the industrys
+              DoodleCollab provides a variety of customizable component templates, streamlining the creation process.
             </div>
-            <a href="#" className="box-link">
-              See How
-            </a>
+          <a href="#" className="box-link">
+            See How
+          </a>
+        </div>
+        <div className="about-box">
+          <img src={project} alt="project" />
+          <div className="box-head">
+            <b>Project Management</b>
           </div>
-          <div className="about-box">
-            <img src={project} alt="project" />
-            <div className="box-head">
-              <b>Project Management</b>
-            </div>
-            <div className="box-text">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              has been the industrys
-            </div>
-            <a href="#" className="box-link">
-              See How
-            </a>
+          <div className="box-text">
+            DoodleCollab offers project management tools, facilitating efficient organization, tracking, and coordination of tasks.
           </div>
-          <div className="about-box">
-            <img src={collaborate} alt="collaborate" />
-            <div className="box-head">
-              <b>Live Collaboration</b>
-            </div>
-            <div className="box-text">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              has been the industrys
-            </div>
-            <a href="#" className="box-link">
-              See How
-            </a>
+          <a href="#" className="box-link">
+            See How
+          </a>
+        </div>
+        <div className="about-box">
+          <img src={collaborate} alt="collaborate" />
+          <div className="box-head">
+            <b>Live Collaboration</b>
           </div>
+          <div className="box-text">
+            DoodleCollab enables live collaboration, allowing team members to work together, enhancing productivity.
+          </div>
+          <a href="#" className="box-link">
+            See How
+          </a>
         </div>
       </div>
-    </section>
+      </div>
+    </section >
   );
 };
 
