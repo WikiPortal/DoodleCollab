@@ -48,10 +48,10 @@ const HomeAbout = () => {
   const glowEffectStyles = (index) => ({
     boxShadow:
       hoveredBox === index
-        ? `0 0 10px 5px ${randomColor}, 0 0 10px 5px ${randomColor}`
+        ? `0 0 7px 5px ${randomColor}, 0 0 7px 5px ${randomColor}`
         : "none",
     transform: hoveredBox === index ? "translateY(-20px)" : "none",
-    transition: "all 0.2s ease-in-out",
+    transition: "all 0.3s ease-in-out",
   });
 
   useEffect(() => {
