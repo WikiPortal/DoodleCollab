@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Stage, Layer, Line } from "react-konva";
-import {  Stack,  Button,  Paper,  Slider,  Modal,  Select,  MenuItem,  IconButton,  Grid,  Input } from "@mui/material";
+import {  Stack,  Button,  Paper,  Slider,  Modal,  Select,  MenuItem,  IconButton,  Grid,  Input, Avatar } from "@mui/material";
 import { MuiColorInput } from "mui-color-input";
 import jsPDF from "jspdf";
 import {  FaEraser,  FaRedo,  FaRegTrashAlt,  FaSave,  FaUndo } from "react-icons/fa";
 import LoginRequired from "../LoginRequired/LoginRequired";
 import axios from "axios";
+import UserProfile from "../../components/UserProfile/UserProfile";
 
 const Sketchbook = () => {
   const [lines, setLines] = useState([]);
@@ -20,25 +21,26 @@ const Sketchbook = () => {
   const [ftype, setFtype] = useState("png");
   const [removedLines, setRemovedLines] = useState([]);
   const [loggedIn, setLoggedIn] = useState(true);
+  const [userData, setUserData] = useState({name: 'Doodle Collab', avatar: ''});
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if(!token) {
-      setLoggedIn(false);
-    } else {
-      axios.get("https://doodlecollab-backend.onrender.com/api/users/validateToken", {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      }).then(res => {
-        setLoggedIn(true);
-      }).catch(error => {
-        setLoggedIn(false);
-        localStorage.removeItem('token');
-      });
+  // useEffect(() => {
+  //   const token = localStorage.getItem('token');
+  //   if(!token) {
+  //     setLoggedIn(false);
+  //   } else {
+  //     axios.get("https://doodlecollab-backend.onrender.com/api/users/validateToken", {
+  //       headers: {
+  //         Authorization: `Bearer ${token}`
+  //       }
+  //     }).then(res => {
+  //       setLoggedIn(true);
+  //     }).catch(error => {
+  //       setLoggedIn(false);
+  //       localStorage.removeItem('token');
+  //     });
       
-    }
-  }, []);
+  //   }
+  // }, []);
 
   const handleMouseDown = (e) => {
     setRemovedLines([]);
@@ -166,10 +168,11 @@ const Sketchbook = () => {
           ))}
         </Layer>
       </Stage>
+      <UserProfile userName={userData.name} userAvatar={userData.avatar}/>
       <Paper
         style={{
           position: "fixed",
-          top: "15vh",
+          top: "25vh",
           left: "83vw",
           width: "10vw",
           display: "flex",
