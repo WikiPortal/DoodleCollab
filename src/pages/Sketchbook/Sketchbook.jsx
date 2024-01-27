@@ -23,24 +23,24 @@ const Sketchbook = () => {
   const [loggedIn, setLoggedIn] = useState(true);
   const [userData, setUserData] = useState({name: 'Doodle Collab', avatar: ''});
 
-  // useEffect(() => {
-  //   const token = localStorage.getItem('token');
-  //   if(!token) {
-  //     setLoggedIn(false);
-  //   } else {
-  //     axios.get("https://doodlecollab-backend.onrender.com/api/users/validateToken", {
-  //       headers: {
-  //         Authorization: `Bearer ${token}`
-  //       }
-  //     }).then(res => {
-  //       setLoggedIn(true);
-  //     }).catch(error => {
-  //       setLoggedIn(false);
-  //       localStorage.removeItem('token');
-  //     });
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if(!token) {
+      setLoggedIn(false);
+    } else {
+      axios.get("https://doodlecollab-backend.onrender.com/api/users/validateToken", {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }).then(res => {
+        setLoggedIn(true);
+      }).catch(error => {
+        setLoggedIn(false);
+        localStorage.removeItem('token');
+      });
       
-  //   }
-  // }, []);
+    }
+  }, []);
 
   const handleMouseDown = (e) => {
     setRemovedLines([]);
