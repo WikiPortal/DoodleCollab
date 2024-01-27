@@ -1,9 +1,13 @@
 .navbar {
   display: flex;
+  width: 100%;
+  height: 80px;
   align-items: center;
   justify-content: space-between;
   background-color: #ffffff;
+  border: 2px solid red;
   padding: 20px 20px;
+  box-sizing: border-box;
 }
 
 .navbar.dark-mode {
@@ -102,3 +106,88 @@
 .nav-toggle:active:after {
   width: 100px;
 }
+.navbar-hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger-line {
+  width: 30px;
+  height: 3px;
+  background-color: #fff;
+  margin: 3px 0;
+  transition: 0.4s;
+}
+
+.navbar-middle.show {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 20px 20px;
+    overflow: hidden;
+  }
+
+  .navbar-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .navbar-brand{
+    order: 1;
+    display: flex;
+    width: 150px;
+    height: 29px;
+    margin-left: -300px;
+    padding: 20px;
+    position: fixed;
+    z-index: 1;
+  }
+  .navbar-middle {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    display: none;
+  }
+
+  .nav-items {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .nav-item {
+    margin: 10px 0;
+  }
+
+  .nav-signup {
+    margin: 10px 0;
+  }
+
+  .navbar-right {
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .nav-toggle {
+    width: 50px;
+    height: 30px;
+    display:none;
+  }
+  .navbar-hamburger {
+    display: flex;
+    order: 2;
+  }
+  .navbar-middle.show {
+    display: flex;
+  }
+
+
+}
+
+

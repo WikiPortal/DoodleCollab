@@ -1,0 +1,90 @@
+/* footermenu.css */
+
+.footermenu-section {
+    padding: 0px;
+    display: flex;
+    flex-direction: column; /* Change to column layout for vertical alignment */
+    align-items: center;
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap; /* Allow nav items to wrap to the next line */
+    justify-content: flex-start; /* Center nav items horizontally */
+  }
+  
+  nav li {
+    margin-right: 0px;
+  }
+  
+  nav p {
+    margin-left: 70px;
+    margin-bottom: -40px;
+    margin-top: 60px;
+    font-weight: 700;
+    font-size: 20px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    font-weight:600;
+    font-size: 14px;
+  }
+  
+ 
+  .topics{
+    margin: 70px;
+  }
+  .topics ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Display topics in a column layout */
+  }
+  
+  .topics li {
+    margin-bottom: 10px; /* Adjust the spacing between topics */
+  }
+  
+  .topics a {
+    text-decoration: none;
+  }
+  .footer-content {
+    display: flex;
+    flex-direction: column; /* Align the topics vertically */
+    align-items: flex-end;
+    padding: 20px;
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .footer-icons {
+    display: flex;
+    align-items: center; 
+    width: 303px;/* Align items vertically in the center */
+    height: 50px;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  
+  .footer-icons ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    cursor: pointer;
+  }
+  
+  .footer-icons li {
+    margin-right: 10px;
+    margin-left: 10px;
+    height: 50px; /* Adjust the spacing between icons */
+  }
+  .footer-icons li svg {
+    height: 20px; 
+    width: 20px;
+  }
+ 
