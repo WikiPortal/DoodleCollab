@@ -1,0 +1,67 @@
+version: api.keploy.io/v1beta1
+kind: Http
+name: test-5
+spec:
+    metadata: {}
+    req:
+        method: POST
+        proto_major: 1
+        proto_minor: 1
+        url: http://localhost:5000/api/users/register
+        header:
+            Accept: '*/*'
+            Accept-Encoding: gzip, deflate, br
+            Connection: close
+            Content-Length: "70"
+            Content-Type: application/json
+            Host: localhost:5000
+            User-Agent: Thunder Client (https://www.thunderclient.com)
+        body: |-
+            {
+              "name":"ankanroy",
+              "email":"proper@gmail.com",
+              "password":""
+            }
+        body_type: ""
+        timestamp: 2024-01-27T18:52:50.352476489+05:30
+        host: ""
+    resp:
+        status_code: 400
+        header:
+            Access-Control-Allow-Credentials: "true"
+            Access-Control-Allow-Origin: https://doodlecollab.vercel.app
+            Content-Length: "167"
+            Content-Type: application/json; charset=utf-8
+            Date: Sat, 27 Jan 2024 13:22:50 GMT
+            Etag: W/"a7-dRUKP79lCfIk6Bsbt/VFflj8OHA"
+            Vary: Origin
+            X-Powered-By: Express
+            X-Ratelimit-Limit: "20"
+            X-Ratelimit-Remaining: "15"
+            X-Ratelimit-Reset: "1706362557"
+        body: '{"message":"Invalid Inputs","error":{"errors":[{"type":"field","value":"","msg":"Password must have a minimum of 6 characters!","path":"password","location":"body"}]}}'
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 2024-01-27T18:52:50.354675688+05:30
+    objects: []
+    assertions:
+        noise:
+            header.Date: []
+            header.X-Ratelimit-Reset: []
+    created: 1706361772
+curl: |-
+    curl --request POST \
+      --url http://localhost:5000/api/users/register \
+      --header 'Host: localhost:5000' \
+      --header 'Connection: close' \
+      --header 'Accept-Encoding: gzip, deflate, br' \
+      --header 'Accept: */*' \
+      --header 'User-Agent: Thunder Client (https://www.thunderclient.com)' \
+      --header 'Content-Type: application/json' \
+      --data '{
+      "name":"ankanroy",
+      "email":"proper@gmail.com",
+      "password":""
+    }'

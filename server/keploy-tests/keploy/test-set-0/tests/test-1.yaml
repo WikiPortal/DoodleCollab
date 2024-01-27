@@ -1,0 +1,67 @@
+version: api.keploy.io/v1beta1
+kind: Http
+name: test-1
+spec:
+    metadata: {}
+    req:
+        method: POST
+        proto_major: 1
+        proto_minor: 1
+        url: http://localhost:5000/api/users/register
+        header:
+            Accept: '*/*'
+            Accept-Encoding: gzip, deflate, br
+            Connection: close
+            Content-Length: "85"
+            Content-Type: application/json
+            Host: localhost:5000
+            User-Agent: Thunder Client (https://www.thunderclient.com)
+        body: |-
+            {
+              "name":"ankan roy",
+              "email":"git8ankanroy@gmail.com",
+              "password":"asdfasdf"
+            }
+        body_type: ""
+        timestamp: 2024-01-27T18:50:56.478603972+05:30
+        host: ""
+    resp:
+        status_code: 201
+        header:
+            Access-Control-Allow-Credentials: "true"
+            Access-Control-Allow-Origin: https://doodlecollab.vercel.app
+            Content-Length: "114"
+            Content-Type: application/json; charset=utf-8
+            Date: Sat, 27 Jan 2024 13:20:56 GMT
+            Etag: W/"72-+j5sydRj+fNm/eVeQMQDKP5NVGI"
+            Vary: Origin
+            X-Powered-By: Express
+            X-Ratelimit-Limit: "20"
+            X-Ratelimit-Remaining: "19"
+            X-Ratelimit-Reset: "1706362557"
+        body: '{"_id":"65b50338c6e4465b9b7f93a7","name":"ankan roy","email":"git8ankanroy@gmail.com","message":"User registered"}'
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 2024-01-27T18:50:56.586350377+05:30
+    objects: []
+    assertions:
+        noise:
+            header.Date: []
+            header.X-Ratelimit-Reset: []
+    created: 1706361658
+curl: |-
+    curl --request POST \
+      --url http://localhost:5000/api/users/register \
+      --header 'Accept-Encoding: gzip, deflate, br' \
+      --header 'Accept: */*' \
+      --header 'User-Agent: Thunder Client (https://www.thunderclient.com)' \
+      --header 'Content-Type: application/json' \
+      --header 'Host: localhost:5000' \
+      --header 'Connection: close' \
+      --data '{
+      "name":"ankan roy",
+      "email":"git8ankanroy@gmail.com",
+      "password":"asdfasdf"
+    }'

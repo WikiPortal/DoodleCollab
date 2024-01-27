@@ -1,0 +1,401 @@
+version: api.keploy.io/v1beta1
+name: report-1
+status: PASSED
+success: 6
+failure: 0
+total: 6
+tests:
+    - kind: Http
+      name: report-1
+      status: PASSED
+      started: 1706361862
+      completed: 1706361862
+      test_case_path: /home/goku/respository/DoodleCollab/server/keploy-tests/keploy/test-set-0
+      mock_path: ""
+      test_case_id: test-1
+      req:
+        method: POST
+        proto_major: 1
+        proto_minor: 1
+        url: http://localhost:5000/api/users/register
+        header:
+            Accept: '*/*'
+            Accept-Encoding: gzip, deflate, br
+            Connection: close
+            Content-Length: "85"
+            Content-Type: application/json
+            Host: localhost:5000
+            User-Agent: Thunder Client (https://www.thunderclient.com)
+        body: |-
+            {
+              "name":"ankan roy",
+              "email":"git8ankanroy@gmail.com",
+              "password":"asdfasdf"
+            }
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+        host: ""
+      resp:
+        status_code: 201
+        header:
+            Access-Control-Allow-Credentials: "true"
+            Access-Control-Allow-Origin: https://doodlecollab.vercel.app
+            Content-Length: "114"
+            Content-Type: application/json; charset=utf-8
+            Date: Sat, 27 Jan 2024 13:20:56 GMT
+            Etag: W/"72-+j5sydRj+fNm/eVeQMQDKP5NVGI"
+            Vary: Origin
+            X-Powered-By: Express
+            X-Ratelimit-Limit: "20"
+            X-Ratelimit-Remaining: "19"
+            X-Ratelimit-Reset: "1706362557"
+        body: '{"_id":"65b50338c6e4465b9b7f93a7","name":"ankan roy","email":"git8ankanroy@gmail.com","message":"User registered"}'
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+      noise:
+        header.Date: []
+        header.X-Ratelimit-Reset: []
+      result:
+        status_code:
+            normal: false
+            expected: 201
+            actual: 201
+        headers_result: []
+        body_result:
+            - normal: false
+              type: JSON
+              expected: '{"_id":"65b50338c6e4465b9b7f93a7","name":"ankan roy","email":"git8ankanroy@gmail.com","message":"User registered"}'
+              actual: '{"_id":"65b5040677cb920c03d6a350","name":"ankan roy","email":"git8ankanroy@gmail.com","message":"User registered"}'
+        dep_result: []
+    - kind: Http
+      name: report-1
+      status: PASSED
+      started: 1706361862
+      completed: 1706361862
+      test_case_path: /home/goku/respository/DoodleCollab/server/keploy-tests/keploy/test-set-0
+      mock_path: ""
+      test_case_id: test-2
+      req:
+        method: POST
+        proto_major: 1
+        proto_minor: 1
+        url: http://localhost:5000/api/users/register
+        header:
+            Accept: '*/*'
+            Accept-Encoding: gzip, deflate, br
+            Connection: close
+            Content-Length: "84"
+            Content-Type: application/json
+            Host: localhost:5000
+            User-Agent: Thunder Client (https://www.thunderclient.com)
+        body: |-
+            {
+              "name":"samey bro",
+              "email":"samAltman@gmail.com",
+              "password":"1234567890"
+            }
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+        host: ""
+      resp:
+        status_code: 201
+        header:
+            Access-Control-Allow-Credentials: "true"
+            Access-Control-Allow-Origin: https://doodlecollab.vercel.app
+            Content-Length: "111"
+            Content-Type: application/json; charset=utf-8
+            Date: Sat, 27 Jan 2024 13:21:18 GMT
+            Etag: W/"6f-BcyOrE7Q/e5UtYAcrHSwFPgphc0"
+            Vary: Origin
+            X-Powered-By: Express
+            X-Ratelimit-Limit: "20"
+            X-Ratelimit-Remaining: "18"
+            X-Ratelimit-Reset: "1706362557"
+        body: '{"_id":"65b5034ec6e4465b9b7f93aa","name":"samey bro","email":"samAltman@gmail.com","message":"User registered"}'
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+      noise:
+        header.Date: []
+        header.X-Ratelimit-Reset: []
+      result:
+        status_code:
+            normal: false
+            expected: 201
+            actual: 201
+        headers_result: []
+        body_result:
+            - normal: false
+              type: JSON
+              expected: '{"_id":"65b5034ec6e4465b9b7f93aa","name":"samey bro","email":"samAltman@gmail.com","message":"User registered"}'
+              actual: '{"_id":"65b5040677cb920c03d6a353","name":"samey bro","email":"samAltman@gmail.com","message":"User registered"}'
+        dep_result: []
+    - kind: Http
+      name: report-1
+      status: PASSED
+      started: 1706361862
+      completed: 1706361862
+      test_case_path: /home/goku/respository/DoodleCollab/server/keploy-tests/keploy/test-set-0
+      mock_path: ""
+      test_case_id: test-3
+      req:
+        method: POST
+        proto_major: 1
+        proto_minor: 1
+        url: http://localhost:5000/api/users/register
+        header:
+            Accept: '*/*'
+            Accept-Encoding: gzip, deflate, br
+            Connection: close
+            Content-Length: "71"
+            Content-Type: application/json
+            Host: localhost:5000
+            User-Agent: Thunder Client (https://www.thunderclient.com)
+        body: |-
+            {
+              "name":"ankan roy",
+              "email":"error",
+              "password":"ankanroy@90"
+            }
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+        host: ""
+      resp:
+        status_code: 400
+        header:
+            Access-Control-Allow-Credentials: "true"
+            Access-Control-Allow-Origin: https://doodlecollab.vercel.app
+            Content-Length: "145"
+            Content-Type: application/json; charset=utf-8
+            Date: Sat, 27 Jan 2024 13:21:49 GMT
+            Etag: W/"91-cQg405mELFZUM3tXAiel8zKv6Mw"
+            Vary: Origin
+            X-Powered-By: Express
+            X-Ratelimit-Limit: "20"
+            X-Ratelimit-Remaining: "17"
+            X-Ratelimit-Reset: "1706362557"
+        body: '{"message":"Invalid Inputs","error":{"errors":[{"type":"field","value":"error","msg":"Invalid email address","path":"email","location":"body"}]}}'
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+      noise:
+        header.Date: []
+        header.X-Ratelimit-Reset: []
+      result:
+        status_code:
+            normal: false
+            expected: 400
+            actual: 400
+        headers_result: []
+        body_result:
+            - normal: false
+              type: JSON
+              expected: '{"message":"Invalid Inputs","error":{"errors":[{"type":"field","value":"error","msg":"Invalid email address","path":"email","location":"body"}]}}'
+              actual: '{"message":"Invalid Inputs","error":{"errors":[{"type":"field","value":"error","msg":"Invalid email address","path":"email","location":"body"}]}}'
+        dep_result: []
+    - kind: Http
+      name: report-1
+      status: PASSED
+      started: 1706361862
+      completed: 1706361862
+      test_case_path: /home/goku/respository/DoodleCollab/server/keploy-tests/keploy/test-set-0
+      mock_path: ""
+      test_case_id: test-4
+      req:
+        method: POST
+        proto_major: 1
+        proto_minor: 1
+        url: http://localhost:5000/api/users/register
+        header:
+            Accept: '*/*'
+            Accept-Encoding: gzip, deflate, br
+            Connection: close
+            Content-Length: "74"
+            Content-Type: application/json
+            Host: localhost:5000
+            User-Agent: Thunder Client (https://www.thunderclient.com)
+        body: |-
+            {
+              "name":"",
+              "email":"proper@gmail.com",
+              "password":"somethign#09"
+            }
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+        host: ""
+      resp:
+        status_code: 400
+        header:
+            Access-Control-Allow-Credentials: "true"
+            Access-Control-Allow-Origin: https://doodlecollab.vercel.app
+            Content-Length: "135"
+            Content-Type: application/json; charset=utf-8
+            Date: Sat, 27 Jan 2024 13:22:30 GMT
+            Etag: W/"87-/ll+IbnVkUgrQ3SIyAAeCyjPVeg"
+            Vary: Origin
+            X-Powered-By: Express
+            X-Ratelimit-Limit: "20"
+            X-Ratelimit-Remaining: "16"
+            X-Ratelimit-Reset: "1706362557"
+        body: '{"message":"Invalid Inputs","error":{"errors":[{"type":"field","value":"","msg":"Name is required!","path":"name","location":"body"}]}}'
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+      noise:
+        header.Date: []
+        header.X-Ratelimit-Reset: []
+      result:
+        status_code:
+            normal: false
+            expected: 400
+            actual: 400
+        headers_result: []
+        body_result:
+            - normal: false
+              type: JSON
+              expected: '{"message":"Invalid Inputs","error":{"errors":[{"type":"field","value":"","msg":"Name is required!","path":"name","location":"body"}]}}'
+              actual: '{"message":"Invalid Inputs","error":{"errors":[{"type":"field","value":"","msg":"Name is required!","path":"name","location":"body"}]}}'
+        dep_result: []
+    - kind: Http
+      name: report-1
+      status: PASSED
+      started: 1706361862
+      completed: 1706361862
+      test_case_path: /home/goku/respository/DoodleCollab/server/keploy-tests/keploy/test-set-0
+      mock_path: ""
+      test_case_id: test-5
+      req:
+        method: POST
+        proto_major: 1
+        proto_minor: 1
+        url: http://localhost:5000/api/users/register
+        header:
+            Accept: '*/*'
+            Accept-Encoding: gzip, deflate, br
+            Connection: close
+            Content-Length: "70"
+            Content-Type: application/json
+            Host: localhost:5000
+            User-Agent: Thunder Client (https://www.thunderclient.com)
+        body: |-
+            {
+              "name":"ankanroy",
+              "email":"proper@gmail.com",
+              "password":""
+            }
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+        host: ""
+      resp:
+        status_code: 400
+        header:
+            Access-Control-Allow-Credentials: "true"
+            Access-Control-Allow-Origin: https://doodlecollab.vercel.app
+            Content-Length: "167"
+            Content-Type: application/json; charset=utf-8
+            Date: Sat, 27 Jan 2024 13:22:50 GMT
+            Etag: W/"a7-dRUKP79lCfIk6Bsbt/VFflj8OHA"
+            Vary: Origin
+            X-Powered-By: Express
+            X-Ratelimit-Limit: "20"
+            X-Ratelimit-Remaining: "15"
+            X-Ratelimit-Reset: "1706362557"
+        body: '{"message":"Invalid Inputs","error":{"errors":[{"type":"field","value":"","msg":"Password must have a minimum of 6 characters!","path":"password","location":"body"}]}}'
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+      noise:
+        header.Date: []
+        header.X-Ratelimit-Reset: []
+      result:
+        status_code:
+            normal: false
+            expected: 400
+            actual: 400
+        headers_result: []
+        body_result:
+            - normal: false
+              type: JSON
+              expected: '{"message":"Invalid Inputs","error":{"errors":[{"type":"field","value":"","msg":"Password must have a minimum of 6 characters!","path":"password","location":"body"}]}}'
+              actual: '{"message":"Invalid Inputs","error":{"errors":[{"type":"field","value":"","msg":"Password must have a minimum of 6 characters!","path":"password","location":"body"}]}}'
+        dep_result: []
+    - kind: Http
+      name: report-1
+      status: PASSED
+      started: 1706361862
+      completed: 1706361862
+      test_case_path: /home/goku/respository/DoodleCollab/server/keploy-tests/keploy/test-set-0
+      mock_path: ""
+      test_case_id: test-6
+      req:
+        method: POST
+        proto_major: 1
+        proto_minor: 1
+        url: http://localhost:5000/api/users/register
+        header:
+            Accept: '*/*'
+            Accept-Encoding: gzip, deflate, br
+            Connection: close
+            Content-Length: "46"
+            Content-Type: application/json
+            Host: localhost:5000
+            User-Agent: Thunder Client (https://www.thunderclient.com)
+        body: |-
+            {
+              "name":"",
+              "email":"",
+              "password":""
+            }
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+        host: ""
+      resp:
+        status_code: 400
+        header:
+            Access-Control-Allow-Credentials: "true"
+            Access-Control-Allow-Origin: https://doodlecollab.vercel.app
+            Content-Length: "344"
+            Content-Type: application/json; charset=utf-8
+            Date: Sat, 27 Jan 2024 13:23:06 GMT
+            Etag: W/"158-q283mX7bl4LggsB44tQv+H6tvlM"
+            Vary: Origin
+            X-Powered-By: Express
+            X-Ratelimit-Limit: "20"
+            X-Ratelimit-Remaining: "14"
+            X-Ratelimit-Reset: "1706362557"
+        body: '{"message":"Invalid Inputs","error":{"errors":[{"type":"field","value":"","msg":"Name is required!","path":"name","location":"body"},{"type":"field","value":"","msg":"Invalid email address","path":"email","location":"body"},{"type":"field","value":"","msg":"Password must have a minimum of 6 characters!","path":"password","location":"body"}]}}'
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+      noise:
+        body.error.errors.location: []
+        body.error.errors.path: []
+        body.error.errors.type: []
+        header.Date: []
+        header.X-Ratelimit-Reset: []
+      result:
+        status_code:
+            normal: false
+            expected: 400
+            actual: 400
+        headers_result: []
+        body_result:
+            - normal: false
+              type: JSON
+              expected: '{"message":"Invalid Inputs","error":{"errors":[{"type":"field","value":"","msg":"Name is required!","path":"name","location":"body"},{"type":"field","value":"","msg":"Invalid email address","path":"email","location":"body"},{"type":"field","value":"","msg":"Password must have a minimum of 6 characters!","path":"password","location":"body"}]}}'
+              actual: '{"message":"Invalid Inputs","error":{"errors":[{"type":"field","value":"","msg":"Name is required!","path":"name","location":"body"},{"type":"field","value":"","msg":"Invalid email address","path":"email","location":"body"},{"type":"field","value":"","msg":"Password must have a minimum of 6 characters!","path":"password","location":"body"}]}}'
+        dep_result: []
+test_set: test-set-0
