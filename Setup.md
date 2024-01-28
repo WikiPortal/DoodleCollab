@@ -76,7 +76,7 @@ npm install
 npm start
 ```
 
-Visit [http://localhost:5000](http://localhost:5000) in your browser to run the server of the app.
+Visit [https://doodlecollab-backend.onrender.com](https://doodlecollab-backend.onrender.com) in your browser to run the server of the app.
 
 ---
 

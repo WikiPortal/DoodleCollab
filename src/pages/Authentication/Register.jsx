@@ -12,20 +12,21 @@ import {
   MailIcon,
   NameIcon,
 } from "../../assets/RegisterIcons";
+import { useTheme } from "../../context/ThemeContext";
+import "./auth.css";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const { isDarkMode } = useTheme();
 
   const navigate = useNavigate();
 
   useEffect(() => fetchUsers(), []);
   const fetchUsers = () => {
-    axios
-      .get("https://doodlecollab-backend.onrender.com/api/users/register")
-      .then((res) => {
-        console.log(res.data);
-      });
+    axios.get("https://doodlecollab-backend.onrender.com/api/users/register").then((res) => {
+      console.log(res.data);
+    });
   };
   const {
     register,
@@ -36,14 +37,11 @@ const Register = () => {
 
   const onSubmit = handleSubmit(async (data) => {
     try {
-      await axios.post(
-        "https://doodlecollab-backend.onrender.com/api/users/register",
-        {
-          name: data.username,
-          email: data.email,
-          password: data.password,
-        }
-      );
+      await axios.post("https://doodlecollab-backend.onrender.com/api/users/register", {
+        name: data.username,
+        email: data.email,
+        password: data.password,
+      });
       alert("Registration Successful!");
       fetchUsers();
       navigate("/login");
@@ -54,37 +52,23 @@ const Register = () => {
   });
 
   return (
-    <div
-      className="w-full max-h-[89vh] flex justify-between"
+    <section
+      className={`auth-section ${isDarkMode ? "dark-mode" : "white-mode"}`}
       onSubmit={onSubmit}
     >
-      <div className="w-2/5">
-        <img
-          src={registerImg}
-          alt=""
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-        />
+      <div className="auth-img">
+        <img src={registerImg} alt="registration image" />
       </div>
-      <div className="w-3/5 bg-gray-50 p-2">
-        <form className="flex flex-col items-center">
-          <h1 className="text-4xl font-bold mt-4 text-left w-1/2">
-            Create New Account
-          </h1>
-          <span className="my-4 font-semibold text-left w-1/2">
-            Please fill out the form below. All fields are required.
-          </span>
-          <hr className="border-t-2 border-gray-200 my-5 w-1/2" />
+      <div className="auth-right">
+        <form className="auth-form">
+          <h1>Create New Account</h1>
+          <span>Please fill out the form below. All fields are required.</span>
+          <hr />
 
-          <div className="relative w-1/2">
-            <div className="absolute top-2 left-2 mt-1">
-              <MailIcon />
-            </div>
+          <div className="auth-textbox">
+            <MailIcon className="auth-icon" />
             <input
               type="email"
-              className="border py-2 px-4 font-normal w-full bg-[#f4f4f4] border-none pl-10"
-              style={{
-                fontWeight: "normal",
-              }}
               placeholder="Email Address"
               {...register("email", {
                 required: "Email is required",
@@ -96,20 +80,12 @@ const Register = () => {
             />
           </div>
           {errors.email && (
-            <span className="text-red-500 text-left ml-4 font-semibold w-1/2">
-              {errors.email.message}
-            </span>
+            <span className="error-message">{errors.email.message}</span>
           )}
-          <div className="relative w-1/2">
-            <div className="absolute top-2 left-2 mt-4">
-              <UsernameIcon />
-            </div>
+          <div className="auth-textbox">
+            <UsernameIcon className="auth-icon" />
             <input
               type="text"
-              className="border py-2 px-4 font-normal w-full rounded-lg bg-[#f4f4f4] border-none pl-10 mt-4"
-              style={{
-                fontWeight: "normal",
-              }}
               placeholder="Username"
               {...register("username", {
                 required: "Username is required",
@@ -118,37 +94,23 @@ const Register = () => {
           </div>
 
           {errors.username && (
-            <span className="text-red-500 text-left ml-4 font-semibold w-1/2">
-              {errors.username.message}
-            </span>
+            <span className="error-message">{errors.username.message}</span>
           )}
-          <div className="flex w-1/2 mt-4">
-            <div className="relative w-1/2 mr-1">
-              <div className="absolute top-[10px] left-2">
-                <NameIcon />
-              </div>
+          <div className="auth-namesec">
+            <div className="auth-textbox">
+              <NameIcon className="auth-icon" />
               <input
                 type="text"
-                className="border py-2 px-4 font-normal w-full rounded-lg bg-[#f4f4f4] border-none pl-9"
-                style={{
-                  fontWeight: "normal",
-                }}
                 placeholder="Firstname"
                 {...register("firstName", {
                   required: "First Name is required",
                 })}
               />
             </div>
-            <div className="relative w-1/2 ml-1">
-              <div className="absolute top-[10px] left-2">
-                <NameIcon />
-              </div>
+            <div className="auth-textbox">
+              <NameIcon className="auth-icon" />
               <input
                 type="text"
-                className="border py-2 px-4 font-normal w-full rounded-lg bg-[#f4f4f4] border-none pl-9"
-                style={{
-                  fontWeight: "normal",
-                }}
                 placeholder="Lastname"
                 {...register("lastName", {
                   required: "Last Name is required",
@@ -157,24 +119,14 @@ const Register = () => {
             </div>
           </div>
           {errors.firstName && errors.lastName ? (
-            <span className="text-red-500 text-left ml-4 font-semibold w-1/2">
-              {errors.firstName.message}
-            </span>
+            <span className="error-message">{errors.firstName.message}</span>
           ) : errors.lastName ? (
-            <span className="text-red-500 text-left ml-4 font-semibold w-1/2">
-              {errors.lastName.message}
-            </span>
+            <span className="error-message">{errors.lastName.message}</span>
           ) : null}
-          <div className="relative w-1/2">
-            <div className="absolute top-2 left-2 mt-4">
-              <PasswordIcon />
-            </div>
+          <div className="auth-textbox">
+            <PasswordIcon className="auth-icon" />
             <input
               type={showPassword ? "text" : "password"}
-              className="border py-2 px-4 font-normal w-full rounded-lg bg-[#f4f4f4] border-none mt-4 pl-9"
-              style={{
-                fontWeight: "normal",
-              }}
               placeholder="Password"
               {...register("password", {
                 required: "Password is required",
@@ -186,27 +138,18 @@ const Register = () => {
             />
             <button
               type="button"
-              className="absolute top-2/3 right-4 transform -translate-y-1/2"
               onClick={() => setShowPassword(!showPassword)}
             >
               {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
             </button>
           </div>
           {errors.password && (
-            <span className="text-red-500 text-left ml-4 font-semibold w-1/2">
-              {errors.password.message}
-            </span>
+            <span className="error-message">{errors.password.message}</span>
           )}
-          <div className="relative w-1/2">
-            <div className="absolute top-2 left-2 mt-4">
-              <PasswordIcon />
-            </div>
+          <div className="auth-textbox">
+            <PasswordIcon className="auth-icon" />
             <input
               type={showConfirmPassword ? "text" : "password"}
-              className="border py-2 px-4 font-normal w-full rounded-lg bg-[#f4f4f4] border-none mt-4 pl-8"
-              style={{
-                fontWeight: "normal",
-              }}
               placeholder="Confirm Password"
               {...register("confirmPassword", {
                 validate: (value) => {
@@ -220,68 +163,47 @@ const Register = () => {
             />
             <button
               type="button"
-              className="absolute top-2/3 right-4 transform -translate-y-1/2"
               onClick={() => setShowConfirmPassword(!showConfirmPassword)}
             >
               {showConfirmPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
             </button>
           </div>
           {errors.confirmPassword && (
-            <span className="text-red-500 text-left ml-4 font-semibold w-1/2">
+            <span className="error-message">
               {errors.confirmPassword.message}
             </span>
           )}
-          <span className="text-left text-sm w-1/2 font-semibold my-1">
-            Minimum 8 characters for secure password.
-          </span>
-          <label className="cursor-pointer mt-4 text-left w-1/2 font-semibold">
-            <input
-              type="checkbox"
-              {...register("agree", {
-                required: "Please agree to the Terms and Privacy Policy",
-              })}
-              className="mr-2"
-            />
-            <span className="text-[#6f767e]">
-              I agree to{" "}
-              <span className="underline text-black font-bold">
-                DoodleCollab Terms
-              </span>{" "}
-              and{" "}
-              <span className="underline text-black font-bold">
-                Privacy Policy
+          <div className="auth-miscellaneous">
+            <span>Minimum 8 characters for secure password.</span>
+            <label className="auth-checkbox">
+              <input
+                type="checkbox"
+                {...register("agree", {
+                  required: "Please agree to the Terms and Privacy Policy",
+                })}
+              />
+              <span>
+                I agree to <span className="auth-link">DoodleCollab Terms</span>{" "}
+                and <span className="auth-link">Privacy Policy</span>
               </span>
+            </label>
+
+            {errors.agree && (
+              <span className="error-message">{errors.agree.message}</span>
+            )}
+            <button className="auth-btn" type="submit">
+              <p>Create Account</p>
+            </button>
+            <span>
+              Already a member?{" "}
+              <Link className="auth-link" to="/login">
+                Sign in
+              </Link>
             </span>
-          </label>
-          {errors.agree && (
-            <span className="text-red-500 text-left ml-4 font-semibold w-1/2">
-              {errors.agree.message}
-            </span>
-          )}
-          <button
-            className="bg-black text-white font-semibold w-1/2 p-2 m-3 rounded-lg"
-            type="submit"
-          >
-            Create Account
-          </button>
-          <span className="text-sm mx-auto text-left w-1/2 my-1">
-            Already a member?{" "}
-            <Link
-              className="font-semibold underline cursor-pointer"
-              to="/login"
-            >
-              Sign in
-            </Link>
-          </span>
-          <span className="text-sm mx-auto text-left w-1/2">
-            Looking to find your link?{" "}
-            <Link className="font-semibold cursor-pointer" to="/">
-              Click here to find it
-            </Link>
-          </span>
+          </div>
         </form>
       </div>
-    </div>
+    </section>
   );
 };
 
