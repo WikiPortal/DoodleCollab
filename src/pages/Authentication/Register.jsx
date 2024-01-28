@@ -6,6 +6,13 @@ import registerImg from "../../assets/register.jpg";
 import { Link } from "react-router-dom";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import {
+  UsernameIcon,
+  PasswordIcon,
+  MailIcon,
+  NameIcon,
+} from "../../assets/RegisterIcons";
+
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -58,72 +65,96 @@ const Register = () => {
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
       </div>
-      <div className="w-3/5 bg-gray-50">
+      <div className="w-3/5 bg-gray-50 p-2">
         <form className="flex flex-col items-center">
-          <h1 className="text-4xl font-bold mt-4">Create New Account</h1>
-          <span className="my-2 font-semibold">
+          <h1 className="text-4xl font-bold mt-4 text-left w-1/2">
+            Create New Account
+          </h1>
+          <span className="my-4 font-semibold text-left w-1/2">
             Please fill out the form below. All fields are required.
           </span>
           <hr className="border-t-2 border-gray-200 my-5 w-1/2" />
-          <input
-            type="email"
-            className="border py-2 px-4 font-normal w-1/2 rounded-lg bg-gray-200 border-none"
-            style={{
-              fontWeight: "normal",
-            }}
-            placeholder="Email Address"
-            {...register("email", {
-              required: "Email is required",
-              pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                message: "Invalid email address",
-              },
-            })}
-          />
+
+          <div className="relative w-1/2">
+            <div className="absolute top-2 left-2 mt-1">
+              <MailIcon />
+            </div>
+            <input
+              type="email"
+              className="border py-2 px-4 font-normal w-full bg-[#f4f4f4] border-none pl-10"
+              style={{
+                fontWeight: "normal",
+              }}
+              placeholder="Email Address"
+              {...register("email", {
+                required: "Email is required",
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                  message: "Invalid email address",
+                },
+              })}
+            />
+          </div>
           {errors.email && (
             <span className="text-red-500 text-left ml-4 font-semibold w-1/2">
               {errors.email.message}
             </span>
           )}
-          <input
-            type="text"
-            className="border py-2 px-4 font-normal w-1/2 rounded-lg bg-gray-200 border-none mt-4"
-            style={{
-              fontWeight: "normal",
-            }}
-            placeholder="Username"
-            {...register("username", {
-              required: "Username is required",
-            })}
-          />
+          <div className="relative w-1/2">
+            <div className="absolute top-2 left-2 mt-4">
+              <UsernameIcon />
+            </div>
+            <input
+              type="text"
+              className="border py-2 px-4 font-normal w-full rounded-lg bg-[#f4f4f4] border-none pl-10 mt-4"
+              style={{
+                fontWeight: "normal",
+              }}
+              placeholder="Username"
+              {...register("username", {
+                required: "Username is required",
+              })}
+            />
+          </div>
+
           {errors.username && (
             <span className="text-red-500 text-left ml-4 font-semibold w-1/2">
               {errors.username.message}
             </span>
           )}
           <div className="flex w-1/2 mt-4">
-            <input
-              type="text"
-              className="border py-2 px-4 font-normal w-1/2 rounded-lg bg-gray-200 border-none mr-1"
-              style={{
-                fontWeight: "normal",
-              }}
-              placeholder="Firstname"
-              {...register("firstName", {
-                required: "First Name is required",
-              })}
-            />
-            <input
-              type="text"
-              className="border py-2 px-4 font-normal w-1/2  rounded-lg bg-gray-200 border-none ml-1"
-              style={{
-                fontWeight: "normal",
-              }}
-              placeholder="Lastname"
-              {...register("lastName", {
-                required: "Last Name is required",
-              })}
-            />
+            <div className="relative w-1/2 mr-1">
+              <div className="absolute top-[10px] left-2">
+                <NameIcon />
+              </div>
+              <input
+                type="text"
+                className="border py-2 px-4 font-normal w-full rounded-lg bg-[#f4f4f4] border-none pl-9"
+                style={{
+                  fontWeight: "normal",
+                }}
+                placeholder="Firstname"
+                {...register("firstName", {
+                  required: "First Name is required",
+                })}
+              />
+            </div>
+            <div className="relative w-1/2 ml-1">
+              <div className="absolute top-[10px] left-2">
+                <NameIcon />
+              </div>
+              <input
+                type="text"
+                className="border py-2 px-4 font-normal w-full rounded-lg bg-[#f4f4f4] border-none pl-9"
+                style={{
+                  fontWeight: "normal",
+                }}
+                placeholder="Lastname"
+                {...register("lastName", {
+                  required: "Last Name is required",
+                })}
+              />
+            </div>
           </div>
           {errors.firstName && errors.lastName ? (
             <span className="text-red-500 text-left ml-4 font-semibold w-1/2">
@@ -135,9 +166,12 @@ const Register = () => {
             </span>
           ) : null}
           <div className="relative w-1/2">
+            <div className="absolute top-2 left-2 mt-4">
+              <PasswordIcon />
+            </div>
             <input
               type={showPassword ? "text" : "password"}
-              className="border py-2 px-4 font-normal w-full rounded-lg bg-gray-200 border-none mt-4"
+              className="border py-2 px-4 font-normal w-full rounded-lg bg-[#f4f4f4] border-none mt-4 pl-9"
               style={{
                 fontWeight: "normal",
               }}
@@ -164,9 +198,12 @@ const Register = () => {
             </span>
           )}
           <div className="relative w-1/2">
+            <div className="absolute top-2 left-2 mt-4">
+              <PasswordIcon />
+            </div>
             <input
               type={showConfirmPassword ? "text" : "password"}
-              className="border py-2 px-4 font-normal w-full rounded-lg bg-gray-200 border-none mt-4"
+              className="border py-2 px-4 font-normal w-full rounded-lg bg-[#f4f4f4] border-none mt-4 pl-8"
               style={{
                 fontWeight: "normal",
               }}
@@ -197,12 +234,6 @@ const Register = () => {
           <span className="text-left text-sm w-1/2 font-semibold my-1">
             Minimum 8 characters for secure password.
           </span>
-          <div className="flex justify-between w-1/2 my-1 text-md font-semibold text-gray-400">
-            <span>Upper Case, Lower Case, One Numbers, 8 Characters</span>
-            <span>
-              <span className="text-green-500 font-bold">0</span>/4
-            </span>
-          </div>
           <label className="cursor-pointer mt-4 text-left w-1/2 font-semibold">
             <input
               type="checkbox"
@@ -211,10 +242,15 @@ const Register = () => {
               })}
               className="mr-2"
             />
-            <span>
+            <span className="text-[#6f767e]">
               I agree to{" "}
-              <strong className="underline">DoodleCollab Terms</strong> and{" "}
-              <strong className="underline">Privacy Policy</strong>
+              <span className="underline text-black font-bold">
+                DoodleCollab Terms
+              </span>{" "}
+              and{" "}
+              <span className="underline text-black font-bold">
+                Privacy Policy
+              </span>
             </span>
           </label>
           {errors.agree && (
