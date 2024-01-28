@@ -11,27 +11,6 @@ import "./homeabout.css";
 
 const HomeAbout = () => {
   const { isDarkMode } = useTheme();
-  const colors = [
-    "#00ccff", // Electric Blue
-    "#33ff33", // Neon Green
-    "#ff3399", // Vibrant Pink
-    "#cc33ff", // Electric Purple
-    "#ff9933", // Radiant Orange
-    "#FFD700", // Gold
-    "#ff3333", // Fiery Red
-    "#00ffff", // Aqua Blue
-    "#33cc33", // Brilliant Green
-    "#ff66cc", // Hot Pink
-  ];
-
-  // function to generate random color
-  const getRandomColor = () => {
-    const randomIndex = Math.floor(Math.random() * colors.length);
-    return colors[randomIndex];
-  };
-
-  // invoking random color function
-  const randomColor = getRandomColor();
 
   // state variable to track hover state for each box
   const [hoveredBox, setHoveredBox] = useState(null);
@@ -48,7 +27,7 @@ const HomeAbout = () => {
   const glowEffectStyles = (index) => ({
     boxShadow:
       hoveredBox === index
-        ? `0 0 7px 5px ${randomColor}, 0 0 7px 5px ${randomColor}`
+        ? `0 0 14px 0px #64BEFF, 0 0 14px 0px #64BEFF`
         : "none",
     transform: hoveredBox === index ? "translateY(-20px)" : "none",
     transition: "all 0.3s ease-in-out",
