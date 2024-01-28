@@ -1,17 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import registerImg from "../../assets/register.jpg";
-import { Link } from "react-router-dom";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import {
-  UsernameIcon,
-  PasswordIcon,
-  MailIcon,
-  NameIcon,
-} from "../../assets/RegisterIcons";
+import {  UsernameIcon,  PasswordIcon,  MailIcon,  NameIcon } from "../../assets/RegisterIcons";
 import { useTheme } from "../../context/ThemeContext";
 import "./auth.css";
 
@@ -36,20 +30,23 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = handleSubmit(async (data) => {
-    try {
-      await axios.post("https://doodlecollab-backend.onrender.com/api/users/register", {
-        name: data.username,
-        email: data.email,
-        password: data.password,
-      });
-      alert("Registration Successful!");
-      fetchUsers();
-      navigate("/login");
-    } catch (error) {
-      console.log(error);
-      alert("Registration Failed!");
-    }
-  });
+  try {
+    await axios.post("https://doodlecollab-backend.onrender.com/api/users/register", {
+      email: data.email,
+      username: data.username,
+      firstName: data.firstName,
+      lastName: data.lastName,
+      password: data.password,
+    });
+    alert("Registration Successful!");
+    fetchUsers();
+    navigate("/login");
+  } catch (error) {
+    console.log(error);
+    alert("Registration Failed!");
+  }
+});
+
 
   return (
     <section
