@@ -118,7 +118,8 @@ const HomeBanner = () => {
                   </div>
                 </div>
                 <div className="homebanner-card-first-column-third-row">
-                  <p>lorem Ipsum</p>
+                  <p>John Doe</p>
+                  <p>Engineer</p>
                 </div>
                 <div className="homebanner-card-first-column-fourth-row">
                   <button className="follow">
