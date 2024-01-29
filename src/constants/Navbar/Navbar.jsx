@@ -17,9 +17,9 @@ const Navbar = ({ isBarsClicked, handleBarsClick }) => {
 
       <div className="navbar-middle">
         <div className="nav-items">
-          <button className="nav-item" style={{marginTop:'-10px'}} onClick={() => window.location.href = "https://github.com/WikiPortal/DoodleCollab"}>
+           <Link to="https://github.com/WikiPortal/DoodleCollab" className="nav-item">
             GitHub
-          </button>
+          </Link>
           <Link to="/features" className="nav-item">
             Features
           </Link>
