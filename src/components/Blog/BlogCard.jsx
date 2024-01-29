@@ -10,8 +10,8 @@ export default function BlogCard({ id, heading, content, link, profile }) {
       <h1 className='text-xl font-medium'>{heading}</h1>
       <p>{content}</p>
       <div className='flex gap-4 items-center mt-12'>
-        <div className='w-12 h-12 rounded-full bg-[#eeeeee] '>
-        <img src={profile?.img || ""} />
+        <div className='w-12 h-12 rounded-full bg-[#eeeeee] overflow-hidden'>
+        <img src={profile?.img || ""} alt="img" className='w-full h-auto'/>
         </div>
         <div>
           <p className={`font-semibold ${isDarkMode ? "text-white": "text-gray-600"}`}>{profile?.name || ""}</p>
