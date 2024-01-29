@@ -15,7 +15,7 @@ DoodleCollab is a cutting-edge application designed to transform the way we coll
 
 ## Related image (Project under progress) 🚧
 
-![Screenshot](https://i.postimg.cc/65rBwdy5/Screenshot.png)
+![Screenshot](https://github.com/WikiPortal/DoodleCollab/assets/78967360/f523fc14-aed6-47f2-9bb9-8126e0a2f174)
 
 ---
 
