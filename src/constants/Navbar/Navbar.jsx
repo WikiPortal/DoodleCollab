@@ -17,7 +17,7 @@ const Navbar = ({ isBarsClicked, handleBarsClick }) => {
 
       <div className="navbar-middle">
         <div className="nav-items">
-           <Link to="https://github.com/WikiPortal/DoodleCollab">
+           <Link to="https://github.com/WikiPortal/DoodleCollab" className="nav-item">
             GitHub
           </Link>
           <Link to="/features" className="nav-item">
