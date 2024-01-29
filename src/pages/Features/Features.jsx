@@ -1,33 +1,90 @@
-import React from "react";
-import Grid from '@mui/system/Unstable_Grid';
-import img1 from '../../assets/Features/img1.png';
-import img2 from '../../assets/Features/img2.png';
+import Grid from "@mui/system/Unstable_Grid";
+import img1 from "../../assets/Features/img1.png";
+import img2 from "../../assets/Features/img2.png";
 import { Link } from "react-router-dom";
 
 import { FaArrowDown } from "react-icons/fa";
+import { Divider } from "@mui/material";
 
 const Features = () => {
   return (
-    <Grid container sx={{ display:'flex',justifyContent:'space-between', marginX: 'auto', marginTop: '8%', backgroundColor: '#E9F6FF', paddingTop:'5%', height: '530px', maxWidth: '1000px', borderRadius: '25px' }}>
-      <Grid container sx={{ height: '70%', marginLeft: '5%', maxWidth: '550px' }}>
-        <p className="text-7xl .leading-snug font-black" style={{ color: '#192655' }}>Worked with quite a number of opensource programs till now!</p>
-        <img src={img1} style={{ marginLeft: '-25%', marginTop: '-12%', width: '60%', height: '60%' }} alt="img1" />
-        <img src={img2} style={{ width: '50%', height: '60%', marginTop: '-20%', marginLeft: '15%' }} alt="img2" />
+    <Grid
+      container
+      sx={{
+        marginX: "auto",
+        marginTop: { xs: "6rem", md: "8rem" },
+        backgroundColor: "#E9F6FF",
+        maxWidth: "1000px",
+        borderRadius: "25px",
+        padding: { xs: "0.8rem", sm: "2rem" },
+      }}
+      spacing={2}
+    >
+      <Grid xs={12} sm={8}>
+        <div className="relative">
+          <h1 className="text-5xl md:text-[4rem] lg:text-7xl .leading-snug font-black text-[#192655]">
+            Worked with quite a number of opensource programs till now!
+          </h1>
+          <img
+            src={img1}
+            className="size-32 xs:size-48 md:size-72 object-contain absolute -top-14 -right-14 xs:top-[80%] md:top-[75%] xs:-left-[20%]"
+            alt="img1"
+            aria-hidden
+          />
+          <img
+            src={img2}
+            className="size-52 xs:size-60 md:size-80 absolute -right-10 xs:-right-[10%] object-contain -bottom-24 xs:-bottom-[45%]  md:-bottom-[40%]"
+            alt="img2"
+            aria-hidden
+          />
+        </div>
       </Grid>
 
-      <Grid container sx={{ height: '200px', maxWidth: '300px'}}>
-        <div style={{ display: 'flex', alignItems: 'center', }}>
-          <Link to="https://kwoc.kossiitkgp.org/" style={{ paddingLeft: '10px', paddingRight: '10px', color: '#435585' }} className="font-medium text-base">Kharagpur Winter of Code 
-          <FaArrowDown style={{ color: '#7743DB', marginTop:'-10%', marginLeft:'105%' }} /></Link>
+      <Grid xs={12} sm={4}>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <Link
+            to="https://kwoc.kossiitkgp.org/"
+            className="font-medium text-base inline-flex items-center gap-2 text-[#435585] hover:text-[#192655]"
+            target="blank"
+          >
+            Kharagpur Winter of Code
+            <FaArrowDown className="text-[#7743DB] -rotate-90 shrink-0" />
+          </Link>
         </div>
-        <hr style={{ width: '100%',   marginLeft: '10px', marginTop: '10px', marginBottom: '5px', borderColor: '#93BFCF', marginRight:'20px' }} />
-        <div style={{ display: 'flex', alignItems: 'center', marginTop: '-11%'}}>
-          <Link to="https://winterofcode.com/ " style={{ paddingLeft: '10px', color: '#435585' }} className="font-medium text-base">Netaji Subhash Engineering College Winter of Code <FaArrowDown style={{ color: '#7743DB', marginTop: '-8%', marginLeft: '84%' }} /> </Link>
+        <Divider sx={{ width: "100%", marginBlock: "1rem" }} />
+
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <Link
+            to="https://winterofcode.com/ "
+            className="font-medium text-base inline-flex items-center gap-2 text-[#435585] hover:text-[#192655]"
+            target="blank"
+          >
+            Netaji Subhash Engineering College Winter of Code{" "}
+            <FaArrowDown className="text-[#7743DB] -rotate-90 shrink-0" />{" "}
+          </Link>
         </div>
-        <hr style={{ width: '100%', marginLeft: '10px', marginTop: '10px', marginBottom: '5px', borderColor: '#93BFCF', marginRight:'20px'  }} />
-        <div style={{ display: 'flex', alignItems: 'center', marginTop: '-11%'}}>
-          <Link to="https://iwoc.codes/" style={{ paddingLeft: '10px', color: '#435585' }} className="font-medium text-base"> Innogeeks Winter of Code <FaArrowDown style={{ color: '#7743DB', marginTop: '-10%', marginLeft:'107%' }} /></Link>
-          
+
+        <Divider sx={{ width: "100%", marginBlock: "1rem" }} />
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <Link
+            to="https://iwoc.codes/"
+            className="font-medium text-base inline-flex items-center gap-2 text-[#435585] hover:text-[#192655]"
+            target="blank"
+          >
+            {" "}
+            Innogeeks Winter of Code{" "}
+            <FaArrowDown className="text-[#7743DB] -rotate-90 shrink-0" />
+          </Link>
         </div>
       </Grid>
     </Grid>
