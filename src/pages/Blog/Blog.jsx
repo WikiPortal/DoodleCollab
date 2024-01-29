@@ -1,11 +1,13 @@
 import React from 'react';
+import Navbar from '../../constants/Navbar/Navbar';
+
 import { Grid, Card, CardContent, Typography, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import { useEffect } from 'react';
 import { useState } from 'react';
 
-export default function Blog() {
+export default function Blog({ isBarsClicked, handleBarsClick }) {
 
     const dark = false;    
   const cardStyle = {
@@ -30,7 +32,7 @@ export default function Blog() {
     ];
 
     return (
-        <div style={{ overflowY: 'auto', maxHeight: '500px', padding: '0' }}>
+        <div style={{ overflowY: 'auto', maxHeight: '500px', padding: '0' , marginTop: isBarsClicked ? '300px' : '0px' }}>
             <Grid container spacing={3} style={{ margin: '0 auto', maxWidth: '100%', overflowX: 'hidden', padding: '0' }}>
                 {items.map((item) => (
                     <Grid key={item.id} item xs={12} sm={6} md={4} style={{ margin: '0' }}>

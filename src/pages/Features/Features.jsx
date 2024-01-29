@@ -1,4 +1,6 @@
 import React from "react";
+import { useState } from "react";
+import Navbar from "../../constants/Navbar/Navbar";
 import Grid from '@mui/system/Unstable_Grid';
 import img1 from '../../assets/Features/img1.png';
 import img2 from '../../assets/Features/img2.png';
@@ -6,9 +8,9 @@ import { Link } from "react-router-dom";
 
 import { FaArrowDown } from "react-icons/fa";
 
-const Features = () => {
+const Features = ({ isBarsClicked, handleBarsClick }) => {
   return (
-    <Grid container sx={{ display:'flex',justifyContent:'space-between', marginX: 'auto', marginTop: '8%', backgroundColor: '#E9F6FF', paddingTop:'5%', height: '530px', maxWidth: '1000px', borderRadius: '25px' }}>
+    <Grid container sx={{ display:'flex',justifyContent:'space-between', marginX: 'auto',  marginTop: isBarsClicked ? '300px' : '8%', backgroundColor: '#E9F6FF', paddingTop:'5%', height: '530px', maxWidth: '1000px', borderRadius: '25px' }}>
       <Grid container sx={{ height: '70%', marginLeft: '5%', maxWidth: '550px' }}>
         <p className="text-7xl .leading-snug font-black" style={{ color: '#192655' }}>Worked with quite a number of opensource programs till now!</p>
         <img src={img1} style={{ marginLeft: '-25%', marginTop: '-12%', width: '60%', height: '60%' }} alt="img1" />
