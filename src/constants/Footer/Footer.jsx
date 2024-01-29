@@ -1,10 +1,10 @@
 import React from "react";
-import { FaGithub } from "react-icons/fa";
-import { FaBehance } from "react-icons/fa";
+import { FaDiscord, FaGithub } from "react-icons/fa";
 import { FaDribbble } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import "./footer.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -15,19 +15,53 @@ const Footer = () => {
       <div className="footer-icons">
         <ul>
           <li>
-            <FaGithub />
+            <Link
+              to="https://github.com/WikiPortal/DoodleCollab"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub />
+            </Link>
           </li>
           <li>
-            <FaBehance />
+            <Link
+              to="https://discord.com/invite/Ar84xkXkZt"
+              target="_blank
+              "
+              rel="noopener noreferrer"
+            >
+              <FaDiscord />
+            </Link>
           </li>
           <li>
-            <FaDribbble />
+            <Link
+              to="https://doodlecollab.vercel.app/"
+              target="_blank
+            "
+              rel="noopener noreferrer"
+            >
+              <FaDribbble />
+            </Link>
           </li>
           <li>
-            <FaTwitter />
+            <Link
+              to="https://twitter.com/itsmeroy69"
+              target="_blank
+              "
+              rel="noopener noreferrer"
+            >
+              <FaTwitter />
+            </Link>
           </li>
           <li>
-            <FaLinkedinIn />
+            <Link
+              to="https://www.linkedin.com/in/jyotirmoyroy69/"
+              target="_blank
+              "
+              rel="noopener noreferrer"
+            >
+              <FaLinkedinIn />
+            </Link>
           </li>
         </ul>
       </div>
