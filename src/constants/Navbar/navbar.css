@@ -50,13 +50,13 @@
 
 .nav-signup.dark-mode,
 .nav-signup.white-mode:hover {
-  background-color: #f1f2f4;
+  background-color: #ffffff;
   box-shadow: 0 0 1px rgba(69, 66, 66, 0.5);
 }
 
 .nav-signup.white-mode,
 .nav-signup.dark-mode:hover {
-  background-color: #b4b8f6;
+  background-color: rgb(242, 243, 248);
 }
 
 .navbar-right {
@@ -77,7 +77,7 @@
   text-indent: -9999px;
   width: 100px;
   height: 50px;
-  background: rgb(128, 128, 128);
+  background: rgb(98, 98, 98);
   display: block;
   border-radius: 100px;
   position: relative;
