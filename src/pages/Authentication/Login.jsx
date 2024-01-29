@@ -1,88 +1,105 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import axios from "axios";
+import { useNavigate, Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import loginImg from "../../assets/register.jpg";
+import { PasswordIcon, MailIcon } from "../../assets/RegisterIcons";
+import { useTheme } from "../../context/ThemeContext";
+import "./auth.css";
 
 const Login = () => {
-  // const [users, setUsers] = useState([]);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const { isDarkMode } = useTheme();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetchUsers();
-  }, []);
-  const fetchUsers = () => {
-    axios.get("https://doodlecollab-backend.onrender.com/api/users/register");
-    // .then((res) => {
-    //   console.log(res.data);
-    // });
-  };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
+  const onSubmit = handleSubmit(async (data) => {
     try {
-      const response = await axios.post(
+      await axios.post(
         "https://doodlecollab-backend.onrender.com/api/users/login",
-        { email, password }
+        {
+          email: data.email,
+          password: data.password,
+        }
       );
-      const token = response.data.token;
-      if (token) {
-        alert("Login Successful");
-        setEmail("");
-        setPassword("");
-        // fetchUsers();
-        localStorage.setItem("token", token);
-        navigate("/sketchbook");
-      } else {
-        // Handle scenario if token is not received
-        console.log("Token is undefined or null");
-      }
+
+      alert("Login Successful!");
+      navigate("/sketchbook");
     } catch (error) {
-      console.log("Login Error", error);
+      console.log(error);
+      alert("Login Failed!");
     }
-  };
+  });
 
   return (
-    <div className="w-full h-screen flex">
-      <div className="w-[50%] h-[100%] bg-[#8E8FFA] text-white flex justify-center items-center">
-        <form
-          className="text-center border rounded-lg w-[600px] h-[400px] p-9"
-          onSubmit={handleLogin}
-        >
-          <label>Email</label>
-          <br />
-          <input
-            className="w-[400px] h-[40px] rounded-xl bg-white p-2 text-black"
-            type="text"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <br />
-          <br />
-          <label>Password</label>
-          <br />
-          <input
-            className="w-[400px] h-[40px] rounded-xl bg-white p-2 text-black"
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <br />
-          <br />
-          <button
-            className="w-[200px] h-[50px] border hover:bg-[#362FD9]"
-            type="submit"
-          >
-            Login
+    <section
+      className={`auth-section ${isDarkMode ? "dark-mode" : "white-mode"}`}
+    >
+      <div className="auth-img">
+        <img src={loginImg} alt="registration image" />
+      </div>
+      <div className="auth-right">
+        <form className="auth-form" onSubmit={onSubmit}>
+          <h1 className="md:mt-32">Welcome to DoodleCollab!</h1>
+          <p>Enter your Email, and Password!</p>
+          <hr/>
+          <div className="auth-textbox">
+            <MailIcon className="auth-icon" />
+            <input
+              type="email"
+              placeholder="Email Address"
+              {...register("email", {
+                required: "Email is required",
+              })}
+            />
+          </div>
+          {errors.email && (
+            <span className="error-message">{errors.email.message}</span>
+          )}
+          <div className="auth-textbox">
+            <PasswordIcon className="auth-icon" />
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              {...register("password", {
+                required: "Password is required",
+              })}
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? "Hide" : "Show"}
+            </button>
+          </div>
+          {errors.password && (
+            <span className="error-message">{errors.password.message}</span>
+          )}
+          <button className="auth-btn" type="submit">
+            <p>Login</p>
           </button>
+          <div className="auth-textbox-footer">
+          <span>
+            New to DoodleCollab?{" "}
+            <Link className="auth-link" to="/register">
+              Click here to create
+            </Link>
+          </span>
+          <span>
+            Forget password?{" "}
+            <Link className="auth-link" to="/">
+              Click here to find it
+            </Link>
+          </span>
+          </div>
         </form>
       </div>
-      <div className="w-[50%] h-[100%] flex justify-center items-center bg-[#FF7676]">
-        <h2 className="text-3xl text-white ">Login</h2>
-      </div>
-    </div>
+    </section>
   );
 };
 
