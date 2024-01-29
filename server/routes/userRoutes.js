@@ -7,7 +7,7 @@ const {
   getUser,
   validateToken
 } = require("../controllers/userController");
-const { registerValidationRules } = require("../middleware/Validation");
+const { registerValidationRules } = require("../middleware/validation");
 const router = express.Router();
 
 router
@@ -15,7 +15,7 @@ router
   .post(registerLimiter, registerValidationRules, registerUser)
   .get(userExists, getUser);
 
-router.route("/login").post(userExists, loginUser);
+router.route("/login").post(loginUser);
 router.route("/validateToken").get(validateToken);
 
 module.exports = router;

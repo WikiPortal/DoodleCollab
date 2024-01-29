@@ -12,9 +12,14 @@ import { useTheme } from "../../context/ThemeContext";
 import "./home.css";
 import TrustDevelopers from "../../components/TrustDevelopers/TrustDevelopers";
 
+<<<<<<< HEAD
 const Home = ({ isBarsClicked, handleBarsClick }) => {
 
   const { isDarkMode, toggleDarkMode } = useTheme();
+=======
+const Home = () => {
+  const { isDarkMode } = useTheme();
+>>>>>>> e5fecd22f791c6da410d4da01a830a01dfd552fb
 
 
   return (

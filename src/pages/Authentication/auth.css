@@ -1,0 +1,137 @@
+.auth-section {
+  position: relative;
+  margin-top: 90px;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  display: flex;
+}
+.auth-section.dark-mode {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.auth-section.white-mode {
+  background-image: linear-gradient(
+    rgb(255, 255, 255),
+    rgb(241, 234, 250) 48%,
+    rgb(255, 255, 255)
+  );
+}
+
+.auth-img {
+  width: 40%;
+}
+.auth-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.auth-right {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.auth-form {
+  flex-direction: column;
+  max-width: 530px;
+}
+
+.auth-form h1 {
+  font: bold;
+  font-size: 42px;
+  font-weight: 600;
+}
+
+.auth-form hr {
+  border-top: 2px solid #e2e8f0;
+  margin: 30px 0 15px 0;
+}
+
+.auth-textbox {
+  font-size: 16px;
+  width: 100%;
+  display: flex;
+  padding: 14px;
+  background: #f4f4f4;
+  border: none;
+  border-radius: 12px;
+  align-items: center;
+  margin: 15px 0 15px 0;
+}
+.auth-textbox input {
+  border: none;
+  font-weight: normal;
+  width: 100%;
+  background-color: #f4f4f4;
+  padding-left: 1rem;
+  outline: none;
+}
+
+.auth-namesec > .auth-textbox {
+  margin-left: 5px;
+}
+.error-message {
+  color: rgb(255, 0, 0);
+  text-align: left;
+  margin-left: 1rem;
+  font-weight: 600;
+  width: 50%;
+}
+.auth-namesec {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+}
+.auth-miscellaneous {
+  display: flex;
+  flex-direction: column;
+}
+.auth-checkbox {
+  cursor: pointer;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  max-width: 75%;
+}
+
+.auth-link {
+  font-weight: 500;
+  color: #000;
+}
+.auth-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.auth-btn {
+  font-size: 16px;
+  width: 100%;
+  display: flex;
+  padding: 14px;
+  background: #000000 !important;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0 15px 0;
+}
+
+.auth-textbox-footer{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 50px;
+}
+
+.auth-textbox-footer span{
+  font-weight: 500;
+  color: #727996;
+}
+
+
