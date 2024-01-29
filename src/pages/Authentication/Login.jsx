@@ -45,7 +45,9 @@ const Login = () => {
       </div>
       <div className="auth-right">
         <form className="auth-form" onSubmit={onSubmit}>
-          <h1>Login</h1>
+          <h1 className="md:mt-32">Welcome to DoodleCollab!</h1>
+          <p>Enter your Email, and Password!</p>
+          <hr/>
           <div className="auth-textbox">
             <MailIcon className="auth-icon" />
             <input
@@ -81,12 +83,20 @@ const Login = () => {
           <button className="auth-btn" type="submit">
             <p>Login</p>
           </button>
+          <div className="auth-textbox-footer">
           <span>
-            Don't have an account?{" "}
+            New to DoodleCollab?{" "}
             <Link className="auth-link" to="/register">
-              Register
+              Click here to create
             </Link>
           </span>
+          <span>
+            Forget password?{" "}
+            <Link className="auth-link" to="/">
+              Click here to find it
+            </Link>
+          </span>
+          </div>
         </form>
       </div>
     </section>
