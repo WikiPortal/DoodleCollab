@@ -11,7 +11,7 @@ import "./home.css";
 import TrustDevelopers from "../../components/TrustDevelopers/TrustDevelopers";
 
 const Home = () => {
-  const { isDarkMode, toggleDarkMode } = useTheme();
+  const { isDarkMode } = useTheme();
 
   return (
     <section

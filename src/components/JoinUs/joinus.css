@@ -19,7 +19,7 @@
 
 .invite-content h1 {
   color: #ffffff;
-  font-size: 3.9vh;
+  font-size: 4.5vh;
   text-align: left;
   font-weight: 550;
   line-height: 1.2;
@@ -30,23 +30,24 @@
 }
 
 .invite-content p {
-  font-size: 1.9vh;
+  font-size: 2.5vh;
   color: #a0f3e1;
   margin-top: 1vh;
 }
 
 .join-button {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   background-color: rgb(255, 255, 255);
   color: #055eac;
-  font-weight: 502;
-  font-size: 1.9vh;
-  padding: 1.8vh 6.5vh;
+  font-weight: 500;
+  font-size: 2.5vh;
   border-radius: 2vh;
   border: none;
-  width: max-content;
+  width: 300px;
+  height: 60px;
+  text-align: center;
 }
 
 @media screen and (max-width: 768px) {
@@ -56,5 +57,20 @@
   }
   .invite-content :is(h1, p) {
     text-align: center;
+  }
+  .invite-content{
+    min-height: 200px;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  }
+  .join-button {
+    font-weight: 400;
+    font-size: 2vh;
+    border-radius: 2vh;
+    width: 300px;
+    height: 40px;
   }
 }

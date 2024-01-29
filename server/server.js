@@ -15,7 +15,12 @@ app.use(cors({ credentials: true, origin: "https://doodlecollab.vercel.app" }));
 app.use(bodyParser.json());
 
 // routes
+app.get("/", (req, res) => {
+  res.send("Server is running successfully");
+});
+
 app.use("/api/users", require("./routes/userRoutes"));
+
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`.yellow.bold);

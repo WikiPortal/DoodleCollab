@@ -2,11 +2,10 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const User = require("../models/userModel");
 const { validationResult } = require("express-validator");
-const userExists = require("../middleware/userExists");
-// Register user
 
+// Register user
 const registerUser = async (req, res) => {
-  const { name, email, password } = req.body;
+  const { username, email, password, firstName, lastName } = req.body;
 
   try {
     const errors = validationResult(req);
@@ -25,20 +24,27 @@ const registerUser = async (req, res) => {
         message: "User already exists",
       });
     }
+
     // hash password
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
-    // create User
+
+    // create User with first name and last name
     const user = await User.create({
-      name,
+      username,
       email,
       password: hashedPassword,
+      firstName,
+      lastName,
     });
+
     if (user) {
       return res.status(201).json({
         _id: user.id,
-        name: user.name,
+        username: user.username,
         email: user.email,
+        firstName: user.firstName,
+        lastName: user.lastName,
         message: "User registered",
       });
     } else {
@@ -58,7 +64,7 @@ const loginUser = async (req, res) => {
     // check for user email
     const user = await User.findOne({ email });
     if (!user) {
-      return res.staus(401).json({ error: "Invalid credentials" });
+      return res.status(401).json({ error: "Invalid credentials" });
     }
     const PassOk = await bcrypt.compare(password, user.password);
     if (!PassOk) {
@@ -84,6 +90,7 @@ const loginUser = async (req, res) => {
   }
 };
 
+
 // Get user
 const getUser = async (req, res) => {
   try {
@@ -104,7 +111,7 @@ const validateToken = (req, res) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    if (decoded.exp*1000 < Date.now()) {
+    if (decoded.exp * 1000 < Date.now()) {
       return res.status(401).json({ message: 'Unauthorized: Token has expired' });
     }
     res.status(200).send();
