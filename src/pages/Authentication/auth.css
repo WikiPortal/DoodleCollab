@@ -48,7 +48,7 @@
 
 .auth-form hr {
   border-top: 2px solid #e2e8f0;
-  margin: 15px 0 15px 0;
+  margin: 30px 0 15px 0;
 }
 
 .auth-textbox {
@@ -101,8 +101,12 @@
 }
 
 .auth-link {
-  font-weight: 600;
+  font-weight: 500;
+  color: #000;
+}
+.auth-link:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 .auth-btn {
   font-size: 16px;
@@ -117,3 +121,17 @@
   justify-content: center;
   margin: 15px 0 15px 0;
 }
+
+.auth-textbox-footer{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 50px;
+}
+
+.auth-textbox-footer span{
+  font-weight: 500;
+  color: #727996;
+}
+
+
