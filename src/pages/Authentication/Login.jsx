@@ -4,6 +4,8 @@ import { useNavigate, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import loginImg from "../../assets/register.jpg";
 import { PasswordIcon, MailIcon } from "../../assets/RegisterIcons";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useTheme } from "../../context/ThemeContext";
 import "./auth.css";
 
@@ -74,7 +76,7 @@ const Login = () => {
               type="button"
               onClick={() => setShowPassword(!showPassword)}
             >
-              {showPassword ? "Hide" : "Show"}
+              {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
             </button>
           </div>
           {errors.password && (

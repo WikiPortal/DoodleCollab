@@ -4,6 +4,7 @@ export const MailIcon = () => (
     width="17.501"
     height="15.741"
     viewBox="0 0 17.501 15.741"
+    color="#6f767e"
   >
     <g id="Message" transform="translate(-1.25 0.75)">
       <path
@@ -30,7 +31,7 @@ export const MailIcon = () => (
         fillRule="evenodd"
       ></path>
     </g>
-  </svg>
+    </svg>
 );
 
 export const UsernameIcon = () => (
