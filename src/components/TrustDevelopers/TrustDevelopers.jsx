@@ -1,8 +1,8 @@
 import React from "react";
 import "./trustdevelopers.css";
-import MongoDB from "../../assets/Home/MongoDB.jpg";
+import MongoDB from "../../assets/Home/MongoDB.png";
 import firebase from "../../assets/Home/firebase.svg";
-import mirror from "../../assets/Home/mirror.jpg";
+import mirror from "../../assets/Home/mirror.png";
 import keploy from "../../assets/Home/keploy.png";
 
 
