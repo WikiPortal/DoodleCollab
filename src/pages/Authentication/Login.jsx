@@ -8,11 +8,13 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useTheme } from "../../context/ThemeContext";
 import "./auth.css";
+import { useAppContext } from "../../context/AppContext";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { isDarkMode } = useTheme();
   const navigate = useNavigate();
+  const { showToast } = useAppContext();
 
   const {
     register,
@@ -30,11 +32,11 @@ const Login = () => {
         }
       );
       localStorage.setItem("token", resData.data.token);
-      alert("Login Successful!");
+      showToast({ message: "Login Success!", type: "SUCCESS" });
       navigate("/sketchbook");
     } catch (error) {
       console.log(error);
-      alert("Login Failed!");
+      showToast({ message: "Login Failed!", type: "ERROR" });
     }
   });
 
@@ -49,7 +51,7 @@ const Login = () => {
         <form className="auth-form" onSubmit={onSubmit}>
           <h1 className="md:mt-32">Welcome to DoodleCollab!</h1>
           <p>Enter your Email, and Password!</p>
-          <hr/>
+          <hr />
           <div className="auth-textbox">
             <MailIcon className="auth-icon" />
             <input
@@ -86,18 +88,18 @@ const Login = () => {
             <p>Login</p>
           </button>
           <div className="auth-textbox-footer">
-          <span>
-            New to DoodleCollab?{" "}
-            <Link className="auth-link" to="/register">
-              Click here to create
-            </Link>
-          </span>
-          <span>
-            Forget password?{" "}
-            <Link className="auth-link" to="/">
-              Click here to find it
-            </Link>
-          </span>
+            <span>
+              New to DoodleCollab?{" "}
+              <Link className="auth-link" to="/register">
+                Click here to create
+              </Link>
+            </span>
+            <span>
+              Forget password?{" "}
+              <Link className="auth-link" to="/">
+                Click here to find it
+              </Link>
+            </span>
           </div>
         </form>
       </div>

@@ -9,6 +9,7 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Authentication/Login";
 import Blog from "./pages/Blog/Blog";
 import Features from "./pages/Features/Features";
+import { AppContextProvider } from "./context/AppContext";
 
 function App() {
   const [isBarsClicked, setIsBarsClicked] = useState(false);
@@ -19,18 +20,23 @@ function App() {
 
   return (
     <ThemeProvider>
-      <Router>
-        <Navbar isBarsClicked={isBarsClicked} handleBarsClick={handleBarsClick} />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/features" element={<Features />} />
-          <Route path="/sketchbook" element={<Sketchbook />} />
-          <Route path="/blogs" element={<Blog />} />
-        </Routes>
-        <Footer />
-      </Router>
+      <AppContextProvider>
+        <Router>
+          <Navbar
+            isBarsClicked={isBarsClicked}
+            handleBarsClick={handleBarsClick}
+          />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/features" element={<Features />} />
+            <Route path="/sketchbook" element={<Sketchbook />} />
+            <Route path="/blogs" element={<Blog />} />
+          </Routes>
+          <Footer />
+        </Router>
+      </AppContextProvider>
     </ThemeProvider>
   );
 }
