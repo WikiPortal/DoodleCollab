@@ -22,14 +22,14 @@ const Login = () => {
 
   const onSubmit = handleSubmit(async (data) => {
     try {
-      await axios.post(
+      const resData = await axios.post(
         "https://doodlecollab-backend.onrender.com/api/users/login",
         {
           email: data.email,
           password: data.password,
         }
       );
-
+      localStorage.setItem("token", resData.data.token);
       alert("Login Successful!");
       navigate("/sketchbook");
     } catch (error) {

@@ -8,7 +8,6 @@
 }
 .auth-section.dark-mode {
   background-color: #1a1a1a;
-  color: #ffffff;
 }
 
 .auth-section.white-mode {
@@ -56,7 +55,7 @@
   width: 100%;
   display: flex;
   padding: 14px;
-  background: #f4f4f4;
+  background: #fff;
   border: none;
   border-radius: 12px;
   align-items: center;
