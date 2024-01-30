@@ -54,17 +54,18 @@ const Register = () => {
       onSubmit={onSubmit}
     >
       <div className="auth-img">
-        <img src={registerImg} alt="registration image" />
+        <img src={registerImg} style={{padding:"10px", marginLeft:"50px" , marginTop:'5px', borderRadius:'30px'}} alt="registration image" />
       </div>
-      <div className="auth-right">
-        <form className="auth-form">
-          <h1>Create New Account</h1>
-          <span>Please fill out the form below. All fields are required.</span>
+      <div className="auth-right" style={{marginTop:'80px'}}>
+        <form className="auth-form" >
+          <h1 style={{color: isDarkMode ? 'white' : 'black'}}>Create New Account</h1>
+          <span style={{color: isDarkMode ? 'white' : 'black'}}>Please fill out the form below. All fields are required.</span>
           <hr />
 
           <div className="auth-textbox">
             <MailIcon className="auth-icon" />
             <input
+              style={{backgroundColor:"#fff"}}
               type="email"
               placeholder="Email Address"
               {...register("email", {
@@ -82,6 +83,7 @@ const Register = () => {
           <div className="auth-textbox">
             <UsernameIcon className="auth-icon" />
             <input
+              style={{backgroundColor:"#fff"}}
               type="text"
               placeholder="Username"
               {...register("username", {
@@ -94,20 +96,22 @@ const Register = () => {
             <span className="error-message">{errors.username.message}</span>
           )}
           <div className="auth-namesec">
-            <div className="auth-textbox">
+            <div className="auth-textbox" style={{marginLeft:'-1px', marginTop:'-1px'}}>
               <NameIcon className="auth-icon" />
               <input
-                type="text"
+              style={{backgroundColor:"#fff"}}
+              type="text"
                 placeholder="Firstname"
                 {...register("firstName", {
                   required: "First Name is required",
                 })}
               />
             </div>
-            <div className="auth-textbox">
+            <div className="auth-textbox" style={{marginTop:'-1px'}}>
               <NameIcon className="auth-icon" />
               <input
-                type="text"
+              style={{backgroundColor:"#fff"}}
+              type="text"
                 placeholder="Lastname"
                 {...register("lastName", {
                   required: "Last Name is required",
@@ -120,9 +124,10 @@ const Register = () => {
           ) : errors.lastName ? (
             <span className="error-message">{errors.lastName.message}</span>
           ) : null}
-          <div className="auth-textbox">
+          <div className="auth-textbox" style={{marginTop:'-1px'}}>
             <PasswordIcon className="auth-icon" />
             <input
+              style={{backgroundColor:"#fff"}}
               type={showPassword ? "text" : "password"}
               placeholder="Password"
               {...register("password", {
@@ -146,6 +151,7 @@ const Register = () => {
           <div className="auth-textbox">
             <PasswordIcon className="auth-icon" />
             <input
+              style={{backgroundColor:"#fff"}}
               type={showConfirmPassword ? "text" : "password"}
               placeholder="Confirm Password"
               {...register("confirmPassword", {
@@ -170,9 +176,9 @@ const Register = () => {
               {errors.confirmPassword.message}
             </span>
           )}
-          <div className="auth-miscellaneous">
-            <span>Minimum 8 characters for secure password.</span>
-            <label className="auth-checkbox">
+          <div className="auth-miscellaneous" style={{color: isDarkMode ? 'white' : 'black'}}>
+            <span className="m-2">Minimum 8 characters for secure password.</span>
+            <label className="auth-checkbox m-1">
               <input
                 type="checkbox"
                 {...register("agree", {
@@ -180,8 +186,8 @@ const Register = () => {
                 })}
               />
               <span>
-                I agree to <span className="auth-link">DoodleCollab Terms</span>{" "}
-                and <span className="auth-link">Privacy Policy</span>
+                I agree to <span className="auth-link" style={{color: isDarkMode ? 'white' : 'black'}}>DoodleCollab Terms</span>{" "}
+                and <span className="auth-link" style={{color: isDarkMode ? 'white' : 'black'}}>Privacy Policy</span>
               </span>
             </label>
 
@@ -193,7 +199,7 @@ const Register = () => {
             </button>
             <span>
               Already a member?{" "}
-              <Link className="auth-link" to="/login">
+              <Link className="auth-link" to="/login" style={{color: isDarkMode ? 'white' : 'black'}}>
                 Sign in
               </Link>
             </span>
