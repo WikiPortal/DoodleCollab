@@ -16,3 +16,12 @@ h5{
     margin: 0 55px; 
   }
   
+  .logo-container img:hover {
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.05);
+  }
+
+  .logo-container img:not(:hover) {
+    transition: all 0.3s ease-in-out;
+    transform: scale(1);
+  }

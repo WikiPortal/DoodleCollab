@@ -42,6 +42,10 @@
   cursor: pointer;
 }
 
+.nav-item:hover {
+  color:#1277d3;
+}
+
 .nav-signup {
   border-radius: 8px;
   padding: 10px 28px;
