@@ -35,7 +35,6 @@ const Login = () => {
       showToast({ message: "Login Success!", type: "SUCCESS" });
       navigate("/sketchbook");
     } catch (error) {
-      console.log(error);
       showToast({ message: "Login Failed!", type: "ERROR" });
     }
   });
@@ -49,8 +48,12 @@ const Login = () => {
       </div>
       <div className="auth-right">
         <form className="auth-form" onSubmit={onSubmit}>
-          <h1 className="md:mt-32">Welcome to DoodleCollab!</h1>
-          <p>Enter your Email, and Password!</p>
+          <h1 style={{ color: isDarkMode ? "white" : "black" }}>
+            Welcome to DoodleCollab!
+          </h1>
+          <p style={{ color: isDarkMode ? "white" : "black" }}>
+            Enter your Email, and Password!
+          </p>
           <hr />
           <div className="auth-textbox">
             <MailIcon className="auth-icon" />
@@ -90,13 +93,13 @@ const Login = () => {
           <div className="auth-textbox-footer">
             <span>
               New to DoodleCollab?{" "}
-              <Link className="auth-link" to="/register">
+              <Link className="auth-link" to="/register" style={{ color: isDarkMode ? "white" : "black" }}>
                 Click here to create
               </Link>
             </span>
             <span>
               Forget password?{" "}
-              <Link className="auth-link" to="/">
+              <Link className="auth-link" to="/" style={{ color: isDarkMode ? "white" : "black" }}>
                 Click here to find it
               </Link>
             </span>

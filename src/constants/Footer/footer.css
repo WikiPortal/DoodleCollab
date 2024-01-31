@@ -5,10 +5,13 @@
     flex-direction: column;
     align-items: center;
   }
-  
+  .footer.dark-mode {
+    background-color: #333;
+    color: #ffffff;
+  }
   .footer-content {
     display: flex;
-    flex-direction: column; /* Align the topics vertically */
+    flex-direction: column; 
     align-items: flex-end;
     padding: 20px;
     font-weight: 600;
@@ -17,7 +20,7 @@
   .footer-icons {
     display: flex;
     align-items: center; 
-    width: 303px;/* Align items vertically in the center */
+    width: 303px;
     height: 50px;
     justify-content: center;
     margin-bottom: 40px;

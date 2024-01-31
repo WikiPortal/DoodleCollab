@@ -53,7 +53,6 @@ const Register = () => {
       fetchUsers();
       navigate("/login");
     } catch (error) {
-      console.log(error);
       showToast({ message: "Registration Failed!", type: "ERROR" });
     }
   });
@@ -64,18 +63,9 @@ const Register = () => {
       onSubmit={onSubmit}
     >
       <div className="auth-img">
-        <img
-          src={registerImg}
-          style={{
-            padding: "10px",
-            marginLeft: "50px",
-            marginTop: "5px",
-            borderRadius: "30px",
-          }}
-          alt="registration image"
-        />
+        <img src={registerImg} alt="registration image" />
       </div>
-      <div className="auth-right" style={{ marginTop: "80px" }}>
+      <div className="auth-right">
         <form className="auth-form">
           <h1 style={{ color: isDarkMode ? "white" : "black" }}>
             Create New Account
@@ -88,7 +78,6 @@ const Register = () => {
           <div className="auth-textbox">
             <MailIcon className="auth-icon" />
             <input
-              style={{ backgroundColor: "#fff" }}
               type="email"
               placeholder="Email Address"
               {...register("email", {
@@ -106,7 +95,6 @@ const Register = () => {
           <div className="auth-textbox">
             <UsernameIcon className="auth-icon" />
             <input
-              style={{ backgroundColor: "#fff" }}
               type="text"
               placeholder="Username"
               {...register("username", {
@@ -119,13 +107,9 @@ const Register = () => {
             <span className="error-message">{errors.username.message}</span>
           )}
           <div className="auth-namesec">
-            <div
-              className="auth-textbox"
-              style={{ marginLeft: "-1px", marginTop: "-1px" }}
-            >
+            <div className="auth-textbox" style={{ marginLeft: "-1px" }}>
               <NameIcon className="auth-icon" />
               <input
-                style={{ backgroundColor: "#fff" }}
                 type="text"
                 placeholder="Firstname"
                 {...register("firstName", {
@@ -133,10 +117,9 @@ const Register = () => {
                 })}
               />
             </div>
-            <div className="auth-textbox" style={{ marginTop: "-1px" }}>
+            <div className="auth-textbox">
               <NameIcon className="auth-icon" />
               <input
-                style={{ backgroundColor: "#fff" }}
                 type="text"
                 placeholder="Lastname"
                 {...register("lastName", {
@@ -150,7 +133,7 @@ const Register = () => {
           ) : errors.lastName ? (
             <span className="error-message">{errors.lastName.message}</span>
           ) : null}
-          <div className="auth-textbox" style={{ marginTop: "-1px" }}>
+          <div className="auth-textbox">
             <PasswordIcon className="auth-icon" />
             <input
               style={{ backgroundColor: "#fff" }}
@@ -177,7 +160,6 @@ const Register = () => {
           <div className="auth-textbox">
             <PasswordIcon className="auth-icon" />
             <input
-              style={{ backgroundColor: "#fff" }}
               type={showConfirmPassword ? "text" : "password"}
               placeholder="Confirm Password"
               {...register("confirmPassword", {

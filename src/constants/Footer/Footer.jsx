@@ -5,10 +5,13 @@ import { FaTwitter } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import "./footer.css";
 import { Link } from "react-router-dom";
+import { useTheme } from "../../context/ThemeContext";
 
 const Footer = () => {
+  const { isDarkMode } = useTheme();
+
   return (
-    <section className="footer">
+    <section className={`footer ${isDarkMode ? "dark-mode" : "white-mode"}`}>
       <div className="footer-content">
         <p>Designed & Developed by WikiPortal</p>
       </div>

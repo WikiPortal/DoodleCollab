@@ -43,7 +43,7 @@
 }
 
 .nav-item:hover {
-  color:#1277d3;
+  color: #1277d3;
 }
 
 .nav-signup {
@@ -89,7 +89,6 @@
   border-radius: 100px;
   position: relative;
   transition: 0.3s;
-
 }
 
 .nav-toggle:after {
@@ -102,18 +101,15 @@
   background: #fff;
   border-radius: 90px;
   transition: 0.3s;
-
 }
 
 .nav-checkbox:checked + .nav-toggle:after {
   left: calc(100% - 5px);
   transform: translateX(-100%);
-
 }
 
 .nav-toggle:active:after {
   width: 60px;
-
 }
 
 .action-button-bars,
@@ -124,14 +120,11 @@
   margin-right: 10px;
 }
 
-
 .navbar-right button {
   display: none;
 }
 
-
 @media screen and (max-width: 768px) {
-
   .navbar {
     flex-direction: column;
     align-items: flex-start;
@@ -164,7 +157,6 @@
   .navbar .navbar-right .action-button-bars {
     display: flex;
   }
-
 
   .navbar.bars-clicked .action-button-close {
     display: flex;
@@ -253,6 +245,4 @@
   .navbar.bars-clicked .action-button-bars {
     display: none;
   }
-
-
 }
