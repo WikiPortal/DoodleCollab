@@ -7,7 +7,6 @@ import collaborate from "../../assets/Home/collaborate.png";
 import darkBackground from "../../assets/Home/dark-background.png";
 
 import { useTheme } from "../../context/ThemeContext";
-import "./homeabout.css";
 
 const HomeAbout = () => {
   const { isDarkMode } = useTheme();
@@ -47,25 +46,25 @@ const HomeAbout = () => {
   }, [isDarkMode]);
 
   return (
-    <section className="about-section">
-      <div className="about-container">
-        <div className="about-header">
-          <div className="key-feature">Key Feature</div>
-          <div className="about-head">
+    <section className="flex mb-5 justify-center">
+      <div className="flex flex-col">
+        <div className="h-[30vh] flex flex-col justify-evenly">
+          <div className="text-[15px] font-medium w-[140px] text-center rounded-3xl p-[10px] bg-black text-white">Key Feature</div>
+          <div className="font-semibold text-[42px] leading-[48px]">
             <p>Why use DoodleCollab ?</p>
           </div>
-          <div className="about-para">
+          <div className="text-lg font-normal text-[#505256] leading-[30px] max-w-[550px]">
             DoodleCollab revolutionizes collaboration with intuitive whiteboard
             features and seamless real-time sharing.
           </div>
         </div>
-        <div className="about-boxes">
+        <div className="flex justify-evenly lg:grid lg:grid-cols-3 md:grid md:grid-cols-2 sm:grid sm:grid-cols-1 sm:mx-auto">
           {Array(4)
             .fill()
             .map((_, index) => (
               <div
                 key={index}
-                className="about-box"
+                className="about-box flex flex-col h-[360px] w-[300px] break-words p-6 rounded-[20px] bg-white m-[10px] justify-center "
                 onMouseEnter={() => handleMouseEnter(index)}
                 onMouseLeave={handleMouseLeave}
                 style={glowEffectStyles(index)}
@@ -80,9 +79,10 @@ const HomeAbout = () => {
                           ? project
                           : collaborate
                   }
+                  className="w-[50px] mb-4"
                   alt={`item-${index}`}
                 />
-                <div className="box-head">
+                <div className="text-[22px] leading-[32px] font-medium mb-4">
                   <b>
                     {index === 0
                       ? "Bring Ideas to Live"
@@ -93,7 +93,7 @@ const HomeAbout = () => {
                           : "Live Collaboration"}
                   </b>
                 </div>
-                <div className="box-text">
+                <div className="text-lg mb-6 text-[#505256]">
                   {index === 0
                     ? "DoodleCollab empowers users to bring their ideas to life, fostering creativity and innovation."
                     : index === 1
@@ -102,7 +102,7 @@ const HomeAbout = () => {
                         ? "DoodleCollab offers project management tools, facilitating efficient organization, tracking, and coordination of tasks."
                         : "DoodleCollab enables live collaboration, allowing team members to work together, enhancing productivity."}
                 </div>
-                <a href="#" className="box-link">
+                <a href="#" className="text-[#4c4cfa] font-semibold">
                   <br></br>
                   See How
                 </a>
