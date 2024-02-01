@@ -14,7 +14,7 @@ export default function Blog() {
                 Our Blogs
             </div>
             <h1 className='text-5xl font-semibold max-w-[400px] text-center py-4'>Reviews From Our Client</h1>
-            <div className='grid grid-cols-3 gap-8 w-[60%] mt-6'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 px-4 sm:px-8 lg:px-16 xl:px-0 gap-8 xl:w-[60%] mt-6'>
             {blogData && blogData.map(el => <BlogCard {...el} />)}
             </div>
         </div>
