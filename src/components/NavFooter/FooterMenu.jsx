@@ -16,7 +16,7 @@ const FooterMenu = () => {
                 <div className={`topics topics-${index}`}>
                   <ul>
                     <li>
-                      <a href={`#topic-${index}-1`}>Installtion</a>
+                      <a href={`#topic-${index}-1`}>Installation</a>
                     </li>
                     <li>
                       <a href={`#topic-${index}-2`}>Theme Setup</a>
