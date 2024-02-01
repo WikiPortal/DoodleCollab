@@ -42,6 +42,10 @@
   cursor: pointer;
 }
 
+.nav-item:hover {
+  color: #1277d3;
+}
+
 .nav-signup {
   border-radius: 8px;
   padding: 10px 28px;
@@ -85,7 +89,6 @@
   border-radius: 100px;
   position: relative;
   transition: 0.3s;
-
 }
 
 .nav-toggle:after {
@@ -98,16 +101,148 @@
   background: #fff;
   border-radius: 90px;
   transition: 0.3s;
-
 }
 
 .nav-checkbox:checked + .nav-toggle:after {
   left: calc(100% - 5px);
   transform: translateX(-100%);
-
 }
 
 .nav-toggle:active:after {
   width: 60px;
+}
 
+.action-button-bars,
+.action-button-close {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-right: 10px;
+}
+
+.navbar-right button {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    height: 92px;
+    position: absolute;
+  }
+
+  .navbar.bars-clicked {
+    height: 300px;
+    position: absolute;
+  }
+
+  .navbar .navbar-middle,
+  .navbar .nav-items,
+  .navbar .nav-item,
+  .navbar .nav-signup,
+  .navbar .nav-toggle {
+    display: none;
+  }
+
+  .navbar.bars-clicked .navbar-middle,
+  .navbar.bars-clicked .nav-items,
+  .navbar.bars-clicked .nav-item,
+  .navbar.bars-clicked .nav-signup,
+  .navbar.bars-clicked .nav-toggle {
+    display: flex;
+  }
+
+  .navbar .navbar-right .action-button-bars {
+    display: flex;
+  }
+
+  .navbar.bars-clicked .action-button-close {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin: 0 0px;
+    transition: background-color 0.3s ease;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 85%;
+    top: 3%;
+    right: 25%;
+    cursor: pointer;
+  }
+
+  .navbar.bars-clicked .action-button-bars {
+    display: flex;
+  }
+
+  .action-button-bars {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin: 0 0px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 85%;
+    top: 3%;
+    right: 25%;
+    cursor: pointer;
+  }
+
+  .navbar.bars-clicked .navbar-middle {
+    left: -50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar.bars-clicked .nav-items {
+    display: flex;
+    flex-direction: column;
+    margin-top: -40px;
+    left: 50px;
+  }
+
+  .navbar.bars-clicked .nav-item {
+    margin: 0 0;
+    padding-top: 10px;
+  }
+
+  .navbar.bars-clicked .nav-signup {
+    border-radius: 50px;
+    height: 50px;
+    width: 95%;
+    margin: 0 0;
+    padding: 10px 28px;
+    color: #000;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 10px;
+    top: 240px;
+  }
+
+  .navbar.bars-clicked .nav-toggle {
+    top: -50px;
+    left: -30px;
+  }
+
+  .navbar.bars-clicked .navbar-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    order: 1;
+  }
+
+  .navbar.bars-clicked .action-button-bars {
+    display: none;
+  }
 }

@@ -11,7 +11,7 @@ const app = express();
 connectDB();
 
 // middlewares
-app.use(cors({ credentials: true, origin: "https://doodlecollab.vercel.app" }));
+app.use(cors({ credentials: true, origin: ["http://localhost:5173", "https://doodlecollab.vercel.app"] }));
 app.use(bodyParser.json());
 
 // routes

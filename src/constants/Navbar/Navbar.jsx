@@ -1,29 +1,48 @@
 import React from "react";
-import logo from "../../assets/logo.png";
 import { useTheme } from "../../context/ThemeContext";
+import { HiMiniBars2 } from "react-icons/hi2";
+import { RxCross1 } from "react-icons/rx";
+import logo from "../../assets/logo.png";
+import { Link } from "react-router-dom";
 import "./navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ isBarsClicked, handleBarsClick }) => {
   const { isDarkMode, toggleDarkMode } = useTheme();
 
   return (
-    <nav className={`navbar ${isDarkMode ? "dark-mode" : "white-mode"}`}>
-      <a className="navbar-brand" href="/">
+    <nav className={`navbar ${isBarsClicked ? "bars-clicked" : ""} ${isDarkMode ? "dark-mode" : "white-mode"}`}>
+      <Link to="/" className="navbar-brand">
         <img src={logo} alt="DoodleCollab logo" className="logo" />
-      </a>
+      </Link>
+
       <div className="navbar-middle">
         <div className="nav-items">
-          <a className="nav-item" href="https://github.com/WikiPortal/DoodleCollab">GitHub</a>
-          <a className="nav-item" href="/features">Features</a>
-          <a className="nav-item" href="/blogs">Blogs</a>
+           <Link to="https://github.com/WikiPortal/DoodleCollab" className="nav-item">
+            GitHub
+          </Link>
+          <Link to="/features" className="nav-item">
+            Features
+          </Link>
+          <Link to="/blogs" className="nav-item">
+            Blogs
+          </Link>
         </div>
-          <a className={`nav-signup ${isDarkMode ? "dark-mode" : "white-mode"}`} href="/register" >Signup</a>
+
+        <Link to="/register" className={`nav-signup ${isDarkMode ? "dark-mode" : "white-mode"}`}>Signup</Link>
       </div>
-      
+
       <div className="navbar-right">
-        <input className="nav-checkbox" type="checkbox" id="switch" onClick={toggleDarkMode} />
-        <label className="nav-toggle" htmlFor="switch">Toggle</label>
-      </div> 
+        <input className="nav-checkbox" type="checkbox" id="switch" onChange={toggleDarkMode} />
+        <label className={`nav-toggle ${isDarkMode ? "dark-mode" : "white-mode"}`} htmlFor="switch">Toggle</label>
+
+        <button className={`action-button-bars ${isBarsClicked ? "hidden" : ""}`} onClick={handleBarsClick}>
+          <HiMiniBars2 style={{ fontSize: "2rem", fontWeight: 'bold' }} />
+        </button>
+
+        <button className={`action-button-close ${!isBarsClicked ? "hidden" : ""}`} onClick={handleBarsClick}>
+          <RxCross1 style={{ fontSize: "2rem", fontWeight: 'bold' }} />
+        </button>
+      </div>
     </nav>
   );
 };

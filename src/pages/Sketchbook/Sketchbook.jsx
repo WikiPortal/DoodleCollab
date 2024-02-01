@@ -1,12 +1,29 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Stage, Layer, Line } from "react-konva";
-import {  Stack,  Button,  Paper,  Slider,  Modal,  Select,  MenuItem,  IconButton,  Grid,  Input, Avatar } from "@mui/material";
+import {
+  Button,
+  Paper,
+  Slider,
+  Modal,
+  Select,
+  MenuItem,
+  IconButton,
+  Grid,
+  Input,
+} from "@mui/material";
 import { MuiColorInput } from "mui-color-input";
 import jsPDF from "jspdf";
-import {  FaEraser,  FaRedo,  FaRegTrashAlt,  FaSave,  FaUndo } from "react-icons/fa";
+import {
+  FaEraser,
+  FaRedo,
+  FaRegTrashAlt,
+  FaSave,
+  FaUndo,
+} from "react-icons/fa";
 import LoginRequired from "../LoginRequired/LoginRequired";
 import axios from "axios";
 import UserProfile from "../../components/UserProfile/UserProfile";
+import "./sketchbook.css";
 
 const Sketchbook = () => {
   const [lines, setLines] = useState([]);
@@ -21,24 +38,32 @@ const Sketchbook = () => {
   const [ftype, setFtype] = useState("png");
   const [removedLines, setRemovedLines] = useState([]);
   const [loggedIn, setLoggedIn] = useState(true);
-  const [userData, setUserData] = useState({name: 'Doodle Collab', avatar: ''});
+  const [userData, setUserData] = useState({
+    name: "Doodle Collab",
+    avatar: "",
+  });
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    if(!token) {
+    const token = localStorage.getItem("token");
+    if (!token) {
       setLoggedIn(false);
     } else {
-      axios.get("https://doodlecollab-backend.onrender.com/api/users/validateToken", {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      }).then(res => {
-        setLoggedIn(true);
-      }).catch(error => {
-        setLoggedIn(false);
-        localStorage.removeItem('token');
-      });
-      
+      axios
+        .get(
+          "https://doodlecollab-backend.onrender.com/api/users/validateToken",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        .then((res) => {
+          setLoggedIn(true);
+        })
+        .catch((error) => {
+          setLoggedIn(false);
+          localStorage.removeItem("token");
+        });
     }
   }, []);
 
@@ -91,7 +116,6 @@ const Sketchbook = () => {
   };
 
   const handleSave = () => {
-    console.log(ftype);
     setOpen(false);
     const dataURL = stageRef.current.toDataURL();
     const canvas = document.createElement("canvas");
@@ -128,8 +152,9 @@ const Sketchbook = () => {
     setLines((prev) => prev.slice(0, -1));
   };
 
-  const handleToolChange = (e) => {
-    setSelectedTool(e.target.value);
+  const handleToolChange = (value) => {
+    setSelectedTool(value);
+    console.log(value);
   };
 
   const handleRedo = () => {
@@ -145,8 +170,8 @@ const Sketchbook = () => {
     setRemovedLines((prev) => prev.slice(0, -1));
   };
 
-  return (
-    loggedIn ? <>
+  return loggedIn ? (
+    <>
       <Stage
         width={window.innerWidth}
         height={window.innerHeight}
@@ -168,13 +193,14 @@ const Sketchbook = () => {
           ))}
         </Layer>
       </Stage>
-      <UserProfile userName={userData.name} userAvatar={userData.avatar}/>
+      <UserProfile userName={userData.name} userAvatar={userData.avatar} />
       <Paper
         style={{
           position: "fixed",
-          top: "25vh",
-          left: "83vw",
-          width: "10vw",
+          top: "100px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: "30vw",
           display: "flex",
           flexDirection: "column",
           padding: "20px",
@@ -193,32 +219,9 @@ const Sketchbook = () => {
         <h3>Brush color</h3>
         <MuiColorInput onChange={handleColorChange} value={brushColor} />
 
-        <Stack justifyContent="center" alignItems="center" mt="1em" spacing={1}>
-          <Button
-            variant="outlined"
-            size="small"
-            onClick={handleToolChange}
-            value="eraser"
-          >
-            Eraser
-          </Button>
-          <Button variant="outlined" size="small" onClick={() => handleClear()}>
-            Clear
-          </Button>
-          <Button variant="outlined" size="small" onClick={() => handleUndo()}>
-            Undo
-          </Button>
-          <Button variant="outlined" size="small" onClick={() => handleRedo()}>
-            Redo
-          </Button>
-          <Button variant="outlined" size="small" onClick={() => setOpen(true)}>
-            Save
-          </Button>
-        </Stack>
-
         <Grid container spacing={1} marginTop={2}>
           <Grid item xs={4}>
-            <IconButton onClick={handleToolChange} value="eraser">
+            <IconButton onClick={() => handleToolChange("eraser")}>
               <FaEraser />
             </IconButton>
           </Grid>
@@ -276,7 +279,8 @@ const Sketchbook = () => {
           </Button>
         </Paper>
       </Modal>
-    </> :
+    </>
+  ) : (
     <LoginRequired />
   );
 };
