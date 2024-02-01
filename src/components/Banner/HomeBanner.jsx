@@ -50,7 +50,7 @@ const HomeBanner = () => {
 
   return (
     <section className="homebanner-section">
-      <div className="homebanner-container">
+      <div className="homebanner-container w-screen shrink-0">
         <h1>DoodleCollab</h1>
         <p className="homebanner-head-para">
           Application designed to transform the way we collaborate, offering an

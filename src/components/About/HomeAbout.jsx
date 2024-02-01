@@ -49,7 +49,7 @@ const HomeAbout = () => {
   return (
     <section className="about-section">
       <div className="about-container">
-        <div className="about-header">
+        <div className="about-header px-2">
           <div className="key-feature">Key Feature</div>
           <div className="about-head">
             <p>Why use DoodleCollab ?</p>
