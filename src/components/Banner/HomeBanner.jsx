@@ -58,7 +58,7 @@ const HomeBanner = () => {
         </p>
         <div className="flex justify-center pt-5 gap-5">
           <a href="/register">
-            <button className="homebanner-getStarted">Get Started Now</button>
+            <button className="rounded-[8px] px-7 py-[10px] text-white bg-[#2f97ff] hover:bg-[#0856a5]">Get Started Now</button>
           </a>
 
           <button
@@ -69,7 +69,7 @@ const HomeBanner = () => {
           </button>
         </div>
 
-        <div className="homebanner-cards">
+        <div className="pt-[100px] flex justify-center">
           <div className="homebanner-card-first-column">
             <div className="homebanner-card-icons">
               <ul className="homebanner-card-icons-ul">
@@ -150,7 +150,7 @@ const HomeBanner = () => {
                 </div>
 
                 <div className="homebanner-card-second-column-first-row-bottom-card">
-                  <div className="homebanner-card-second-column-first-row-bottom-card-container">
+                  <div className="flex text-center items-center justify-between relative">
                     <p>
                       <i>
                         <img
@@ -160,14 +160,13 @@ const HomeBanner = () => {
                         />
                       </i>
                     </p>
-                    <p className="homebanner-card-second-column-first-row-bottom-card-name">
+                    <p className="ml-5 mt-[10px] font-bold h-7 w-[100px]">
                       lorem Ipsum
                     </p>
                     <p>
                       <i>
                         <FaRegHeart
-                          style={{ marginLeft: "95px" }}
-                          className="homebanner-card-second-column-first-row-bottom-card-icon"
+                          className="mt-2 h-5 w-5 ml-[95px]"
                         />
                       </i>
                     </p>
@@ -194,11 +193,11 @@ const HomeBanner = () => {
             <div className="homebanner-card-third-column-container">
               {" "}
               <form onSubmit={onSubmit}>
-                <p className="login-text">Login into your account</p>
-                <div className="login-para">
+                <p className="text-2xl font-semibold leading-4 text-center mt-8 mb-4">Login into your account</p>
+                <div className="text-xs text-left ml-12 mt-2 h-5 w-[300px] flex mb-14 gap-1">
                   <p>Don't have an account yet? </p>{" "}
                   <Link to="/register">
-                    <p className="login-para-link"> Create Now </p>
+                    <p className="text-[#1976d2]"> Create Now </p>
                   </Link>
                 </div>
                 <div className="form-control-mail-icon">
@@ -206,6 +205,7 @@ const HomeBanner = () => {
                     type="email"
                     placeholder="johndoe@gmail.com"
                     id="username"
+                    className="border border-solid border-[#d1d2d4] rounded-[20px] p-5 w-[90%] h-[15px] mb-5 ml-5"
                     {...register("email", {
                       required: "Email is required",
                     })}
@@ -220,6 +220,7 @@ const HomeBanner = () => {
                     type={showPassword ? "text" : "password"}
                     placeholder="Password"
                     id="password"
+                    className="border border-solid border-[#d1d2d4] rounded-[20px] p-5 w-[90%] h-[15px] mb-5 ml-5"
                     {...register("password", {
                       required: "Password is required",
                     })}
@@ -242,7 +243,7 @@ const HomeBanner = () => {
                     )}
                   </button>
                 </div>
-                <button className="login-button" type="submit">
+                <button className="text-base font-bold ml-6 mt-16 rounded-[20px] px-7 py-[10px] w-[250px] text-[#1976d2] bg-[#d3e0fd]" type="submit">
                   Login
                 </button>
               </form>
