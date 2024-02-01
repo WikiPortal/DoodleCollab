@@ -46,10 +46,10 @@ const HomeAbout = () => {
   }, [isDarkMode]);
 
   return (
-    <section className="flex mb-5 justify-center">
-      <div className="flex flex-col">
-        <div className="h-[30vh] flex flex-col justify-evenly">
-          <div className="text-[15px] font-medium w-[140px] text-center rounded-3xl p-[10px] bg-black text-white">Key Feature</div>
+    <section className="flex mb-5 justify-center mt-24 vs:mt-0">
+      <div className="flex flex-col w-full px-4">
+        <div className="h-[30vh] flex flex-col justify-evenly text-center items-center">
+          <div className="text-[15px] font-medium w-[140px] rounded-3xl p-[10px] bg-black text-white mb-4">Key Feature</div>
           <div className="font-semibold text-[42px] leading-[48px]">
             <p>Why use DoodleCollab ?</p>
           </div>
@@ -58,7 +58,7 @@ const HomeAbout = () => {
             features and seamless real-time sharing.
           </div>
         </div>
-        <div className="flex justify-evenly lg:grid lg:grid-cols-3 md:grid md:grid-cols-2 sm:grid sm:grid-cols-1 sm:mx-auto">
+        <div className="flex flex-col justify-center lg:grid-cols-3 xl:grid-cols-4 sm:grid sm:grid-cols-2 mx-auto">
           {Array(4)
             .fill()
             .map((_, index) => (
