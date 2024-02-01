@@ -108,22 +108,22 @@ const HomeBanner = () => {
 
             <div className="homebanner-card-first-column-remaining-rows">
               <div className="homebanner-card-first-column-remaining-row-container">
-                <div className="homebanner-card-first-column-second-row">
-                  <div className="homebanner-card-second-row-image">
+                <div className="h-[110px] flex justify-center">
+                  <div className="mt-[30px] w-[70px] h-[70px] rounded-[50%] bg-[#ff90bc]">
                     <img
                       src={profile}
                       alt="profile"
-                      className="homebanner-card-image"
+                      className="flex items-center justify-center rounded-[50%]"
                     />
                   </div>
                 </div>
-                <div className="homebanner-card-first-column-third-row">
-                  <p>John Doe</p>
-                  <p>Engineer</p>
+                <div className="h-[50px] font-bold text-lg">
+                  <p className="m-[10px]">John Doe</p>
+                  <p className="m-[10px]">Engineer</p>
                 </div>
                 <div className="homebanner-card-first-column-fourth-row">
-                  <button className="follow">
-                    <span className="follow-text">Follow</span>{" "}
+                  <button className="h-10 flex items-center mt-10 rounded-[19px] py-[10px] px-5 space-x-4 text-left justify-between w-36 text-white bg-[#1976d2]">
+                    <span className="text-[1rem]">Follow</span>{" "}
                     <i>
                       <FaPlus style={{ marginLeft: "30px" }} />
                     </i>
@@ -139,24 +139,24 @@ const HomeBanner = () => {
             </div>
           </div>
           <div className="homebanner-card-second-column">
-            <div className="homebanner-card-second-column-first-row">
-              <div className="homebanner-card-second-column-first-row-container">
-                <div className="homebanner-card-second-column-first-row-top-image">
+            <div className="h-[300px] p-0 block rounded-[20px] mb-[40px]">
+              <div className="border border-[#f7f8f9] rounded-[20px]">
+                <div className="h-[300px] w-[300px] flex justify-center items-center">
                   <img
                     src={homeBannerUI}
                     alt="homeBannerProfile"
-                    className="homebanner-card-second-column-first-row-top-image"
+                    className="h-[300px] w-[300px] flex justify-center items-center"
                   />
                 </div>
 
-                <div className="homebanner-card-second-column-first-row-bottom-card">
+                <div className="border border-[#f7f8f9] rounded-bl-[20px] rounded-br-[20px]">
                   <div className="flex text-center items-center justify-between relative">
                     <p>
                       <i>
                         <img
                           src={profile}
                           alt="profile"
-                          className="homebanner-card-second-column-first-row-bottom-card-image"
+                          className="ml-[10px] mt-0 h-[30px] w-[30px] bg-[#ff90bc] rounded-[50%]"
                         />
                       </i>
                     </p>
@@ -175,13 +175,13 @@ const HomeBanner = () => {
               </div>
             </div>
             <div className="homebanner-card-second-column-second-row">
-              <div className="homebanner-card-second-column-second-row-container">
+              <div className="relative flex items-center">
                 <div>
                   <img src={johnDoe} alt="johnDoe" />
                 </div>
                 <div>
-                  <p className="name">John Doe</p>
-                  <p className="position">UI/UX Designer</p>
+                  <p className="ml-[1px] text-left text-base font-semibold mt-[10px]">John Doe</p>
+                  <p className="ml-0 text-left text-base font-thin">UI/UX Designer</p>
                 </div>
                 <div>
                   <LuPen style={{ marginLeft: "68px" }} />
