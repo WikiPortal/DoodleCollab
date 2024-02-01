@@ -49,14 +49,14 @@ const HomeBanner = () => {
   });
 
   return (
-    <section className="homebanner-section">
-      <div className="homebanner-container">
-        <h1>DoodleCollab</h1>
-        <p className="homebanner-head-para">
+    <section className="flex justify-center mb-5">
+      <div className="font-sans text-center items-center max-w-1/2 m-14 p-4 h-screen">
+        <h1 className="text-6xl font-normal leading-[48px]">DoodleCollab</h1>
+        <p className="text-[1.2rem] p-4 text-[#677082]">
           Application designed to transform the way we collaborate, offering an
           unparalleled whiteboard and sharing experience.
         </p>
-        <div className="homebanner-head-button">
+        <div className="flex justify-center pt-5 gap-5">
           <a href="/register">
             <button className="homebanner-getStarted">Get Started Now</button>
           </a>
