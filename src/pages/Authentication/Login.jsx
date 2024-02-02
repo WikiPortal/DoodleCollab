@@ -32,6 +32,7 @@ const Login = () => {
         }
       );
       localStorage.setItem("token", resData.data.token);
+      console.log("TOKEN SET", resData.data.token);
       showToast({ message: "Login Success!", type: "SUCCESS" });
       navigate("/sketchbook");
     } catch (error) {

@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useTheme } from "../../context/ThemeContext";
 import { HiMiniBars2 } from "react-icons/hi2";
 import { RxCross1 } from "react-icons/rx";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import "./navbar.css";
+import { AppContext } from '../../context/AppContext';
 
 const Navbar = ({ isBarsClicked, handleBarsClick }) => {
   const { isDarkMode, toggleDarkMode } = useTheme();
+  const { updateLoggedIn, isLoggedIn } = useContext(AppContext);
+
+  const handleLogout = () => {
+    updateLoggedIn(false);
+  };
 
   return (
     <nav className={`navbar ${isBarsClicked ? "bars-clicked" : ""} ${isDarkMode ? "dark-mode" : "white-mode"}`}>
@@ -27,8 +33,16 @@ const Navbar = ({ isBarsClicked, handleBarsClick }) => {
             Blogs
           </Link>
         </div>
-
-        <Link to="/register" className={`nav-signup ${isDarkMode ? "dark-mode" : "white-mode"}`}>Signup</Link>
+        {/* <Link to="/register" className={`nav-signup ${isDarkMode ? "dark-mode" : "white-mode"}`}>Signup</Link> */}
+        {isLoggedIn ? (
+          <Link to="/login" className={`nav-signup ${isDarkMode ? "dark-mode" : "white-mode"}`} onClick={handleLogout}>
+            Sign Out
+          </Link>
+        ) : (
+          <Link to="/register" className={`nav-signup ${isDarkMode ? "dark-mode" : "white-mode"}`}>
+            Sign Up
+          </Link>
+        )}
       </div>
 
       <div className="navbar-right">
