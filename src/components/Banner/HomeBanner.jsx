@@ -70,7 +70,7 @@ const HomeBanner = () => {
         </div>
 
         <div className="pt-[100px] flex justify-center">
-          <div className="homebanner-card-first-column">
+          <div className="flex flex-col h-[450px] w-[300px] break-words bg-transparent rounded-[20px] m-[10px]">
             <div className="homebanner-card-icons">
               <ul className="homebanner-card-icons-ul">
                 <li>
@@ -106,8 +106,8 @@ const HomeBanner = () => {
               </ul>
             </div>
 
-            <div className="homebanner-card-first-column-remaining-rows">
-              <div className="homebanner-card-first-column-remaining-row-container">
+            <div className="rounded-[20px] mt-[45px] border border-[#f7f8f9]">
+              <div className="rounded-[20px]" style={{boxShadow: "0 0 1px 0 rgba(8, 11, 14, 0.06), 0 6px 6px -1px rgba(8, 11, 14, 0.1)"}}>
                 <div className="h-[110px] flex justify-center">
                   <div className="mt-[30px] w-[70px] h-[70px] rounded-[50%] bg-[#ff90bc]">
                     <img
@@ -121,7 +121,7 @@ const HomeBanner = () => {
                   <p className="m-[10px]">John Doe</p>
                   <p className="m-[10px]">Engineer</p>
                 </div>
-                <div className="homebanner-card-first-column-fourth-row">
+                <div className="h-[133px] flex items-center px-[5px] rounded-[20px] justify-between">
                   <button className="h-10 flex items-center mt-10 rounded-[19px] py-[10px] px-5 space-x-4 text-left justify-between w-36 text-white bg-[#1976d2]">
                     <span className="text-[1rem]">Follow</span>{" "}
                     <i>
@@ -138,7 +138,7 @@ const HomeBanner = () => {
               </div>
             </div>
           </div>
-          <div className="homebanner-card-second-column">
+          <div className="flex flex-col h-[450px] w-[300px] break-words rounded-[20px] m-[10px]">
             <div className="h-[300px] p-0 block rounded-[20px] mb-[40px]">
               <div className="border border-[#f7f8f9] rounded-[20px]">
                 <div className="h-[300px] w-[300px] flex justify-center items-center">
@@ -174,10 +174,10 @@ const HomeBanner = () => {
                 </div>
               </div>
             </div>
-            <div className="homebanner-card-second-column-second-row">
+            <div className="mt-[40px] h-[70px] justify-between items-center rounded-[20px] mb-0 border border-[#f7f8f9]" style={{boxShadow: "0 0 1px 0 rgba(8, 11, 14, 0.06), 0 6px 6px -1px rgba(8, 11, 14, 0.1)"}}>
               <div className="relative flex items-center">
                 <div>
-                  <img src={johnDoe} alt="johnDoe" />
+                  <img src={johnDoe} alt="johnDoe" className="mx-[15px] mt-[10px] h-[50px] w-[50px]"/>
                 </div>
                 <div>
                   <p className="ml-[1px] text-left text-base font-semibold mt-[10px]">John Doe</p>
@@ -189,9 +189,8 @@ const HomeBanner = () => {
               </div>
             </div>
           </div>
-          <div className="homebanner-card-third-column">
-            <div className="homebanner-card-third-column-container">
-              {" "}
+          <div className="flex flex-col h-[450px] w-[300px] break-words border border-[#f7f8f9] rounded-[20px] margin-[10px]" style={{boxShadow: "0 0 1px 0 rgba(8, 11, 14, 0.06), 0 6px 6px -1px rgba(8, 11, 14, 0.1)"}}>
+            <div>
               <form onSubmit={onSubmit}>
                 <p className="text-2xl font-semibold leading-4 text-center mt-8 mb-4">Login into your account</p>
                 <div className="text-xs text-left ml-12 mt-2 h-5 w-[300px] flex mb-14 gap-1">
@@ -210,7 +209,7 @@ const HomeBanner = () => {
                       required: "Email is required",
                     })}
                   />
-                  <i className="icon-input-icon">
+                  <i className="absolute top-1/2 right-[30px] transform -translate-y-[90%] text-[#d1d2d4]">
                     {" "}
                     <HiOutlineMail size={24} />
                   </i>
@@ -231,12 +230,11 @@ const HomeBanner = () => {
                     onClick={() => setShowPassword(!showPassword)}
                   >
                     {showPassword ? (
-                      <i className="icon-input-icon">
-                        {" "}
+                      <i className="absolute top-1/2 right-[30px] transform -translate-y-[90%] text-[#d1d2d4]">
                         <MdOutlineRemoveRedEye size={24} />
                       </i>
                     ) : (
-                      <i className="icon-input-icon">
+                      <i className="absolute top-1/2 right-[30px] transform -translate-y-[90%] text-[#d1d2d4]">
                         {" "}
                         <VisibilityOffIcon />
                       </i>
