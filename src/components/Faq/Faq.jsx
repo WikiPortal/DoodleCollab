@@ -29,8 +29,7 @@ const Faq = () => {
         <div className="faq-list">
           <ul>
             {questions.map((data, index) => (
-              <div className="q-container" key={index}>
-                <li>
+                <li className="q-container" key={index}>
                 <div
                   className='q-area'
                   onClick={() => handleToggleAnswer(index)} 
@@ -78,7 +77,6 @@ const Faq = () => {
                     )}
                   </AnimatePresence>
                 </li>
-              </div>
             ))}
           </ul>
         </div>

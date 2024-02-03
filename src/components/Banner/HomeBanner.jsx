@@ -74,32 +74,32 @@ const HomeBanner = () => {
             <div className="homebanner-card-icons">
               <ul className="homebanner-card-icons-ul">
                 <li>
-                  <button>
+                  <button aria-label="heart">
                     <img src={heart} alt="" />
                   </button>
                 </li>
                 <li>
-                  <button>
+                  <button aria-label="view">
                     <img src={view} alt="" />
                   </button>
                 </li>
                 <li>
-                  <button>
+                  <button aria-label="pen">
                     <img src={pen} alt="" />
                   </button>
                 </li>
                 <li>
-                  <button>
+                  <button aria-label="link">
                     <img src={link} alt="" />
                   </button>
                 </li>
                 <li>
-                  <button>
+                  <button aria-label="play">
                     <img src={play} alt="" />
                   </button>
                 </li>
                 <li>
-                  <button>
+                  <button aria-label="download">
                     <img src={download} alt="" />
                   </button>
                 </li>
@@ -226,6 +226,7 @@ const HomeBanner = () => {
                   />
 
                   <button
+                    aria-label="visibility btn"
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
                   >
