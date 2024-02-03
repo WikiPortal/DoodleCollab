@@ -12,9 +12,6 @@ const Footer = () => {
 
   return (
     <section className={`footer ${isDarkMode ? "dark-mode" : "white-mode"}`}>
-      <div className="footer-content">
-        <p>Designed & Developed by WikiPortal</p>
-      </div>
       <div className="footer-icons">
         <ul>
           <li>
@@ -67,6 +64,11 @@ const Footer = () => {
             </Link>
           </li>
         </ul>
+      </div>
+      <div className="footer-content">
+        <p className="text-xs md:text-sm mt-2">
+          Designed & Developed by WikiPortal
+        </p>
       </div>
     </section>
   );
