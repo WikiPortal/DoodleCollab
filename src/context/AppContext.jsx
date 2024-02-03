@@ -21,7 +21,6 @@ const AppContextProvider = ({ children }) => {
           }
         )
         .then((res) => {
-          console.log("TOKEN SET");
           setLoggedIn(true);
         })
         .catch((error) => {

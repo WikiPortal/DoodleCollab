@@ -5,11 +5,11 @@ import { RxCross1 } from "react-icons/rx";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import "./navbar.css";
-import { AppContext } from '../../context/AppContext';
+import { useAppContext } from "../../context/AppContext";
 
 const Navbar = ({ isBarsClicked, handleBarsClick }) => {
   const { isDarkMode, toggleDarkMode } = useTheme();
-  const { updateLoggedIn, isLoggedIn } = useContext(AppContext);
+  const { updateLoggedIn, isLoggedIn } = useAppContext();
 
   const handleLogout = () => {
     updateLoggedIn(false);
