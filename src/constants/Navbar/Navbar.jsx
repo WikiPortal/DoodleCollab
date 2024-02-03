@@ -33,7 +33,6 @@ const Navbar = ({ isBarsClicked, handleBarsClick }) => {
             Blogs
           </Link>
         </div>
-        {/* <Link to="/register" className={`nav-signup ${isDarkMode ? "dark-mode" : "white-mode"}`}>Signup</Link> */}
         {isLoggedIn ? (
           <Link to="/login" className={`nav-signup ${isDarkMode ? "dark-mode" : "white-mode"}`} onClick={handleLogout}>
             Sign Out

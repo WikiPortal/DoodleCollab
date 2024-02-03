@@ -8,8 +8,8 @@ const AppContextProvider = ({ children }) => {
   const [toast, setToast] = useState(undefined);
   const [isLoggedIn, setLoggedIn] = useState(false);
 
-  const updateLoggedIn = (value) => {
-    if(value){
+  const updateLoggedIn = (loggedIn) => {
+    if(loggedIn){
       const token = localStorage.getItem("token");
       axios
         .get(

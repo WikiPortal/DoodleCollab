@@ -24,6 +24,7 @@ import LoginRequired from "../LoginRequired/LoginRequired";
 import axios from "axios";
 import UserProfile from "../../components/UserProfile/UserProfile";
 import "./sketchbook.css";
+import { useAppContext } from "../../context/AppContext";
 
 const Sketchbook = () => {
   const [lines, setLines] = useState([]);
@@ -37,16 +38,16 @@ const Sketchbook = () => {
   const stageRef = useRef(null);
   const [ftype, setFtype] = useState("png");
   const [removedLines, setRemovedLines] = useState([]);
-  const [loggedIn, setLoggedIn] = useState(true);
   const [userData, setUserData] = useState({
     name: "Doodle Collab",
     avatar: "",
   });
+  const { updateLoggedIn, isLoggedIn } = useAppContext();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
-      setLoggedIn(false);
+      updateLoggedIn(false);
     } else {
       axios
         .get(
@@ -58,11 +59,10 @@ const Sketchbook = () => {
           }
         )
         .then((res) => {
-          setLoggedIn(true);
+          updateLoggedIn(true);
         })
         .catch((error) => {
-          setLoggedIn(false);
-          localStorage.removeItem("token");
+          updateLoggedIn(false);
         });
     }
   }, []);
@@ -170,7 +170,7 @@ const Sketchbook = () => {
     setRemovedLines((prev) => prev.slice(0, -1));
   };
 
-  return loggedIn ? (
+  return isLoggedIn ? (
     <>
       <Stage
         width={window.innerWidth}
