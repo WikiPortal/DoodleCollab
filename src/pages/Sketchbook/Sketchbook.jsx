@@ -24,6 +24,7 @@ import LoginRequired from "../LoginRequired/LoginRequired";
 import axios from "axios";
 import UserProfile from "../../components/UserProfile/UserProfile";
 import "./sketchbook.css";
+import ScreenRecording from "./ScreenRecording";
 
 const Sketchbook = () => {
   const [lines, setLines] = useState([]);
@@ -279,6 +280,16 @@ const Sketchbook = () => {
           </Button>
         </Paper>
       </Modal>
+      <ScreenRecording
+      screen={true}
+      audio={false}
+      video={true}
+      downloadRecordingPath="./" //Put the correct downloading path here
+      downloadRecordingType="mp4"
+      emailToSupport="example@gmail.com"
+    />
+    
+
     </>
   ) : (
     <LoginRequired />
