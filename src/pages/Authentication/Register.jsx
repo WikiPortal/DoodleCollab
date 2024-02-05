@@ -185,7 +185,7 @@ const Register = () => {
             </span>
           )}
           <div
-            className="auth-miscellaneous"
+            className="auth-miscellaneous m-1"
             style={{ color: isDarkMode ? "white" : "black" }}
           >
             <span className="m-2">
@@ -193,6 +193,7 @@ const Register = () => {
             </span>
             <label className="auth-checkbox m-1">
               <input
+                className="mr-2 mt-1"
                 type="checkbox"
                 {...register("agree", {
                   required: "Please agree to the Terms and Privacy Policy",

@@ -95,13 +95,21 @@ const Login = () => {
           <div className="auth-textbox-footer">
             <span>
               New to DoodleCollab?{" "}
-              <Link className="auth-link" to="/register" style={{ color: isDarkMode ? "white" : "black" }}>
+              <Link
+                className="auth-link"
+                to="/register"
+                style={{ color: isDarkMode ? "white" : "black" }}
+              >
                 Click here to create
               </Link>
             </span>
             <span>
               Forget password?{" "}
-              <Link className="auth-link" to="/" style={{ color: isDarkMode ? "white" : "black" }}>
+              <Link
+                className="auth-link"
+                to="/"
+                style={{ color: isDarkMode ? "white" : "black" }}
+              >
                 Click here to find it
               </Link>
             </span>

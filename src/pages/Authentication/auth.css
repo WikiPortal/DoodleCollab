@@ -1,10 +1,11 @@
 .auth-section {
   position: relative;
-  margin-top: 90px;
   width: 100%;
+  padding-top: 5px;
   height: 100%;
   flex-direction: row;
   display: flex;
+  @apply py-14 md:py-0;
 }
 .auth-section.dark-mode {
   background-color: #1a1a1a;
@@ -20,6 +21,7 @@
 
 .auth-img {
   width: 40%;
+  @apply hidden md:block;
 }
 .auth-img > img {
   width: 100%;
@@ -35,6 +37,7 @@
   justify-content: center;
   overflow-y: auto;
   margin-top: 80px;
+  @apply w-full md:w-[60%] px-4 md:px-0;
 }
 
 .auth-form {
@@ -44,8 +47,8 @@
 
 .auth-form h1 {
   font: bold;
-  font-size: 42px;
   font-weight: 600;
+  @apply text-4xl md:text-[42px];
 }
 
 .auth-form hr {
@@ -98,10 +101,10 @@
 }
 .auth-checkbox {
   cursor: pointer;
-  justify-content: space-between;
   display: flex;
   flex-direction: row;
-  max-width: 75%;
+  align-items: flex-start;
+  @apply items-baseline md:items-center;
 }
 
 .auth-link {

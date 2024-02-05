@@ -35,11 +35,11 @@
   border-radius: 8px;
   padding: 10px 28px;
   color: #ffffff;
-  background-color: #2f97ff;
+  background-color: #1277D3;
 }
 
 .homebanner-getStarted:hover {
-  background-color: #0856a5;
+  background-color: #2f97ff;
 }
 .watchVideo.white-mode,
 .watchVideo.dark-mode:hover {
@@ -412,7 +412,11 @@
   padding: 10px 28px;
   width: 250px;
   color: #1976d2;
-  background-color: #d3e0fd!important;
+  /* background-color: #d3e0fd!important; */
+  border: 2px solid #1976d2;
+}
+.login-button:hover{
+  opacity: .5;
 }
 
 .form-control-mail-icon,
