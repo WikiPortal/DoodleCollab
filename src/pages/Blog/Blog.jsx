@@ -1,23 +1,29 @@
-import React from 'react';
-import blogData from "./blogData.json"
+import React from "react";
+import blogData from "./blogData.json";
 import { useTheme } from "../../context/ThemeContext";
-import BlogCard from '../../components/Blog/BlogCard';
+import BlogCard from "../../components/Blog/BlogCard";
+import "./blog.css"
 
 export default function Blog() {
+  const { isDarkMode } = useTheme();
 
-    const { isDarkMode } = useTheme();
-
-    return (
-        <div className={`flex flex-col items-center mt-[90px] pb-20 pt-6`} style={isDarkMode? {backgroundColor: "#1a1a1a",
-            color: "#ffffff"}: {backgroundImage: 'linear-gradient(rgb(255, 255, 255), rgb(241, 234, 250) 48%, rgb(255, 255, 255))'}}>
-            <div className={`border border-gray-200 py-2 px-6 text-gray-600 rounded-full text-sm font-semibold ${!isDarkMode ? "bg-white" :"bg-black"}`}>
-                Our Blogs
-            </div>
-            <h1 className='text-5xl font-semibold max-w-[400px] text-center py-4'>Reviews From Our Client</h1>
-            <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 px-4 sm:px-8 lg:px-16 xl:px-0 gap-8 xl:w-[60%] mt-6'>
-            {blogData && blogData.map(el => <BlogCard {...el} />)}
-            </div>
+  return (
+    <section
+      className={`blog-section ${isDarkMode ? "dark-mode" : "white-mode"}`}
+    >
+      <div className={`flex flex-col items-center pb-20 pt-6`}>
+        <div
+          className={`border border-gray-200 py-2 px-6 text-gray-600 rounded-full text-sm font-semibold`}
+        >
+          Our Blogs
         </div>
-    );
-
-}    
+        <h1 className="text-5xl font-semibold max-w-[400px] text-center py-4">
+          Reviews From Our Client
+        </h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 px-4 sm:px-8 lg:px-16 xl:px-0 gap-8 xl:w-[60%] mt-6">
+          {blogData && blogData.map((el) => <BlogCard {...el} />)}
+        </div>
+      </div>
+    </section>
+  );
+}

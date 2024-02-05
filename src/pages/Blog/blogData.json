@@ -1,86 +1,134 @@
 [
-    {
-        "id": 1, "heading": "Lorem Ipsum Header", "content": "Lorem ipsum paragraph shows here as dummy for now to show how it benefited folks while they used doodlecollab", "link": "https://google.com", "profile": {
-            "img": "",
-            "name": "Dow",
-            "job": "CEO"
-        }
-    },
-    {
-        "id": 2, "heading": "Lorem Ipsum Header", "content": "Lorem ipsum paragraph shows here as dummy for now to show how it benefited folks while they used doodlecollab", "link": "https://google.com", "profile": {
-            "img": "",
-            "name": "Dow",
-            "job": "CEO"
-        }
-    },
-    {
-        "id": 3, "heading": "Lorem Ipsum Header", "content": "Lorem ipsum paragraph shows here as dummy for now to show how it benefited folks while they used doodlecollab", "link": "https://google.com", "profile": {
-            "img": "",
-            "name": "Dow",
-            "job": "CEO"
-        }
-    },
-    {
-        "id": 4, "heading": "Lorem Ipsum Header", "content": "Lorem ipsum paragraph shows here as dummy for now to show how it benefited folks while they used doodlecollab", "link": "https://google.com", "profile": {
-            "img": "",
-            "name": "Dow",
-            "job": "CEO"
-        }
-    },
-    {
-        "id": 5, "heading": "Lorem Ipsum Header", "content": "Lorem ipsum paragraph shows here as dummy for now to show how it benefited folks while they used doodlecollab", "link": "https://google.com", "profile": {
-            "img": "",
-            "name": "Dow",
-            "job": "CEO"
-        }
-    },
-    {
-        "id": 6, "heading": "Lorem Ipsum Header", "content": "Lorem ipsum paragraph shows here as dummy for now to show how it benefited folks while they used doodlecollab", "link": "https://google.com", "profile": {
-            "img": "",
-            "name": "Dow",
-            "job": "CEO"
-        }
-    },
-    {
-        "id": 7, "heading": "Lorem Ipsum Header", "content": "Lorem ipsum paragraph shows here as dummy for now to show how it benefited folks while they used doodlecollab", "link": "https://google.com", "profile": {
-            "img": "",
-            "name": "Dow",
-            "job": "CEO"
-        }
-    },
-    {
-        "id": 8, "heading": "Lorem Ipsum Header", "content": "Lorem ipsum paragraph shows here as dummy for now to show how it benefited folks while they used doodlecollab", "link": "https://google.com", "profile": {
-            "img": "",
-            "name": "Dow",
-            "job": "CEO"
-        }
-    },
-    {
-        "id": 9, "heading": "Lorem Ipsum Header", "content": "Lorem ipsum paragraph shows here as dummy for now to show how it benefited folks while they used doodlecollab", "link": "https://google.com", "profile": {
-            "img": "",
-            "name": "Dow",
-            "job": "CEO"
-        }
-    },
-    {
-        "id": 10, "heading": "Lorem Ipsum Header", "content": "Lorem ipsum paragraph shows here as dummy for now to show how it benefited folks while they used doodlecollab", "link": "https://google.com", "profile": {
-            "img": "",
-            "name": "Dow",
-            "job": "CEO"
-        }
-    },
-    {
-        "id": 11, "heading": "Lorem Ipsum Header", "content": "Lorem ipsum paragraph shows here as dummy for now to show how it benefited folks while they used doodlecollab", "link": "https://google.com", "profile": {
-            "img": "",
-            "name": "Dow",
-            "job": "CEO"
-        }
-    },
-    {
-        "id": 12, "heading": "Lorem Ipsum Header", "content": "Lorem ipsum paragraph shows here as dummy for now to show how it benefited folks while they used doodlecollab", "link": "https://google.com", "profile": {
-            "img": "",
-            "name": "Dow",
-            "job": "CEO"
-        }
+  {
+    "id": 1,
+    "heading": "Lorem Ipsum Header",
+    "content": "Lorem ipsum paragraph shows here as dummy for now to show how it benefited folks while they used doodlecollab",
+    "link": "https://google.com",
+    "profile": {
+      "img": "",
+      "name": "Dow",
+      "job": "CEO"
     }
+  },
+  {
+    "id": 2,
+    "heading": "Lorem Ipsum Header",
+    "content": "Lorem ipsum paragraph shows here as dummy for now to show how it benefited folks while they used doodlecollab",
+    "link": "https://google.com",
+    "profile": {
+      "img": "",
+      "name": "Dow",
+      "job": "CEO"
+    }
+  },
+  {
+    "id": 3,
+    "heading": "Lorem Ipsum Header",
+    "content": "Lorem ipsum paragraph shows here as dummy for now to show how it benefited folks while they used doodlecollab",
+    "link": "https://google.com",
+    "profile": {
+      "img": "",
+      "name": "Dow",
+      "job": "CEO"
+    }
+  },
+  {
+    "id": 4,
+    "heading": "Lorem Ipsum Header",
+    "content": "Lorem ipsum paragraph shows here as dummy for now to show how it benefited folks while they used doodlecollab",
+    "link": "https://google.com",
+    "profile": {
+      "img": "",
+      "name": "Dow",
+      "job": "CEO"
+    }
+  },
+  {
+    "id": 5,
+    "heading": "Lorem Ipsum Header",
+    "content": "Lorem ipsum paragraph shows here as dummy for now to show how it benefited folks while they used doodlecollab",
+    "link": "https://google.com",
+    "profile": {
+      "img": "",
+      "name": "Dow",
+      "job": "CEO"
+    }
+  },
+  {
+    "id": 6,
+    "heading": "Lorem Ipsum Header",
+    "content": "Lorem ipsum paragraph shows here as dummy for now to show how it benefited folks while they used doodlecollab",
+    "link": "https://google.com",
+    "profile": {
+      "img": "",
+      "name": "Dow",
+      "job": "CEO"
+    }
+  },
+  {
+    "id": 7,
+    "heading": "Lorem Ipsum Header",
+    "content": "Lorem ipsum paragraph shows here as dummy for now to show how it benefited folks while they used doodlecollab",
+    "link": "https://google.com",
+    "profile": {
+      "img": "",
+      "name": "Dow",
+      "job": "CEO"
+    }
+  },
+  {
+    "id": 8,
+    "heading": "Lorem Ipsum Header",
+    "content": "Lorem ipsum paragraph shows here as dummy for now to show how it benefited folks while they used doodlecollab",
+    "link": "https://google.com",
+    "profile": {
+      "img": "",
+      "name": "Dow",
+      "job": "CEO"
+    }
+  },
+  {
+    "id": 9,
+    "heading": "Lorem Ipsum Header",
+    "content": "Lorem ipsum paragraph shows here as dummy for now to show how it benefited folks while they used doodlecollab",
+    "link": "https://google.com",
+    "profile": {
+      "img": "",
+      "name": "Dow",
+      "job": "CEO"
+    }
+  },
+  {
+    "id": 10,
+    "heading": "Lorem Ipsum Header",
+    "content": "Lorem ipsum paragraph shows here as dummy for now to show how it benefited folks while they used doodlecollab",
+    "link": "https://google.com",
+    "profile": {
+      "img": "",
+      "name": "Dow",
+      "job": "CEO"
+    }
+  },
+  {
+    "id": 11,
+    "heading": "Lorem Ipsum Header",
+    "content": "Lorem ipsum paragraph shows here as dummy for now to show how it benefited folks while they used doodlecollab",
+    "link": "https://google.com",
+    "profile": {
+      "img": "",
+      "name": "Dow",
+      "job": "CEO"
+    }
+  },
+  {
+    "id": 12,
+    "heading": "Lorem Ipsum Header",
+    "content": "Lorem ipsum paragraph shows here as dummy for now to show how it benefited folks while they used doodlecollab",
+    "link": "https://google.com",
+    "profile": {
+      "img": "",
+      "name": "Dow",
+      "job": "CEO"
+    }
+  }
 ]

@@ -1,35 +1,31 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import { Stage, Layer, Line } from "react-konva";
-import {
-  Button,
-  Paper,
-  Slider,
-  Modal,
-  Select,
-  MenuItem,
-  IconButton,
-  Input,
-  Popper,
-} from "@mui/material";
+import { Paper, Slider, IconButton, Popper } from "@mui/material";
 import { MuiColorInput } from "mui-color-input";
-import jsPDF from "jspdf";
-import { FaRedo, FaRegTrashAlt, FaUndo } from "react-icons/fa";
-import LoginRequired from "../LoginRequired/LoginRequired";
-import axios from "axios";
-import UserProfile from "../../components/UserProfile/UserProfile";
-import "./sketchbook.css";
-import ScreenRecording from "./ScreenRecording";
-
-import { useAppContext } from "../../context/AppContext";
-import { cn } from "../../lib/utils";
-import { BsDownload } from "react-icons/bs";
+import { BsDownload, BsRecordCircle } from "react-icons/bs";
 import { IoIosShareAlt } from "react-icons/io";
 import { MdOutlinePermMedia } from "react-icons/md";
 import { FaRegFilePdf } from "react-icons/fa6";
-import { FaTools } from "react-icons/fa";
 import { HiXMark } from "react-icons/hi2";
-import { toolsData } from "./data";
+import {
+  FaRedo,
+  FaTools,
+  FaRegTrashAlt,
+  FaUndo,
+  FaRegStopCircle,
+} from "react-icons/fa";
 
+import jsPDF from "jspdf";
+import axios from "axios";
+import RecordRTC from "recordrtc";
+
+import LoginRequired from "../LoginRequired/LoginRequired";
+import UserProfile from "../../components/UserProfile/UserProfile";
+import { useAppContext } from "../../context/AppContext";
+import "./sketchbook.css";
+
+import { hiddencomponent } from "../../lib/utils";
+import { toolsData } from "./data";
 
 const Sketchbook = () => {
   const [lines, setLines] = useState([]);
@@ -49,7 +45,9 @@ const Sketchbook = () => {
   const { updateLoggedIn, isLoggedIn } = useAppContext();
   const [toggleToolsMenuBar, setToggleToolsMenuBar] = useState(false);
   const [toolsPopoverEl, setToolsPopoverEl] = useState(null);
-
+  const [recording, setRecording] = useState(false);
+  const [mediaStream, setMediaStream] = useState(null);
+  const [recordRTC, setRecordRTC] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -145,10 +143,17 @@ const Sketchbook = () => {
         pdf.save(`${fileName}.pdf`);
         return;
       }
-      console.log(fileType, ftype);
-      downloadURI(canvas.toDataURL(), `${fileName}.${fileType || ftype}`);
+      // Check if it's a video recording and handle accordingly
+      if (lines.some((line) => line.video)) {
+        const videoBlob = new Blob([recordRTC.getBlob()], { type: "video/webm" });
+        const videoUrl = URL.createObjectURL(videoBlob);
+        downloadURI(videoUrl, `${fileName}.${fileType || ftype}`);
+      } else {
+        downloadURI(canvas.toDataURL(), `${fileName}.${fileType || ftype}`);
+      }
     };
   };
+  
 
   const handleClear = () => {
     setRemovedLines(lines);
@@ -173,6 +178,42 @@ const Sketchbook = () => {
 
     setLines((prev) => [...prev, removedLines[removedLines.length - 1]]);
     setRemovedLines((prev) => prev.slice(0, -1));
+  };
+
+  const toggleRecording = () => {
+    if (!recording) {
+      navigator.mediaDevices
+        .getDisplayMedia({ video: true })
+        .then((stream) => {
+          const recorder = RecordRTC(stream, { type: "video" });
+          recorder.startRecording();
+          setRecordRTC(recorder);
+          setMediaStream(stream);
+          setRecording(true);
+        })
+        .catch((error) => console.error("Error accessing screen:", error));
+    } else {
+      recordRTC.stopRecording(() => {
+        const blob = recordRTC.getBlob();
+        const url = URL.createObjectURL(blob);
+
+        // Add the recorded video as a line on the canvas
+        setLines([
+          ...lines,
+          {
+            points: [url],
+            brushSize: 2,
+            stroke: "#000",
+            video: true,
+          },
+        ]);
+
+        // Stop the screen recording stream
+        mediaStream.getTracks().forEach((track) => track.stop());
+
+        setRecording(false);
+      });
+    }
   };
 
   // TOOLS POPOVER SPECIFIC
@@ -231,13 +272,13 @@ const Sketchbook = () => {
           )}
         </button>
         <div
-          className={cn(
+          className={hiddencomponent(
             "overflow-hidden transition-[visibility] p-3",
             toggleToolsMenuBar ? "visible" : "invisible"
           )}
         >
           <div
-            className={cn(
+            className={hiddencomponent(
               "transition-transform isolate py-3 px-4 relative before:tools-menu-3d-rotate before:content-[''] before:absolute before:inset-0 before:bg-white before:shadow-lg before:border before:rounded-b-lg before:-z-10 flex gap-1",
               toggleToolsMenuBar ? "" : "-translate-y-[100%]"
             )}
@@ -280,10 +321,6 @@ const Sketchbook = () => {
                         />
                       </div>
 
-                      {/* 
-                       We are not showing color picker for the eraser tool
-                       as the color of the eraser will always be one color(white)
-                       */}
                       {selectedTool === "brush" ? (
                         <div>
                           <h3>Brush color</h3>
@@ -346,59 +383,19 @@ const Sketchbook = () => {
             <IconButton>
               <IoIosShareAlt title="Share" />
             </IconButton>
+
+            <IconButton
+              onClick={toggleRecording}
+              title={recording ? "Stop Recording" : "Start Recording"}
+            >
+              {recording ? <FaRegStopCircle /> : <BsRecordCircle />}
+            </IconButton>
           </div>
         </div>
       </aside>
       {/*  ------------------------------
              TOOLS MENUBAR SECTION ENDS
             ------------------------------ */}
-
-      <Modal open={open} onClose={() => setOpen(false)}>
-        <Paper
-          style={{
-            width: "25vw",
-            height: "50vh",
-            position: "fixed",
-            top: "25vh",
-            left: "35vw",
-            display: "flex",
-            flexDirection: "column",
-            padding: "10px",
-          }}
-        >
-          <h1 style={{ textAlign: "center" }}>Save</h1>
-          <h3>File name</h3>
-          <Input
-            placeholder="File name"
-            onChange={(e) => setFileName(e.target.value)}
-            defaultValue="file"
-          />
-          <h3>File type</h3>
-          <Select defaultValue="png" onChange={(e) => setFtype(e.target.value)}>
-            <MenuItem value="png">PNG</MenuItem>
-            <MenuItem value="jpg">JPG</MenuItem>
-            <MenuItem value="pdf">PDF</MenuItem>
-          </Select>
-          <h3>Save</h3>
-          <Button
-            variant="outlined"
-            size="small"
-            onClick={() => handleDownload()}
-          >
-            Save
-          </Button>
-        </Paper>
-      </Modal>
-      <ScreenRecording
-      screen={true}
-      audio={false}
-      video={true}
-      downloadRecordingPath="./" //Put the correct downloading path here
-      downloadRecordingType="mp4"
-      emailToSupport="example@gmail.com"
-    />
-    
-
     </>
   ) : (
     <LoginRequired />

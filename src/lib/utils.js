@@ -1,6 +1,6 @@
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-export function cn(...inputs) {
+export function hiddencomponent(...inputs) {
   return twMerge(clsx(inputs));
 }
