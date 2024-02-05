@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+body {
   overflow-x: hidden;
 }
 
@@ -11,3 +11,8 @@ body.dark-mode {
   color: #ffffff;
 }
 
+@layer utilities {
+  .tools-menu-3d-rotate {
+    transform: perspective(60px) rotateX(-5deg);
+  }
+}
