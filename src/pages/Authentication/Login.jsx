@@ -14,7 +14,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { isDarkMode } = useTheme();
   const navigate = useNavigate();
-  const { showToast } = useAppContext();
+  const { showToast, updateLoggedIn} = useAppContext();
 
   const {
     register,
@@ -32,9 +32,11 @@ const Login = () => {
         }
       );
       localStorage.setItem("token", resData.data.token);
+      updateLoggedIn(true);
       showToast({ message: "Login Success!", type: "SUCCESS" });
       navigate("/sketchbook");
     } catch (error) {
+      updateLoggedIn(false);
       showToast({ message: "Login Failed!", type: "ERROR" });
     }
   });

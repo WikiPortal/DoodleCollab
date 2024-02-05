@@ -18,6 +18,8 @@ import LoginRequired from "../LoginRequired/LoginRequired";
 import axios from "axios";
 import UserProfile from "../../components/UserProfile/UserProfile";
 import "./sketchbook.css";
+
+import { useAppContext } from "../../context/AppContext";
 import { cn } from "../../lib/utils";
 import { BsDownload } from "react-icons/bs";
 import { IoIosShareAlt } from "react-icons/io";
@@ -26,6 +28,7 @@ import { FaRegFilePdf } from "react-icons/fa6";
 import { FaTools } from "react-icons/fa";
 import { HiXMark } from "react-icons/hi2";
 import { toolsData } from "./data";
+
 
 const Sketchbook = () => {
   const [lines, setLines] = useState([]);
@@ -38,18 +41,19 @@ const Sketchbook = () => {
   const stageRef = useRef(null);
   const [ftype, setFtype] = useState("png");
   const [removedLines, setRemovedLines] = useState([]);
-  const [loggedIn, setLoggedIn] = useState(true);
   const [userData, setUserData] = useState({
     name: "Doodle Collab",
     avatar: "",
   });
+  const { updateLoggedIn, isLoggedIn } = useAppContext();
   const [toggleToolsMenuBar, setToggleToolsMenuBar] = useState(false);
   const [toolsPopoverEl, setToolsPopoverEl] = useState(null);
+
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
-      setLoggedIn(false);
+      updateLoggedIn(false);
     } else {
       axios
         .get(
@@ -181,6 +185,7 @@ const Sketchbook = () => {
   const toolsPopoverId = openToolsPopover ? "tools-popover" : undefined;
 
   return loggedIn ? (
+
     <>
       <Stage
         width={window.innerWidth}
