@@ -29,7 +29,10 @@
     "react-hook-form": "^7.49.3",
     "react-icons": "^4.12.0",
     "react-konva": "^18.2.10",
+    "react-media-recorder": "^1.6.6",
     "react-router-dom": "^6.21.0",
+    "react-webcam": "^7.2.0",
+    "recordrtc": "^5.6.2"
     "tailwind-merge": "^2.2.1"
   },
   "devDependencies": {
