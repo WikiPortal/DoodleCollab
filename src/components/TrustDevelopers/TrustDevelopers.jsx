@@ -9,7 +9,7 @@ import keploy from "../../assets/Home/keploy.png";
 const TrustDevelopers = () => {
     return (
       <div className="trust-developers-container">
-        <h5>Trusted by developers</h5>
+        <h2>Trusted by developers</h2>
         <div className="logo-container">
           <img src={MongoDB} alt="Logo1" />
           <img src={firebase} alt="Logo2" />
