@@ -66,10 +66,10 @@ const Sketchbook = () => {
           }
         )
         .then(() => {
-          setLoggedIn(true);
+          updateLoggedIn(true);
         })
         .catch(() => {
-          setLoggedIn(false);
+          updateLoggedIn(false);
           localStorage.removeItem("token");
         });
     }
@@ -185,8 +185,7 @@ const Sketchbook = () => {
   const openToolsPopover = Boolean(toolsPopoverEl);
   const toolsPopoverId = openToolsPopover ? "tools-popover" : undefined;
 
-  return loggedIn ? (
-
+  return isLoggedIn ? (
     <>
       <Stage
         width={window.innerWidth}
