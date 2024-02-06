@@ -67,7 +67,7 @@
 }
 
 .navbar-right {
-  width: 150px;
+  width: 250px;
   align-items: center;
   display: flex;
   justify-content: center;
@@ -76,7 +76,7 @@
 .nav-checkbox[type="checkbox"] {
   display: none;
   visibility: hidden;
-  position: absolute; /* Added position: absolute */
+  position: absolute;
 }
 
 .nav-toggle {

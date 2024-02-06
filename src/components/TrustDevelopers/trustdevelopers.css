@@ -1,27 +1,28 @@
-h2{
-    color: grey;
+.trust-developers-section h2 {
+  color: grey;
 }
-.trust-developers-container {
-    text-align: center;
-  }
-  
-  .logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .logo-container img {
-    width: 100px; 
-    margin: 0 55px; 
-  }
-  
-  .logo-container img:hover {
-    transition: all 0.3s ease-in-out;
-    transform: scale(1.05);
-  }
+.trust-developers-section {
+  text-align: center;
+  margin: 2.75rem;
+}
 
-  .logo-container img:not(:hover) {
-    transition: all 0.3s ease-in-out;
-    transform: scale(1);
-  }
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-container img {
+  width: 100px;
+  margin: 15px 55px;
+}
+
+.logo-container img:hover {
+  transition: all 0.6s ease-in-out;
+  transform: scale(1.2);
+}
+
+.logo-container img:not(:hover) {
+  transition: all 0.6s ease-in-out;
+  transform: scale(1);
+}
