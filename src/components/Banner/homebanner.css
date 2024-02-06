@@ -22,7 +22,7 @@
 .homebanner-head-para {
   font-size: 1.2rem;
   padding: 15px;
-  color: #677082;
+  /* color: #677082; */
 }
 .homebanner-head-button {
   display: flex;

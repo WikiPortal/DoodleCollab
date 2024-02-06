@@ -1,5 +1,5 @@
 .trust-developers-section h2 {
-  color: grey;
+  color: rgb(58, 145, 220);
 }
 .trust-developers-section {
   text-align: center;
@@ -20,6 +20,7 @@
 .logo-container img:hover {
   transition: all 0.6s ease-in-out;
   transform: scale(1.2);
+
 }
 
 .logo-container img:not(:hover) {
