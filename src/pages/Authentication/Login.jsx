@@ -9,6 +9,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useTheme } from "../../context/ThemeContext";
 import "./auth.css";
 import { useAppContext } from "../../context/AppContext";
+import { useMutation } from "react-query";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -22,23 +23,32 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = handleSubmit(async (data) => {
-    try {
-      const resData = await axios.post(
-        "https://doodlecollab-backend.onrender.com/api/users/login",
-        {
-          email: data.email,
-          password: data.password,
-        }
-      );
-      localStorage.setItem("token", resData.data.token);
-      updateLoggedIn(true);
-      showToast({ message: "Login Success!", type: "SUCCESS" });
-      navigate("/sketchbook");
-    } catch (error) {
-      updateLoggedIn(false);
-      showToast({ message: "Login Failed!", type: "ERROR" });
-    }
+  const { mutate: loginUserMutate } = useMutation((user) =>
+    axios.post(
+      "https://doodlecollab-backend.onrender.com/api/users/login",
+      user
+    )
+  );
+
+  const onSubmit = handleSubmit(({ email, password }) => {
+    loginUserMutate(
+      {
+        email,
+        password,
+      },
+      {
+        onSuccess: (res) => {
+          localStorage.setItem("token", res.data.token);
+          updateLoggedIn(true);
+          showToast({ message: "Login Successful!", type: "SUCCESS" });
+          navigate("/sketchbook");
+        },
+        onError: () => {
+          updateLoggedIn(false);
+          showToast({ message: "Login Failed!", type: "ERROR" });
+        },
+      }
+    );
   });
 
   return (
