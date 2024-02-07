@@ -22,6 +22,7 @@ import RecordRTC from "recordrtc";
 import LoginRequired from "../LoginRequired/LoginRequired";
 import UserProfile from "../../components/UserProfile/UserProfile";
 import { useAppContext } from "../../context/AppContext";
+import { useTheme } from "../../context/ThemeContext";
 import "./sketchbook.css";
 
 import { hiddencomponent } from "../../lib/utils";
@@ -48,6 +49,7 @@ const Sketchbook = () => {
   const [recording, setRecording] = useState(false);
   const [mediaStream, setMediaStream] = useState(null);
   const [recordRTC, setRecordRTC] = useState(null);
+  const { isDarkMode } = useTheme();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -229,6 +231,7 @@ const Sketchbook = () => {
   return isLoggedIn ? (
     <>
       <Stage
+        className={`sketchbook-section ${isDarkMode ? "dark-mode" : "white-mode"}`}
         width={window.innerWidth}
         height={window.innerHeight}
         onMouseDown={handleMouseDown}

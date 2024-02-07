@@ -9,13 +9,14 @@ const Root = () => {
   const handleBarsClick = () => {
     setIsBarsClicked(!isBarsClicked);
   };
+  const isSketchbookRoute = location.pathname.includes("/sketchbook");
   return (
     <>
       <Navbar isBarsClicked={isBarsClicked} handleBarsClick={handleBarsClick} />
       <main>
         <Outlet />
       </main>
-      <Footer />
+      {!isSketchbookRoute && <Footer />}
     </>
   );
 };
