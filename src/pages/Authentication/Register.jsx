@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -22,14 +22,6 @@ const Register = () => {
   const { showToast } = useAppContext();
   const navigate = useNavigate();
 
-  useEffect(() => fetchUsers(), []);
-  const fetchUsers = () => {
-    axios
-      .get("https://doodlecollab-backend.onrender.com/api/users/register")
-      .then((res) => {
-        console.log(res.data);
-      });
-  };
   const {
     register,
     watch,
@@ -50,7 +42,6 @@ const Register = () => {
         }
       );
       showToast({ message: "Registration Success!", type: "SUCCESS" });
-      fetchUsers();
       navigate("/login");
     } catch (error) {
       showToast({ message: "Registration Failed!", type: "ERROR" });
