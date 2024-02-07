@@ -14,7 +14,7 @@ import {
 import { useTheme } from "../../context/ThemeContext";
 import "./auth.css";
 import { useAppContext } from "../../context/AppContext";
-import { useMutation } from "react-query";
+import { useMutation } from "@tanstack/react-query";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -30,12 +30,13 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-  const { mutate: registerUserMutate } = useMutation((user) =>
-    axios.post(
-      "https://doodlecollab-backend.onrender.com/api/users/register",
-      user
-    )
-  );
+  const { mutate: registerUserMutate } = useMutation({
+    mutationFn: (user) =>
+      axios.post(
+        "https://doodlecollab-backend.onrender.com/api/users/register",
+        user
+      ),
+  });
 
   const onSubmit = handleSubmit(
     ({ email, username, firstName, lastName, password }) => {

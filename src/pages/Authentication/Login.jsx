@@ -9,7 +9,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useTheme } from "../../context/ThemeContext";
 import "./auth.css";
 import { useAppContext } from "../../context/AppContext";
-import { useMutation } from "react-query";
+import { useMutation } from "@tanstack/react-query";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -23,12 +23,13 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const { mutate: loginUserMutate } = useMutation((user) =>
-    axios.post(
-      "https://doodlecollab-backend.onrender.com/api/users/login",
-      user
-    )
-  );
+  const { mutate: loginUserMutate } = useMutation({
+    mutationFn: (user) =>
+      axios.post(
+        "https://doodlecollab-backend.onrender.com/api/users/login",
+        user
+      ),
+  });
 
   const onSubmit = handleSubmit(({ email, password }) => {
     loginUserMutate(

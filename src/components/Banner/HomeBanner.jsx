@@ -18,8 +18,8 @@ import download from "../../assets/Home/download.png";
 import profile from "../../assets/Home/woman.png";
 import homeBannerUI from "../../assets/Home/homeBannerUI.png";
 import johnDoe from "../../assets/Home/johnDoe.png";
-import { useMutation } from "react-query";
 import { useAppContext } from "../../context/AppContext";
+import { useMutation } from "@tanstack/react-query";
 
 const HomeBanner = () => {
   const { isDarkMode } = useTheme();
@@ -29,11 +29,12 @@ const HomeBanner = () => {
 
   const { register, handleSubmit } = useForm();
 
-  const { mutate: loginUserMutate } = useMutation((user) => {
-    return axios.post(
-      "https://doodlecollab-backend.onrender.com/api/users/login",
-      user
-    );
+  const { mutate: loginUserMutate } = useMutation({
+    mutationFn: (user) =>
+      axios.post(
+        "https://doodlecollab-backend.onrender.com/api/users/login",
+        user
+      ),
   });
 
   const onSubmit = handleSubmit(({ email, password }) => {
