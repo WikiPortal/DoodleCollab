@@ -14,6 +14,7 @@ import {
 import { useTheme } from "../../context/ThemeContext";
 import "./auth.css";
 import { useAppContext } from "../../context/AppContext";
+import { useMutation } from "react-query";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -29,35 +30,45 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = handleSubmit(async (data) => {
-    try {
-      await axios.post(
-        "https://doodlecollab-backend.onrender.com/api/users/register",
+  const { mutate: registerUserMutate } = useMutation((user) =>
+    axios.post(
+      "https://doodlecollab-backend.onrender.com/api/users/register",
+      user
+    )
+  );
+
+  const onSubmit = handleSubmit(
+    ({ email, username, firstName, lastName, password }) => {
+      registerUserMutate(
         {
-          email: data.email,
-          username: data.username,
-          firstName: data.firstName,
-          lastName: data.lastName,
-          password: data.password,
+          email,
+          username,
+          firstName,
+          lastName,
+          password,
+        },
+        {
+          onSuccess: () => {
+            showToast({ message: "Registration Successful!", type: "SUCCESS" });
+            navigate("/login");
+          },
+          onError: () => {
+            showToast({ message: "Registration Failed!", type: "ERROR" });
+          },
         }
       );
-      showToast({ message: "Registration Success!", type: "SUCCESS" });
-      navigate("/login");
-    } catch (error) {
-      showToast({ message: "Registration Failed!", type: "ERROR" });
     }
-  });
+  );
 
   return (
     <section
       className={`auth-section ${isDarkMode ? "dark-mode" : "white-mode"}`}
-      onSubmit={onSubmit}
     >
       <div className="auth-img">
         <img src={registerImg} alt="registration image" />
       </div>
       <div className="auth-right">
-        <form className="auth-form">
+        <form className="auth-form" onSubmit={onSubmit}>
           <h1 style={{ color: isDarkMode ? "white" : "black" }}>
             Create New Account
           </h1>
