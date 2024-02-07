@@ -4,6 +4,8 @@ import { HiMiniBars2 } from "react-icons/hi2";
 import { RxCross1 } from "react-icons/rx";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
+import sunIcon from "../../assets/svg/sun.svg";
+import moonIcon from "../../assets/svg/moon.svg";
 import "./navbar.css";
 import { useAppContext } from "../../context/AppContext";
 
@@ -16,7 +18,11 @@ const Navbar = ({ isBarsClicked, handleBarsClick }) => {
   };
 
   return (
-    <nav className={`navbar ${isBarsClicked ? "bars-clicked" : ""} ${isDarkMode ? "dark-mode" : "white-mode"}`}>
+    <nav
+      className={`navbar ${isBarsClicked ? "bars-clicked" : ""} ${
+        isDarkMode ? "dark-mode" : "white-mode"
+      }`}
+    >
       <Link to="/" className="navbar-brand">
         <img src={logo} alt="DoodleCollab logo" className="logo" />
       </Link>
@@ -26,38 +32,68 @@ const Navbar = ({ isBarsClicked, handleBarsClick }) => {
           <Link to="/" className="nav-item">
             Home
           </Link>
-           
+
           <Link to="/features" className="nav-item">
             Features
           </Link>
           <Link to="/blogs" className="nav-item">
             Blogs
           </Link>
-          <Link to="https://github.com/WikiPortal/DoodleCollab" className="nav-item">
+          <Link
+            to="https://github.com/WikiPortal/DoodleCollab"
+            className="nav-item"
+          >
             GitHub
           </Link>
         </div>
         {isLoggedIn ? (
-          <Link to="/login" className={`nav-signup ${isDarkMode ? "dark-mode" : "white-mode"}`} onClick={handleLogout}>
+          <Link
+            to="/login"
+            className={`nav-signup ${isDarkMode ? "dark-mode" : "white-mode"}`}
+            onClick={handleLogout}
+          >
             Sign Out
           </Link>
         ) : (
-          <Link to="/register" className={`nav-signup ${isDarkMode ? "dark-mode" : "white-mode"}`}>
+          <Link
+            to="/register"
+            className={`nav-signup ${isDarkMode ? "dark-mode" : "white-mode"}`}
+          >
             Sign Up
           </Link>
         )}
       </div>
 
       <div className="navbar-right">
-        <input className="nav-checkbox" type="checkbox" id="switch" onChange={toggleDarkMode} />
-        <label className={`nav-toggle ${isDarkMode ? "dark-mode" : "white-mode"}`} htmlFor="switch">Toggle</label>
+        <input
+          className="nav-checkbox"
+          type="checkbox"
+          id="switch"
+          onChange={toggleDarkMode}
+        />
+        <label
+          className={`nav-toggle ${isDarkMode ? "dark-mode" : "white-mode"}`}
+          htmlFor="switch"
+        >
+          <img
+            src={isDarkMode ? moonIcon : sunIcon}
+            alt="theme icon"
+            className="md:translate-y-[.12rem] translate-x-[4rem]"
+          />
+        </label>
 
-        <button className={`action-button-bars ${isBarsClicked ? "hidden" : ""}`} onClick={handleBarsClick}>
-          <HiMiniBars2 style={{ fontSize: "2rem", fontWeight: 'bold' }} />
+        <button
+          className={`action-button-bars ${isBarsClicked ? "hidden" : ""}`}
+          onClick={handleBarsClick}
+        >
+          <HiMiniBars2 style={{ fontSize: "2rem", fontWeight: "bold" }} />
         </button>
 
-        <button className={`action-button-close ${!isBarsClicked ? "hidden" : ""}`} onClick={handleBarsClick}>
-          <RxCross1 style={{ fontSize: "2rem", fontWeight: 'bold' }} />
+        <button
+          className={`action-button-close ${!isBarsClicked ? "hidden" : ""}`}
+          onClick={handleBarsClick}
+        >
+          <RxCross1 style={{ fontSize: "2rem", fontWeight: "bold" }} />
         </button>
       </div>
     </nav>
