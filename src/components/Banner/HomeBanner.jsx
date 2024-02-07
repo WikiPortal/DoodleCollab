@@ -25,7 +25,7 @@ const HomeBanner = () => {
   const { isDarkMode } = useTheme();
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-  const { updateLoggedIn } = useAppContext();
+  const { updateLoggedIn, showToast } = useAppContext();
 
   const { register, handleSubmit } = useForm();
 
@@ -44,15 +44,13 @@ const HomeBanner = () => {
       },
       {
         onSuccess: (res) => {
-          console.log(res);
           localStorage.setItem("token", res.data.token);
           updateLoggedIn(true);
-          alert("Login Successful!");
+          showToast({ message: "Login Successful!", type: "SUCCESS" });
           navigate("/sketchbook");
         },
-        onError: (err) => {
-          console.log(err);
-          alert("Login Failed!");
+        onError: () => {
+          showToast({ message: "Login Failed!", type: "ERROR" });
         },
       }
     );
