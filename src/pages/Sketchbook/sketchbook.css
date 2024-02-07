@@ -1,0 +1,9 @@
+.sketchbook-section {
+}
+.sketchbook-section.dark-mode {
+  background-color: #1a1a1a;
+}
+
+.sketchbook-section.white-mode {
+  background-image: #fff;
+}
