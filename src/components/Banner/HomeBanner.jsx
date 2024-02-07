@@ -18,34 +18,44 @@ import download from "../../assets/Home/download.png";
 import profile from "../../assets/Home/woman.png";
 import homeBannerUI from "../../assets/Home/homeBannerUI.png";
 import johnDoe from "../../assets/Home/johnDoe.png";
+import { useMutation } from "react-query";
+import { useAppContext } from "../../context/AppContext";
 
 const HomeBanner = () => {
   const { isDarkMode } = useTheme();
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const { updateLoggedIn } = useAppContext();
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
 
-  const onSubmit = handleSubmit(async (data) => {
-    try {
-      await axios.post(
-        "https://doodlecollab-backend.onrender.com/api/users/login",
-        {
-          email: data.email,
-          password: data.password,
-        }
-      );
+  const { mutate: loginUserMutate } = useMutation((user) => {
+    return axios.post(
+      "https://doodlecollab-backend.onrender.com/api/users/login",
+      user
+    );
+  });
 
-      alert("Login Successful!");
-      navigate("/sketchbook");
-    } catch (error) {
-      console.log(error);
-      alert("Login Failed!");
-    }
+  const onSubmit = handleSubmit(({ email, password }) => {
+    loginUserMutate(
+      {
+        email,
+        password,
+      },
+      {
+        onSuccess: (res) => {
+          console.log(res);
+          localStorage.setItem("token", res.data.token);
+          updateLoggedIn(true);
+          alert("Login Successful!");
+          navigate("/sketchbook");
+        },
+        onError: (err) => {
+          console.log(err);
+          alert("Login Failed!");
+        },
+      }
+    );
   });
 
   return (
