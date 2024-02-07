@@ -148,6 +148,7 @@ const Register = () => {
               })}
             />
             <button
+              aria-label="VisibilityIcon btn"
               type="button"
               onClick={() => setShowPassword(!showPassword)}
             >
@@ -173,6 +174,7 @@ const Register = () => {
               })}
             />
             <button
+              aria-label="VisibilityIcon btn"
               type="button"
               onClick={() => setShowConfirmPassword(!showConfirmPassword)}
             >

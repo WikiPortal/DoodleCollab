@@ -14,7 +14,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { isDarkMode } = useTheme();
   const navigate = useNavigate();
-  const { showToast, updateLoggedIn} = useAppContext();
+  const { showToast, updateLoggedIn } = useAppContext();
 
   const {
     register,
@@ -80,6 +80,7 @@ const Login = () => {
               })}
             />
             <button
+              aria-label="VisibilityIcon btn"
               type="button"
               onClick={() => setShowPassword(!showPassword)}
             >
