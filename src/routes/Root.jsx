@@ -7,6 +7,7 @@ import Login from "../pages/Authentication/Login";
 import Features from "../pages/Features/Features";
 import Sketchbook from "../pages/Sketchbook/Sketchbook";
 import Blog from "../pages/Blog/Blog";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -28,7 +29,12 @@ export const router = createBrowserRouter([
       },
       {
         path: "/sketchbook",
-        element: <Sketchbook />,
+
+        element: (
+          <PrivateRoute>
+            <Sketchbook />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/features",
