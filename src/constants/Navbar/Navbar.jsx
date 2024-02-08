@@ -1,8 +1,9 @@
+import React, { useContext, useEffect, useState } from "react";
 import { useTheme } from "../../context/ThemeContext";
 import { HiMiniBars2 } from "react-icons/hi2";
 import { RxCross1 } from "react-icons/rx";
 import logo from "../../assets/logo.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import sunIcon from "../../assets/svg/sun.svg";
 import moonIcon from "../../assets/svg/moon.svg";
 import "./navbar.css";
@@ -11,11 +12,9 @@ import { useAppContext } from "../../context/AppContext";
 const Navbar = ({ isBarsClicked, handleBarsClick }) => {
   const { isDarkMode, toggleDarkMode } = useTheme();
   const { updateLoggedIn, isLoggedIn } = useAppContext();
-  const navigate = useNavigate();
 
   const handleLogout = () => {
     updateLoggedIn(false);
-    navigate("/login");
   };
 
   return (
@@ -33,9 +32,6 @@ const Navbar = ({ isBarsClicked, handleBarsClick }) => {
           <Link to="/" className="nav-item">
             Home
           </Link>
-          <Link to="/sketchbook" className="nav-item">
-            Sketchbook
-          </Link>
 
           <Link to="/features" className="nav-item">
             Features
@@ -51,12 +47,13 @@ const Navbar = ({ isBarsClicked, handleBarsClick }) => {
           </Link>
         </div>
         {isLoggedIn ? (
-          <button
+          <Link
+            to="/login"
             className={`nav-signup ${isDarkMode ? "dark-mode" : "white-mode"}`}
             onClick={handleLogout}
           >
             Sign Out
-          </button>
+          </Link>
         ) : (
           <Link
             to="/register"

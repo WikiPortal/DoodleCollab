@@ -51,7 +51,6 @@ const HomeBanner = () => {
           navigate("/sketchbook");
         },
         onError: () => {
-          updateLoggedIn(false);
           showToast({ message: "Login Failed!", type: "ERROR" });
         },
       }

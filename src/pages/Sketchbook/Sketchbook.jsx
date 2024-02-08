@@ -1,4 +1,4 @@
-import { Fragment, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { Stage, Layer, Line } from "react-konva";
 import { Paper, Slider, IconButton, Popper } from "@mui/material";
 import { MuiColorInput } from "mui-color-input";
@@ -16,9 +16,12 @@ import {
 } from "react-icons/fa";
 
 import jsPDF from "jspdf";
+import axios from "axios";
 import RecordRTC from "recordrtc";
 
+import LoginRequired from "../LoginRequired/LoginRequired";
 import UserProfile from "../../components/UserProfile/UserProfile";
+import { useAppContext } from "../../context/AppContext";
 import { useTheme } from "../../context/ThemeContext";
 import "./sketchbook.css";
 
@@ -40,12 +43,37 @@ const Sketchbook = () => {
     name: "Doodle Collab",
     avatar: "",
   });
+  const { updateLoggedIn, isLoggedIn } = useAppContext();
   const [toggleToolsMenuBar, setToggleToolsMenuBar] = useState(false);
   const [toolsPopoverEl, setToolsPopoverEl] = useState(null);
   const [recording, setRecording] = useState(false);
   const [mediaStream, setMediaStream] = useState(null);
   const [recordRTC, setRecordRTC] = useState(null);
   const { isDarkMode } = useTheme();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      updateLoggedIn(false);
+    } else {
+      axios
+        .get(
+          "https://doodlecollab-backend.onrender.com/api/users/validateToken",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        .then(() => {
+          updateLoggedIn(true);
+        })
+        .catch(() => {
+          updateLoggedIn(false);
+          localStorage.removeItem("token");
+        });
+    }
+  }, []);
 
   const handleMouseDown = (e) => {
     setRemovedLines([]);
@@ -119,9 +147,7 @@ const Sketchbook = () => {
       }
       // Check if it's a video recording and handle accordingly
       if (lines.some((line) => line.video)) {
-        const videoBlob = new Blob([recordRTC.getBlob()], {
-          type: "video/webm",
-        });
+        const videoBlob = new Blob([recordRTC.getBlob()], { type: "video/webm" });
         const videoUrl = URL.createObjectURL(videoBlob);
         downloadURI(videoUrl, `${fileName}.${fileType || ftype}`);
       } else {
@@ -129,6 +155,7 @@ const Sketchbook = () => {
       }
     };
   };
+  
 
   const handleClear = () => {
     setRemovedLines(lines);
@@ -201,12 +228,10 @@ const Sketchbook = () => {
   const openToolsPopover = Boolean(toolsPopoverEl);
   const toolsPopoverId = openToolsPopover ? "tools-popover" : undefined;
 
-  return (
+  return isLoggedIn ? (
     <>
       <Stage
-        className={`sketchbook-section ${
-          isDarkMode ? "dark-mode" : "white-mode"
-        }`}
+        className={`sketchbook-section ${isDarkMode ? "dark-mode" : "white-mode"}`}
         width={window.innerWidth}
         height={window.innerHeight}
         onMouseDown={handleMouseDown}
@@ -375,6 +400,8 @@ const Sketchbook = () => {
              TOOLS MENUBAR SECTION ENDS
             ------------------------------ */}
     </>
+  ) : (
+    <LoginRequired />
   );
 };
 

@@ -1,26 +1,47 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import Toast from "../constants/Notification/Toast";
+import axios from "axios";
+import { QueryClient } from "@tanstack/react-query";
 
+const queryClient = new QueryClient();
 const AppContext = createContext(undefined);
 
 const AppContextProvider = ({ children }) => {
   const [toast, setToast] = useState(undefined);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setLoggedIn] = useState(false);
 
-  const updateLoggedIn = async (logInState) => {
-    if (!logInState) {
+  const updateLoggedIn = async (loggedIn) => {
+    if (loggedIn) {
+      try {
+        const token = localStorage.getItem("token");
+        await queryClient.fetchQuery({
+          queryKey: ["token"],
+          queryFn: () =>
+            axios.get(
+              "https://doodlecollab-backend.onrender.com/api/users/validateToken",
+              {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              }
+            ),
+          staleTime: 0,
+        });
+
+        setLoggedIn(true);
+      } catch (error) {
+        setLoggedIn(false);
+        localStorage.removeItem("token");
+      }
+    } else {
+      setLoggedIn(false);
       localStorage.removeItem("token");
     }
-    setIsLoggedIn(logInState);
   };
 
   const showToast = (toastMessage) => {
     setToast(toastMessage);
   };
-
-  useEffect(() => {
-    setIsLoggedIn(localStorage.getItem("token") ? true : false);
-  }, []);
 
   return (
     <AppContext.Provider
