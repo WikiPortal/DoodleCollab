@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./homebanner.css";
 import { useTheme } from "../../context/ThemeContext";
 import { FaPlay, FaPlus, FaRegHeart } from "react-icons/fa";
 import { LuMessageSquare, LuPen } from "react-icons/lu";
@@ -81,36 +80,36 @@ const HomeBanner = () => {
 
         <div className="pt-[100px] flex justify-center">
           <div className="flex flex-col h-[450px] w-[300px] break-words bg-transparent rounded-[20px] m-[10px]">
-            <div className="homebanner-card-icons">
-              <ul className="homebanner-card-icons-ul">
+            <div className="h-[100px] flex justify-center items-center">
+              <ul className="list-none p-0 flex self-start">
                 <li>
                   <button aria-label="heart">
-                    <img src={heart} alt="" />
+                    <img src={heart} alt="" className="w-[20px] h-[20px] m-[10px]"/>
                   </button>
                 </li>
                 <li>
-                  <button aria-label="view">
-                    <img src={view} alt="" />
+                  <button aria-label="view" className="border-none cursor-default p-0 border-2 border-[#f7f8f9] w-[50px] h-[50px] rounded-[50%] flex justify-center items-center m-[1px]" style={{boxShadow: "0 0 1px 0 rgba(8, 11, 14, 0.06),0 6px 6px -1px rgba(8, 11, 14, 0.1)"}}>
+                    <img src={view} alt="" className="w-[20px] h-[20px] m-[10px]"/>
                   </button>
                 </li>
                 <li>
-                  <button aria-label="pen">
-                    <img src={pen} alt="" />
+                  <button aria-label="pen" className="border-none cursor-default p-0 border-2 border-[#f7f8f9] w-[50px] h-[50px] rounded-[50%] flex justify-center items-center m-[1px]" style={{boxShadow: "0 0 1px 0 rgba(8, 11, 14, 0.06),0 6px 6px -1px rgba(8, 11, 14, 0.1)"}}>
+                    <img src={pen} alt="" className="w-[20px] h-[20px] m-[10px]"/>
                   </button>
                 </li>
                 <li>
-                  <button aria-label="link">
-                    <img src={link} alt="" />
+                  <button aria-label="link" className="border-none cursor-default p-0 border-2 border-[#f7f8f9] w-[50px] h-[50px] rounded-[50%] flex justify-center items-center m-[1px]" style={{boxShadow: "0 0 1px 0 rgba(8, 11, 14, 0.06),0 6px 6px -1px rgba(8, 11, 14, 0.1)"}}>
+                    <img src={link} alt="" className="w-[20px] h-[20px] m-[10px]"/>
                   </button>
                 </li>
                 <li>
-                  <button aria-label="play">
-                    <img src={play} alt="" />
+                  <button aria-label="play" className="border-none cursor-default p-0 border-2 border-[#f7f8f9] w-[50px] h-[50px] rounded-[50%] flex justify-center items-center m-[1px]" style={{boxShadow: "0 0 1px 0 rgba(8, 11, 14, 0.06),0 6px 6px -1px rgba(8, 11, 14, 0.1)"}}>
+                    <img src={play} alt="" className="w-[20px] h-[20px] m-[10px]"/>
                   </button>
                 </li>
                 <li>
-                  <button aria-label="download">
-                    <img src={download} alt="" />
+                  <button aria-label="download" className="border-none cursor-default p-0 border-2 border-[#f7f8f9] w-[50px] h-[50px] rounded-[50%] flex justify-center items-center m-[1px]" style={{boxShadow: "0 0 1px 0 rgba(8, 11, 14, 0.06),0 6px 6px -1px rgba(8, 11, 14, 0.1)"}}>
+                    <img src={download} alt="" className="w-[20px] h-[20px] m-[10px]"/>
                   </button>
                 </li>
               </ul>
@@ -138,7 +137,7 @@ const HomeBanner = () => {
                       <FaPlus style={{ marginLeft: "30px" }} />
                     </i>
                   </button>
-                  <button className="message">
+                  <button className="bg-[#d1d2d4] text-black h-[40px] flex mt-[40px] rounded-[19px] px-[20px] py-[10px] text-left items-center justify-between w-[140px]" style={{boxShadow: "0 0 1px 0 rgba(8, 11, 14, 0.06),0 6px 6px -1px rgba(8, 11, 14, 0.1)"}}>
                     <span className="message-text">Message</span>{" "}
                     <i>
                       <LuMessageSquare style={{ marginLeft: "20px" }} />
@@ -159,7 +158,7 @@ const HomeBanner = () => {
                   />
                 </div>
 
-                <div className="border border-[#f7f8f9] rounded-bl-[20px] rounded-br-[20px]">
+                <div className="border border-[#f7f8f9] rounded-bl-[20px] rounded-br-[20px] h-[50px] w-[300px] flex justify-between items-center" style={{boxShadow: "0 0 1px 0 rgba(8, 11, 14, 0.06),0 6px 6px -1px rgba(8, 11, 14, 0.1)"}}>
                   <div className="flex text-center items-center justify-between relative">
                     <p>
                       <i>
@@ -209,7 +208,7 @@ const HomeBanner = () => {
                     <p className="text-[#1976d2]"> Create Now </p>
                   </Link>
                 </div>
-                <div className="form-control-mail-icon">
+                <div className="flex relative items-center">
                   <input
                     type="email"
                     placeholder="johndoe@gmail.com"
@@ -224,7 +223,7 @@ const HomeBanner = () => {
                     <HiOutlineMail size={24} />
                   </i>
                 </div>
-                <div className="form-control-password-icon">
+                <div className="flex relative items-center">
                   <input
                     type={showPassword ? "text" : "password"}
                     placeholder="Password"
