@@ -71,7 +71,8 @@ const HomeBanner = () => {
           </a>
 
           <button
-            className={`watchVideo ${isDarkMode ? "dark-mode" : "white-mode"}`}
+            className={`watchVideo ${isDarkMode ? "flex items-center rounded-[8px] px-[28px] py-[10px] text-black bg-[#f1f2f4] hover:flex hover:items-center hover:rounded-[8px] hover:py-[10px] hover:px-[28px] hover:bg-[#d1d2d4] hover:transition-colors hover:duration-300 hover:ease-in-out" : "flex items-center rounded-[8px] py-[10px] px-[28px] bg-[#d1d2d4] transition-colors duration-300 ease-in-out hover:flex hover:items-center hover:rounded-[8px] hover:px-[28px] hover:py-[10px] hover:text-black hover:bg-[#f1f2f4]"}`}
+            style={isDarkMode? {boxShadow: "0 0 1px rgba(69, 66, 66, 0.5)"}: {}}
           >
             <FaPlay style={{ marginRight: "5px" }} />
             Watch Video
@@ -83,7 +84,7 @@ const HomeBanner = () => {
             <div className="h-[100px] flex justify-center items-center">
               <ul className="list-none p-0 flex self-start">
                 <li>
-                  <button aria-label="heart">
+                  <button aria-label="heart" className="border-none cursor-default p-0 border-2 border-[#f7f8f9] w-[50px] h-[50px] rounded-[50%] flex justify-center items-center m-[1px]" style={{boxShadow: "0 0 1px 0 rgba(8, 11, 14, 0.06),0 6px 6px -1px rgba(8, 11, 14, 0.1)"}}>
                     <img src={heart} alt="" className="w-[20px] h-[20px] m-[10px]"/>
                   </button>
                 </li>
