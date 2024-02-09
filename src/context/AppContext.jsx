@@ -1,22 +1,33 @@
-import React, { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import Toast from "../constants/Notification/Toast";
 
 const AppContext = createContext(undefined);
 
 const AppContextProvider = ({ children }) => {
   const [toast, setToast] = useState(undefined);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const updateLoggedIn = async (logInState) => {
+    if (!logInState) {
+      localStorage.removeItem("token");
+    }
+    setIsLoggedIn(logInState);
+  };
 
   const showToast = (toastMessage) => {
     setToast(toastMessage);
   };
 
-  const isError = false;
+  useEffect(() => {
+    setIsLoggedIn(localStorage.getItem("token") ? true : false);
+  }, []);
 
   return (
     <AppContext.Provider
       value={{
         showToast,
-        isLoggedIn: !isError,
+        updateLoggedIn,
+        isLoggedIn,
       }}
     >
       {toast && (
