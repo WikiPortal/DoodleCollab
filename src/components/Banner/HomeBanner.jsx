@@ -59,16 +59,16 @@ const HomeBanner = () => {
   });
 
   return (
-    <section className="homebanner-section">
-      <div className="homebanner-container">
-        <h1>DoodleCollab</h1>
-        <p className="homebanner-head-para">
+    <section className="flex justify-center mb-5">
+      <div className="font-sans text-center items-center max-w-1/2 m-14 p-4 h-screen">
+        <h1 className="text-6xl font-normal leading-[48px]">DoodleCollab</h1>
+        <p className="text-[1.2rem] p-4 text-[#677082]">
           Application designed to transform the way we collaborate, offering an
           unparalleled whiteboard and sharing experience.
         </p>
-        <div className="homebanner-head-button">
+        <div className="flex justify-center pt-5 gap-5">
           <a href="/register">
-            <button className="homebanner-getStarted">Get Started Now</button>
+            <button className="rounded-[8px] px-7 py-[10px] text-white bg-[#2f97ff] hover:bg-[#0856a5]">Get Started Now</button>
           </a>
 
           <button
@@ -79,8 +79,8 @@ const HomeBanner = () => {
           </button>
         </div>
 
-        <div className="homebanner-cards">
-          <div className="homebanner-card-first-column">
+        <div className="pt-[100px] flex justify-center">
+          <div className="flex flex-col h-[450px] w-[300px] break-words bg-transparent rounded-[20px] m-[10px]">
             <div className="homebanner-card-icons">
               <ul className="homebanner-card-icons-ul">
                 <li>
@@ -116,24 +116,24 @@ const HomeBanner = () => {
               </ul>
             </div>
 
-            <div className="homebanner-card-first-column-remaining-rows">
-              <div className="homebanner-card-first-column-remaining-row-container">
-                <div className="homebanner-card-first-column-second-row">
-                  <div className="homebanner-card-second-row-image">
+            <div className="rounded-[20px] mt-[45px] border border-[#f7f8f9]">
+              <div className="rounded-[20px]" style={{boxShadow: "0 0 1px 0 rgba(8, 11, 14, 0.06), 0 6px 6px -1px rgba(8, 11, 14, 0.1)"}}>
+                <div className="h-[110px] flex justify-center">
+                  <div className="mt-[30px] w-[70px] h-[70px] rounded-[50%] bg-[#ff90bc]">
                     <img
                       src={profile}
                       alt="profile"
-                      className="homebanner-card-image"
+                      className="flex items-center justify-center rounded-[50%]"
                     />
                   </div>
                 </div>
-                <div className="homebanner-card-first-column-third-row">
-                  <p>John Doe</p>
-                  <p>Engineer</p>
+                <div className="h-[50px] font-bold text-lg">
+                  <p className="m-[10px]">John Doe</p>
+                  <p className="m-[10px]">Engineer</p>
                 </div>
-                <div className="homebanner-card-first-column-fourth-row">
-                  <button className="follow">
-                    <span className="follow-text">Follow</span>{" "}
+                <div className="h-[133px] flex items-center px-[5px] rounded-[20px] justify-between">
+                  <button className="h-10 flex items-center mt-10 rounded-[19px] py-[10px] px-5 space-x-4 text-left justify-between w-36 text-white bg-[#1976d2]">
+                    <span className="text-[1rem]">Follow</span>{" "}
                     <i>
                       <FaPlus style={{ marginLeft: "30px" }} />
                     </i>
@@ -148,36 +148,35 @@ const HomeBanner = () => {
               </div>
             </div>
           </div>
-          <div className="homebanner-card-second-column">
-            <div className="homebanner-card-second-column-first-row">
-              <div className="homebanner-card-second-column-first-row-container">
-                <div className="homebanner-card-second-column-first-row-top-image">
+          <div className="flex flex-col h-[450px] w-[300px] break-words rounded-[20px] m-[10px]">
+            <div className="h-[300px] p-0 block rounded-[20px] mb-[40px]">
+              <div className="border border-[#f7f8f9] rounded-[20px]">
+                <div className="h-[300px] w-[300px] flex justify-center items-center">
                   <img
                     src={homeBannerUI}
                     alt="homeBannerProfile"
-                    className="homebanner-card-second-column-first-row-top-image"
+                    className="h-[300px] w-[300px] flex justify-center items-center"
                   />
                 </div>
 
-                <div className="homebanner-card-second-column-first-row-bottom-card">
-                  <div className="homebanner-card-second-column-first-row-bottom-card-container">
+                <div className="border border-[#f7f8f9] rounded-bl-[20px] rounded-br-[20px]">
+                  <div className="flex text-center items-center justify-between relative">
                     <p>
                       <i>
                         <img
                           src={profile}
                           alt="profile"
-                          className="homebanner-card-second-column-first-row-bottom-card-image"
+                          className="ml-[10px] mt-0 h-[30px] w-[30px] bg-[#ff90bc] rounded-[50%]"
                         />
                       </i>
                     </p>
-                    <p className="homebanner-card-second-column-first-row-bottom-card-name">
+                    <p className="ml-5 mt-[10px] font-bold h-7 w-[100px]">
                       lorem Ipsum
                     </p>
                     <p>
                       <i>
                         <FaRegHeart
-                          style={{ marginLeft: "95px" }}
-                          className="homebanner-card-second-column-first-row-bottom-card-icon"
+                          className="mt-2 h-5 w-5 ml-[95px]"
                         />
                       </i>
                     </p>
@@ -185,14 +184,14 @@ const HomeBanner = () => {
                 </div>
               </div>
             </div>
-            <div className="homebanner-card-second-column-second-row">
-              <div className="homebanner-card-second-column-second-row-container">
+            <div className="mt-[40px] h-[70px] justify-between items-center rounded-[20px] mb-0 border border-[#f7f8f9]" style={{boxShadow: "0 0 1px 0 rgba(8, 11, 14, 0.06), 0 6px 6px -1px rgba(8, 11, 14, 0.1)"}}>
+              <div className="relative flex items-center">
                 <div>
-                  <img src={johnDoe} alt="johnDoe" />
+                  <img src={johnDoe} alt="johnDoe" className="mx-[15px] mt-[10px] h-[50px] w-[50px]"/>
                 </div>
                 <div>
-                  <p className="name">John Doe</p>
-                  <p className="position">UI/UX Designer</p>
+                  <p className="ml-[1px] text-left text-base font-semibold mt-[10px]">John Doe</p>
+                  <p className="ml-0 text-left text-base font-thin">UI/UX Designer</p>
                 </div>
                 <div>
                   <LuPen style={{ marginLeft: "68px" }} />
@@ -200,15 +199,14 @@ const HomeBanner = () => {
               </div>
             </div>
           </div>
-          <div className="homebanner-card-third-column">
-            <div className="homebanner-card-third-column-container">
-              {" "}
+          <div className="flex flex-col h-[450px] w-[300px] break-words border border-[#f7f8f9] rounded-[20px] margin-[10px]" style={{boxShadow: "0 0 1px 0 rgba(8, 11, 14, 0.06), 0 6px 6px -1px rgba(8, 11, 14, 0.1)"}}>
+            <div>
               <form onSubmit={onSubmit}>
-                <p className="login-text">Login into your account</p>
-                <div className="login-para">
+                <p className="text-2xl font-semibold leading-4 text-center mt-8 mb-4">Login into your account</p>
+                <div className="text-xs text-left ml-12 mt-2 h-5 w-[300px] flex mb-14 gap-1">
                   <p>Don't have an account yet? </p>{" "}
                   <Link to="/register">
-                    <p className="login-para-link"> Create Now </p>
+                    <p className="text-[#1976d2]"> Create Now </p>
                   </Link>
                 </div>
                 <div className="form-control-mail-icon">
@@ -216,11 +214,12 @@ const HomeBanner = () => {
                     type="email"
                     placeholder="johndoe@gmail.com"
                     id="username"
+                    className="border border-solid border-[#d1d2d4] rounded-[20px] p-5 w-[90%] h-[15px] mb-5 ml-5"
                     {...register("email", {
                       required: "Email is required",
                     })}
                   />
-                  <i className="icon-input-icon">
+                  <i className="absolute top-1/2 right-[30px] transform -translate-y-[90%] text-[#d1d2d4]">
                     {" "}
                     <HiOutlineMail size={24} />
                   </i>
@@ -230,6 +229,7 @@ const HomeBanner = () => {
                     type={showPassword ? "text" : "password"}
                     placeholder="Password"
                     id="password"
+                    className="border border-solid border-[#d1d2d4] rounded-[20px] p-5 w-[90%] h-[15px] mb-5 ml-5"
                     {...register("password", {
                       required: "Password is required",
                     })}
@@ -241,19 +241,18 @@ const HomeBanner = () => {
                     onClick={() => setShowPassword(!showPassword)}
                   >
                     {showPassword ? (
-                      <i className="icon-input-icon">
-                        {" "}
+                      <i className="absolute top-1/2 right-[30px] transform -translate-y-[90%] text-[#d1d2d4]">
                         <MdOutlineRemoveRedEye size={24} />
                       </i>
                     ) : (
-                      <i className="icon-input-icon">
+                      <i className="absolute top-1/2 right-[30px] transform -translate-y-[90%] text-[#d1d2d4]">
                         {" "}
                         <VisibilityOffIcon />
                       </i>
                     )}
                   </button>
                 </div>
-                <button className="login-button" type="submit">
+                <button className="text-base font-bold ml-6 mt-16 rounded-[20px] px-7 py-[10px] w-[250px] text-[#1976d2] bg-[#d3e0fd]" type="submit">
                   Login
                 </button>
               </form>
