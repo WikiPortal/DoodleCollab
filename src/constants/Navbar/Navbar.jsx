@@ -52,17 +52,19 @@ const Navbar = ({ isBarsClicked, handleBarsClick }) => {
         </div>
         {isLoggedIn ? (
           <button
-            className={`nav-signup ${isDarkMode ? "dark-mode" : "white-mode"}`}
+            className={`nav-signup w-max ${
+              isDarkMode ? "dark-mode" : "white-mode"
+            }`}
             onClick={handleLogout}
           >
-            Sign Out
+            Log out
           </button>
         ) : (
           <Link
             to="/register"
             className={`nav-signup ${isDarkMode ? "dark-mode" : "white-mode"}`}
           >
-            Sign Up
+            Register
           </Link>
         )}
       </div>
