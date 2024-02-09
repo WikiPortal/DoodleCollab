@@ -60,8 +60,8 @@ const HomeBanner = () => {
   return (
     <section className="flex justify-center mb-5">
       <div className="font-sans text-center items-center max-w-1/2 m-14 p-4 h-screen">
-        <h1 className="text-6xl font-normal leading-[48px]">DoodleCollab</h1>
-        <p className="text-[1.2rem] p-4 text-[#677082]">
+        <h1 className="text-[4rem] font-normal leading-[48px]">DoodleCollab</h1>
+        <p className={`text-[1.2rem] p-4 max-w-2xl mx-auto w-60 vs:w-96 sm:w-auto ${isDarkMode? "text-white":"text-black"}`}>
           Application designed to transform the way we collaborate, offering an
           unparalleled whiteboard and sharing experience.
         </p>
