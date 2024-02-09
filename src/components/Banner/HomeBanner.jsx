@@ -20,6 +20,7 @@ import homeBannerUI from "../../assets/Home/homeBannerUI.png";
 import johnDoe from "../../assets/Home/johnDoe.png";
 import { useAppContext } from "../../context/AppContext";
 import { useMutation } from "@tanstack/react-query";
+import { ImSpinner9 } from "react-icons/im";
 
 const HomeBanner = () => {
   const { isDarkMode } = useTheme();
@@ -29,7 +30,7 @@ const HomeBanner = () => {
 
   const { register, handleSubmit } = useForm();
 
-  const { mutate: loginUserMutate } = useMutation({
+  const { mutate: loginUserMutate, isPending: isLoginPending } = useMutation({
     mutationFn: (user) =>
       axios.post(
         "https://doodlecollab-backend.onrender.com/api/users/login",
@@ -253,8 +254,13 @@ const HomeBanner = () => {
                     )}
                   </button>
                 </div>
-                <button className="login-button" type="submit">
-                  Login
+                <button
+                  disabled={isLoginPending}
+                  className="text-base text-[#1976d2] border border-[#1976d2] inline-flex justify-center items-center gap-4 font-semibold rounded-full py-2 mt-10 w-[88%] transition-colors hover:bg-[#1976d2] hover:text-white disabled:opacity-60"
+                  type="submit"
+                >
+                  {isLoginPending && <ImSpinner9 className="animate-spin" />}
+                  <span>Login</span>
                 </button>
               </form>
             </div>

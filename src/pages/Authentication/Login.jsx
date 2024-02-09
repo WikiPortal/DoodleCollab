@@ -10,6 +10,7 @@ import { useTheme } from "../../context/ThemeContext";
 import "./auth.css";
 import { useAppContext } from "../../context/AppContext";
 import { useMutation } from "@tanstack/react-query";
+import { ImSpinner9 } from "react-icons/im";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -23,7 +24,7 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const { mutate: loginUserMutate } = useMutation({
+  const { mutate: loginUserMutate, isPending: isLoginPending } = useMutation({
     mutationFn: (user) =>
       axios.post(
         "https://doodlecollab-backend.onrender.com/api/users/login",
@@ -101,8 +102,13 @@ const Login = () => {
           {errors.password && (
             <span className="error-message">{errors.password.message}</span>
           )}
-          <button className="auth-btn" type="submit">
-            <p>Login</p>
+          <button
+            disabled={isLoginPending}
+            className="w-full text-white justify-center p-3 rounded-lg inline-flex gap-3 items-center disabled:bg-black/50 transition-colors bg-black hover:bg-black/80 font-semibold text-base"
+            type="submit"
+          >
+            {isLoginPending && <ImSpinner9 className="animate-spin" />}
+            <span>Log in</span>
           </button>
           <div className="auth-textbox-footer">
             <span>
@@ -112,7 +118,7 @@ const Login = () => {
                 to="/register"
                 style={{ color: isDarkMode ? "white" : "black" }}
               >
-                Click here to create
+                Register
               </Link>
             </span>
             <span>
