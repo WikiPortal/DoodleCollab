@@ -1,15 +1,15 @@
 import React from "react";
-import blogData from "./blogData.json";
+import blogData from "../../data/blogData.json";
 import { useTheme } from "../../context/ThemeContext";
 import BlogCard from "../../components/Blog/BlogCard";
-import "./blog.css"
 
 export default function Blog() {
   const { isDarkMode } = useTheme();
 
   return (
     <section
-      className={`blog-section ${isDarkMode ? "dark-mode" : "white-mode"}`}
+      className={`relative w-full h-full`}
+      style={isDarkMode? {backgroundColor: "#1a1a1a", color: "white"}: {backgroundImage: "linear-gradient(rgb(255, 255, 255),rgb(241, 234, 250) 48%,rgb(255, 255, 255))"}}
     >
       <div className={`flex flex-col items-center pb-20 pt-6`}>
         <div
