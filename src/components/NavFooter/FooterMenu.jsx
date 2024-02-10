@@ -1,91 +1,89 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "./footermenu.css";
 
 const FooterMenu = () => {
   const navItems = ["Docs", "DoodleCollab", "Resources", "About", "Extra"];
 
   return (
-    <section className="footermenu-section">
+    <section className="flex flex-col items-center p-0">
       <nav>
-        <ul>
+        <ul className=" flex flex-wrap justify-start m-0 p-0 list-none">
           {navItems.map((item, index) => (
-            <li key={index}>
-              <p>{item}</p>
+            <li className="mr-0" key={index}>
+              <p className="font-bold text-xl ml-[70px] mt-[60px] -mb-10">{item}</p>
               {index === 0 && (
-                <div className={`topics topics-${index}`}>
-                  <ul>
-                    <li>
-                      <a href={`#topic-${index}-1`}>Installation</a>
+                <div className={`m-[70px] topics-${index}`}>
+                  <ul className="flex flex-col m-0 p-0 list-none">
+                    <li className="mb-2.5">
+                      <a className="no-underline font-semibold text-sm" href={`#topic-${index}-1`}>Installation</a>
                     </li>
-                    <li>
-                      <a href={`#topic-${index}-2`}>Theme Setup</a>
+                    <li className="mb-2.5">
+                      <a className="no-underline font-semibold text-sm" href={`#topic-${index}-2`}>Theme Setup</a>
                     </li>
-                    <li>
-                      <a href={`#topic-${index}-3`}>Grid</a>
+                    <li className="mb-2.5">
+                      <a className="no-underline font-semibold text-sm" href={`#topic-${index}-3`}>Grid</a>
                     </li>
-                    <li>
-                      <a href={`#topic-${index}-4`}>Atoms</a>
+                    <li className="mb-2.5">
+                      <a className="no-underline font-semibold text-sm" href={`#topic-${index}-4`}>Atoms</a>
                     </li>
-                    <li>
-                      <a href={`#topic-${index}-5`}>Molecules</a>
+                    <li className="mb-2.5">
+                      <a className="no-underline font-semibold text-sm" href={`#topic-${index}-5`}>Molecules</a>
                     </li>
-                    <li>
-                      <a href={`#topic-${index}-6`}>Functions</a>
+                    <li className="mb-2.5">
+                      <a className="no-underline font-semibold text-sm" href={`#topic-${index}-6`}>Functions</a>
                     </li>
                   </ul>
                 </div>
               )}
               {index === 1 && (
-                <div className={`topics topics-${index}`}>
-                  <ul>
-                    <li>
-                      <a href={`#topic-${index}-1`}>Features</a>
+                <div className={`m-[70px] topics-${index}`}>
+                  <ul className="flex flex-col m-0 p-0 list-none">
+                    <li className="mb-2.5">
+                      <a className="no-underline font-semibold text-sm" href={`#topic-${index}-1`}>Features</a>
                     </li>
-                    <li>
-                      <a href={`#topic-${index}-2`}>Design</a>
+                    <li className="mb-2.5">
+                      <a className="no-underline font-semibold text-sm" href={`#topic-${index}-2`}>Design</a>
                     </li>
-                    <li>
-                      <a href={`#topic-${index}-3`}>Devlopment</a>
+                    <li className="mb-2.5">
+                      <a className="no-underline font-semibold text-sm" href={`#topic-${index}-3`}>Devlopment</a>
                     </li>
                   </ul>
                 </div>
               )}
               {index === 2 && (
-                <div className={`topics topics-${index}`}>
-                  <ul>
-                    <li>
-                      <a href={`#topic-${index}-1`}>Sketch File</a>
+                <div className={`m-[70px] topics-${index}`}>
+                  <ul className="flex flex-col m-0 p-0 list-none">
+                    <li className="mb-2.5">
+                      <a className="no-underline font-semibold text-sm" href={`#topic-${index}-1`}>Sketch File</a>
                     </li>
-                    <li>
-                      <a href={`#topic-${index}-2`}>Github</a>
+                    <li className="mb-2.5">
+                      <a className="no-underline font-semibold text-sm" href={`#topic-${index}-2`}>Github</a>
                     </li>
                   </ul>
                 </div>
               )}
               {index === 3 && (
-                <div className={`topics topics-${index}`}>
-                  <ul>
-                    <li>
-                      <a href={`#topic-${index}-1`}>Showcase</a>
+                <div className={`m-[70px] topics-${index}`}>
+                  <ul className="flex flex-col m-0 p-0 list-none">
+                    <li className="mb-2.5">
+                      <a className="no-underline font-semibold text-sm" href={`#topic-${index}-1`}>Showcase</a>
                     </li>
-                    <li>
-                      <a href={`#topic-${index}-2`}>Contribute</a>
+                    <li className="mb-2.5">
+                      <a className="no-underline font-semibold text-sm" href={`#topic-${index}-2`}>Contribute</a>
                     </li>
                   </ul>
                 </div>
               )}
               {index === 4 && (
-                <div className={`topics topics-${index}`}>
-                  <ul>
-                    <li>
-                      <a href={`#topic-${index}-1`}>Blog</a>
+                <div className={`m-[70px] topics-${index}`}>
+                  <ul className="flex flex-col m-0 p-0 list-none">
+                    <li className="mb-2.5">
+                      <a className="no-underline font-semibold text-sm" href={`#topic-${index}-1`}>Blog</a>
                     </li>
-                    <li>
-                      <a href={`#topic-${index}-2`}>Need Help?</a>
+                    <li className="mb-2.5">
+                      <a className="no-underline font-semibold text-sm" href={`#topic-${index}-2`}>Need Help?</a>
                     </li>
-                    <li>
-                      <a href={`#topic-${index}-3`}>Give Feedback</a>
+                    <li className="mb-2.5">
+                      <a className="no-underline font-semibold text-sm" href={`#topic-${index}-3`}>Give Feedback</a>
                     </li>
                   </ul>
                 </div>
