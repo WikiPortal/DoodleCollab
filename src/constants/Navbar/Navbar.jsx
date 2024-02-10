@@ -18,6 +18,11 @@ const Navbar = ({ isBarsClicked, handleBarsClick }) => {
     navigate("/login");
   };
 
+  const currentPath = window.location.pathname;
+
+  const dynamicLink = isLoggedIn && currentPath === "/" ? "/sketchbook" : "/";
+
+
   return (
     <nav
       className={`navbar ${isBarsClicked ? "bars-clicked" : ""} ${
@@ -30,11 +35,8 @@ const Navbar = ({ isBarsClicked, handleBarsClick }) => {
 
       <div className="navbar-middle">
         <div className="nav-items">
-          <Link to="/" className="nav-item">
-            Home
-          </Link>
-          <Link to="/sketchbook" className="nav-item">
-            Sketchbook
+          <Link to={dynamicLink} className="nav-item">
+            {isLoggedIn && currentPath === "/" ? "Sketchbook" : "Home"}
           </Link>
 
           <Link to="/features" className="nav-item">
