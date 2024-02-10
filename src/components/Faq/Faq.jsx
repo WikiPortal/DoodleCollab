@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import { questionsArray } from "../../data/Questions";
 //style
 import { motion, AnimatePresence, easeInOut } from "framer-motion";
-import "./faq.css";
 
 const Faq = () => {
   const [questions, setQuestions] = useState([]);
@@ -22,22 +21,23 @@ const Faq = () => {
 
   return (
     <section className="faq-section">
-      <div className="faq-container">
-        <p className="faq-head">
+      <div className="max-w-full bg-no-repeat bg-[initial] flex flex-col items-center mt-11 mb-5 p-4">
+        <p className="text-6xl font-semibold leading-none text-center sm:text-4xl lg:text-6xl" style={{fontFamily: "sans-serif"}}>
           Frequently Asked <br /> Questions
         </p>
-        <div className="faq-list">
-          <ul>
+        <div className="flex justify-center items-center mt-[30px] max-w-[80vw]">
+          <ul className="lg:min-w-[80vw] max-h-[600px] leading-6 list-none min-w-[auto]">
             {questions.map((data, index) => (
-                <li className="q-container" key={index}>
+                <li className="text-[12px] sm:text-[13px] min-w-[70%] flex flex-col text-[black] bg-white min-h-[80px] max-h-40 leading-7 relative cursor-pointer mb-2.5 mx-4 rounded-[10px]" style={{fontFamily: "sans-serif"}} key={index}>
                 <div
-                  className='q-area'
+                  className='flex justify-between text-left font-semibold text-base lg:text-xl pt-6 px-6'
+                  style={{fontFamily: "sans-serif"}}
                   onClick={() => handleToggleAnswer(index)} 
                 >
                     {data.question}
-                    <span>
+                    <span className="pr-[10px]">
                       <motion.div
-                        className="add-icon"
+                        className="pl-2 h-8 w-8 font-bold"
                         onClick={() => handleToggleAnswer(index)}
                         initial={{ rotate: 0 }}
                         animate={{
@@ -65,12 +65,12 @@ const Faq = () => {
                   <AnimatePresence>
                     {isAnswerOpenArray[index] && (
                       <motion.section
-                        className="ans-section"
+                        className="pb-2 pl-6 break-words min-w-[auto]"
                         initial={{ height: 0 }}
                         animate={{ height: "auto" }}
                         exit={{ height: 0, opacity: 0 }}
                       >
-                        <p className="ans-text" key={index}>
+                        <p className="text-left py-6" key={index}>
                           {data.answer}
                         </p>
                       </motion.section>
