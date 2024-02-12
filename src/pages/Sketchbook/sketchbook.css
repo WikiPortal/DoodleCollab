@@ -1,9 +1,12 @@
 .sketchbook-section {
+  max-width: 100vw; 
+  max-height: 89.8vh;
+  overflow: hidden; 
 }
 .sketchbook-section.dark-mode {
   background-color: #1a1a1a;
 }
 
 .sketchbook-section.white-mode {
-  background-image: #fff;
+  background-color: #fff;
 }
