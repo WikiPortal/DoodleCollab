@@ -2,6 +2,7 @@ import { Fragment, useRef, useState } from "react";
 import { Stage, Layer, Line } from "react-konva";
 import { Paper, Slider, IconButton, Popper } from "@mui/material";
 import { MuiColorInput } from "mui-color-input";
+
 import { BsDownload, BsRecordCircle } from "react-icons/bs";
 import { IoIosShareAlt } from "react-icons/io";
 import { MdOutlinePermMedia } from "react-icons/md";
@@ -26,26 +27,30 @@ import { hiddencomponent } from "../../lib/utils";
 import { toolsData } from "./data";
 
 const Sketchbook = () => {
+  
   const [lines, setLines] = useState([]);
-  const isDrawing = useRef(false);
   const [brushSz, setBrushSz] = useState(2);
   const [selectedTool, setSelectedTool] = useState("brush");
   const [brushColor, setBrushColor] = useState("#000");
-  const [open, setOpen] = useState(false);
   const [fileName, setFileName] = useState("file");
-  const stageRef = useRef(null);
   const [ftype, setFtype] = useState("png");
-  const [removedLines, setRemovedLines] = useState([]);
   const [userData, setUserData] = useState({
     name: "Doodle Collab",
     avatar: "",
   });
   const [toggleToolsMenuBar, setToggleToolsMenuBar] = useState(false);
-  const [toolsPopoverEl, setToolsPopoverEl] = useState(null);
   const [recording, setRecording] = useState(false);
+
+  const isDrawing = useRef(false);
+  const [open, setOpen] = useState(false);
+  const stageRef = useRef(null);
+  const [removedLines, setRemovedLines] = useState([]);
+  const [toolsPopoverEl, setToolsPopoverEl] = useState(null);
   const [mediaStream, setMediaStream] = useState(null);
   const [recordRTC, setRecordRTC] = useState(null);
   const { isDarkMode } = useTheme();
+
+  // Drawing event handlers
 
   const handleMouseDown = (e) => {
     setRemovedLines([]);
@@ -78,14 +83,7 @@ const Sketchbook = () => {
     isDrawing.current = false;
   };
 
-  const handleBSChange = (e) => {
-    setBrushSz(e.target.value);
-  };
-
-  const handleColorChange = (color) => {
-    console.log(color);
-    setBrushColor(color);
-  };
+  // Utility functions
 
   const downloadURI = (uri, name) => {
     const link = document.createElement("a");
@@ -128,6 +126,19 @@ const Sketchbook = () => {
         downloadURI(canvas.toDataURL(), `${fileName}.${fileType || ftype}`);
       }
     };
+  };
+
+  
+
+  // Drawing action handlers
+
+  const handleBSChange = (e) => {
+    setBrushSz(e.target.value);
+  };
+
+  const handleColorChange = (color) => {
+    console.log(color);
+    setBrushColor(color);
   };
 
   const handleClear = () => {
@@ -201,12 +212,14 @@ const Sketchbook = () => {
   const openToolsPopover = Boolean(toolsPopoverEl);
   const toolsPopoverId = openToolsPopover ? "tools-popover" : undefined;
 
+  // Render the sketchbook UI
+
   return (
     <>
       <Stage
         className={`sketchbook-section ${
           isDarkMode ? "dark-mode" : "white-mode"
-        }`}
+        }`}      
         width={window.innerWidth}
         height={window.innerHeight}
         onMouseDown={handleMouseDown}
