@@ -19,11 +19,7 @@ DoodleCollab is a cutting-edge application designed to transform the way we coll
 
 ---
 
-## Deployed Links :
-
-Frontend - https://doodlecollab.vercel.app/
-
-Backend - https://doodlecollab-backend.onrender.com
+## Deployed Links : https://doodlecollab.vercel.app/
 
 ---
 

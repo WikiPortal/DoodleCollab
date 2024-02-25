@@ -23,11 +23,13 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   const { mutate: loginUserMutate, isPending: isLoginPending } = useMutation({
     mutationFn: (user) =>
       axios.post(
-        "https://doodlecollab-backend.onrender.com/api/users/login",
+        `${apiUrl}/api/users/login`,
         user
       ),
   });

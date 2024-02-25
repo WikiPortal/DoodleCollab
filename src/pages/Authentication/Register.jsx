@@ -35,7 +35,7 @@ const Register = () => {
     useMutation({
       mutationFn: (user) =>
         axios.post(
-          "https://doodlecollab-backend.onrender.com/api/users/register",
+          `${apiUrl}/api/users/register`,
           user
         ),
     });

@@ -5,11 +5,13 @@ import axios from "axios";
 import { Navigate } from "react-router-dom";
 
 const PrivateRoute = ({ children }) => {
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   const { error, isLoading } = useQuery({
     queryKey: ["token"],
     queryFn: () =>
       axios.get(
-        "https://doodlecollab-backend.onrender.com/api/users/validateToken",
+        `${apiUrl}/api/users/validateToken`,
         {
           headers: {
             Authorization: `Bearer ${
