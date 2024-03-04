@@ -1,5 +1,5 @@
-import { Fragment, useRef, useState } from "react";
-import { Stage, Layer, Line } from "react-konva";
+import { Fragment, useEffect, useRef, useState } from "react";
+import { Stage, Layer, Line, Image } from "react-konva";
 import { Paper, Slider, IconButton, Popper } from "@mui/material";
 import { MuiColorInput } from "mui-color-input";
 
@@ -25,6 +25,7 @@ import "./sketchbook.css";
 
 import { hiddencomponent } from "../../lib/utils";
 import { toolsData } from "./data";
+import ReactImageUploading from "react-images-uploading";
 
 const Sketchbook = () => {
   
@@ -34,6 +35,8 @@ const Sketchbook = () => {
   const [brushColor, setBrushColor] = useState("#000");
   const [fileName, setFileName] = useState("file");
   const [ftype, setFtype] = useState("png");
+  const [images, setImages] = useState([]);
+  const maxNumber = 69;
   const [userData, setUserData] = useState({
     name: "Doodle Collab",
     avatar: "",
@@ -49,6 +52,9 @@ const Sketchbook = () => {
   const [mediaStream, setMediaStream] = useState(null);
   const [recordRTC, setRecordRTC] = useState(null);
   const { isDarkMode } = useTheme();
+
+
+  
 
   // Drawing event handlers
 
@@ -84,6 +90,17 @@ const Sketchbook = () => {
   };
 
   // Utility functions
+
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setImageFile(reader.result); // Store the uploaded image file
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   const downloadURI = (uri, name) => {
     const link = document.createElement("a");
@@ -228,6 +245,16 @@ const Sketchbook = () => {
         ref={stageRef}
       >
         <Layer>
+
+        {images.map((imageData, index) => (
+    <Image
+      key={index}
+      image={imageData}
+      x={250}
+      y={250}
+    />
+  ))}
+        
           {lines.map((line, i) => (
             <Line
               key={i}
@@ -341,11 +368,35 @@ const Sketchbook = () => {
                 </IconButton>
               )
             )}
-
-            <IconButton title="Insert image">
+            <ReactImageUploading multiple
+                  value={images}
+                  onChange={(imageList, addUpdateIndex) => {
+                    const updatedImages = imageList.map((imageData) => {
+                      const imageElement = new window.Image();
+                      imageElement.src = imageData.data_url;
+                      return imageElement;
+                    });
+                    setImages(updatedImages);
+                  }}
+                  maxNumber={maxNumber}
+                  dataURLKey="data_url"> 
+        {({
+          imageList,
+          onImageUpload,
+          isDragging,
+          dragProps,
+        })=>(
+          <div style={isDragging ? { color: 'red' } : undefined} {...dragProps}
+          >
+            
+            <IconButton onClick={onImageUpload} title="Insert image">
               <MdOutlinePermMedia />
             </IconButton>
-
+            
+            </div>
+            
+        )} 
+              </ReactImageUploading>
             <IconButton onClick={() => handleClear()} title="Clear">
               <FaRegTrashAlt />
             </IconButton>
