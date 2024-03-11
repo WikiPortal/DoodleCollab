@@ -21,7 +21,7 @@
     "axios": "^1.6.4",
     "clsx": "^2.1.0",
     "dotenv": "^16.3.1",
-    "framer-motion": "^11.0.3",
+    "framer-motion": "^11.0.8",
     "jspdf": "^2.5.1",
     "konva": "^9.3.1",
     "mui-color-input": "^2.0.1",
