@@ -10,6 +10,14 @@
 - Now you have the repo in your **local storage**
 - You can access the `main` folder to get the webapp access
 - Next to setup the react app `npm install`
+
+
+- Create a file named .env in the folder and add the following line, replacing <your_API_endpoint> with the localhost 5000:
+
+```dotenv
+VITE_API_URL= <your_API_endpoint>
+```
+
 - Once the node modules and other stuffs are installed , `npm run dev` to start the app in `http://localhost:5173/`
 - Make changes **according** to the Tasks assigned to you
 - Maintain the folder structure , keep small components like **Navbar, Footer** which stays in every page in `src\constants` folder
@@ -70,7 +78,16 @@ cd server
 npm install
 ```
 
-### 3. Run the Server
+### 3. Setup env file
+
+- Create a file named .env in the server folder and add the following line, replacing <your_mongodb_compass_string> with the copied MongoDB Compass string and replace <your_jwt_secret> with a JWT SECRET:
+
+```dotenv
+MONGO_URI=<your_mongodb_compass_string>
+JWT_SECRET=<your_jwt_secret>
+```
+
+### 4. Run the Server
 
 ```bash
 npm start

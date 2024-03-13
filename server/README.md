@@ -21,11 +21,15 @@ npm install
 
 ## Step 4: Create a dotenv File
 
-- Create a file named .env in the server folder and add the following line, replacing <your_mongodb_compass_string> with the copied MongoDB Compass string:
+- Create a file named .env in the server folder and add the following line, replacing <your_mongodb_compass_string> with the copied MongoDB Compass string and replace <your_jwt_secret> with a JWT SECRET:
 
 ```dotenv
 MONGO_URI=<your_mongodb_compass_string>
+JWT_SECRET=<your_jwt_secret>
 ```
+
+
+ 
 
 ## Step 5: Start the Backend
 
