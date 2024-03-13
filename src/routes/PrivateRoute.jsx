@@ -20,8 +20,6 @@ const PrivateRoute = ({ children }) => {
           },
         }
       ),
-    // as this network call depends on localStorage data
-    // if it is undefined avoid call
     enabled: !!localStorage,
   });
 

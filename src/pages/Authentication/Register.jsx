@@ -30,6 +30,8 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   const { mutate: registerUserMutate, isPending: isRegisterPending } =
     useMutation({
