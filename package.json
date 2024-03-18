@@ -27,7 +27,7 @@
     "mui-color-input": "^2.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-hook-form": "^7.49.3",
+    "react-hook-form": "^7.51.1",
     "react-icons": "^5.0.1",
     "react-images-uploading": "^3.1.7",
     "react-konva": "^18.2.10",
