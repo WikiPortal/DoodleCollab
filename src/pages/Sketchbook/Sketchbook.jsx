@@ -107,40 +107,42 @@ const Sketchbook = () => {
     document.body.removeChild(link);
   };
 
-  const handleDownload = (fileType) => {
+  const handleDownload=(fileType)=>{
     setOpen(false);
-    const dataURL = stageRef.current.toDataURL();
+    const stage = stageRef.current;
     const canvas = document.createElement("canvas");
     canvas.width = stageRef.current.width();
     canvas.height = stageRef.current.height();
-    const context = canvas.getContext("2d");
-    if ((fileType || ftype) !== "png") {
-      context.fillStyle = "#ffffff";
-      context.fillRect(0, 0, canvas.width, canvas.height);
-    }
-    const image = new Image();
-    image.src = dataURL;
-    image.onload = () => {
-      context.drawImage(image, 0, 0);
-      if ((fileType || ftype) === "pdf") {
+
+    fileType.forEach((fileType) => {
+	if ((fileType || ftype) === "pdf") {
         const pdf = new jsPDF("l", "px", [canvas.width, canvas.height]);
         pdf.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0);
         pdf.save(`${fileName}.pdf`);
         return;
+       }
+	// Check if it's a video recording and handle accordingly
+	else if(lines.some((line) => line.video)) {
+         const videoBlob = new Blob([recordRTC.getBlob()], {
+           type: "video/webm",
+         });
+         const videoUrl = URL.createObjectURL(videoBlob);
+         downloadURI(videoUrl, `${fileName}.${fileType || ftype}`);
+       }
+       else{
+        // Handle image download
+        const mimeType = `image/${fileType}`;
+        const quality = 1;
+        const dataURL = stage.toDataURL({ mimeType, quality });
+  
+        const link = document.createElement("a");
+        link.href = dataURL;
+        link.download = `sketchbook.${fileType}`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
       }
-      // Check if it's a video recording and handle accordingly
-      if (lines.some((line) => line.video)) {
-        const videoBlob = new Blob([recordRTC.getBlob()], {
-          type: "video/webm",
-        });
-        const videoUrl = URL.createObjectURL(videoBlob);
-        downloadURI(videoUrl, `${fileName}.${fileType || ftype}`);
-      } else {
-        downloadURI(canvas.toDataURL(), `${fileName}.${fileType || ftype}`);
-      }
-    };
-  };
-
+    });}; 
   // Drawing action handlers
 
   const handleBSChange = (e) => {
