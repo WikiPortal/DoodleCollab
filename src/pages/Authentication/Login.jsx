@@ -4,8 +4,8 @@ import { useNavigate, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import loginImg from "../../assets/register.jpg";
 import { PasswordIcon, MailIcon } from "../../assets/RegisterIcons";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { MdOutlineRemoveRedEye } from "react-icons/md";
+import { AiOutlineEyeInvisible } from "react-icons/ai";
 import { useTheme } from "../../context/ThemeContext";
 import "./auth.css";
 import { useAppContext } from "../../context/AppContext";
@@ -23,15 +23,11 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  
+
   const apiUrl = import.meta.env.VITE_API_URL;
 
   const { mutate: loginUserMutate, isPending: isLoginPending } = useMutation({
-    mutationFn: (user) =>
-      axios.post(
-        `${apiUrl}/api/users/login`,
-        user
-      ),
+    mutationFn: (user) => axios.post(`${apiUrl}/api/users/login`, user),
   });
 
   const onSubmit = handleSubmit(({ email, password }) => {
@@ -94,11 +90,15 @@ const Login = () => {
               })}
             />
             <button
-              aria-label="VisibilityIcon btn"
+              aria-label="MdOutlineRemoveRedEye btn"
               type="button"
               onClick={() => setShowPassword(!showPassword)}
             >
-              {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+              {showPassword ? (
+                <MdOutlineRemoveRedEye size={20} />
+              ) : (
+                <AiOutlineEyeInvisible size={20} />
+              )}
             </button>
           </div>
           {errors.password && (

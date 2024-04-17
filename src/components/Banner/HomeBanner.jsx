@@ -3,9 +3,9 @@ import "./homebanner.css";
 import { useTheme } from "../../context/ThemeContext";
 import { FaPlay, FaPlus, FaRegHeart } from "react-icons/fa";
 import { LuMessageSquare, LuPen } from "react-icons/lu";
-import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { HiOutlineMail } from "react-icons/hi";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { MdOutlineRemoveRedEye } from "react-icons/md";
+import { AiOutlineEyeInvisible } from "react-icons/ai";
 import { useForm } from "react-hook-form";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
@@ -29,15 +29,11 @@ const HomeBanner = () => {
   const { updateLoggedIn, showToast } = useAppContext();
 
   const { register, handleSubmit } = useForm();
-  
+
   const apiUrl = import.meta.env.VITE_API_URL;
 
   const { mutate: loginUserMutate, isPending: isLoginPending } = useMutation({
-    mutationFn: (user) =>
-      axios.post(
-        `${apiUrl}/api/users/login`,
-        user
-      ),
+    mutationFn: (user) => axios.post(`${apiUrl}/api/users/login`, user),
   });
 
   const onSubmit = handleSubmit(({ email, password }) => {
@@ -251,7 +247,7 @@ const HomeBanner = () => {
                     ) : (
                       <i className="icon-input-icon">
                         {" "}
-                        <VisibilityOffIcon />
+                        <AiOutlineEyeInvisible size={24} />
                       </i>
                     )}
                   </button>

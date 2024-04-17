@@ -3,8 +3,8 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import registerImg from "../../assets/register.jpg";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { MdOutlineRemoveRedEye } from "react-icons/md";
+import { AiOutlineEyeInvisible } from "react-icons/ai";
 import {
   UsernameIcon,
   PasswordIcon,
@@ -30,16 +30,12 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  
+
   const apiUrl = import.meta.env.VITE_API_URL;
 
   const { mutate: registerUserMutate, isPending: isRegisterPending } =
     useMutation({
-      mutationFn: (user) =>
-        axios.post(
-          `${apiUrl}/api/users/register`,
-          user
-        ),
+      mutationFn: (user) => axios.post(`${apiUrl}/api/users/register`, user),
     });
 
   const onSubmit = handleSubmit(
@@ -155,11 +151,15 @@ const Register = () => {
               })}
             />
             <button
-              aria-label="VisibilityIcon btn"
+              aria-label="MdOutlineRemoveRedEye btn"
               type="button"
               onClick={() => setShowPassword(!showPassword)}
             >
-              {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+              {showPassword ? (
+                <MdOutlineRemoveRedEye size={20} />
+              ) : (
+                <AiOutlineEyeInvisible size={20} />
+              )}
             </button>
           </div>
           {errors.password && (
@@ -181,11 +181,15 @@ const Register = () => {
               })}
             />
             <button
-              aria-label="VisibilityIcon btn"
+              aria-label="MdOutlineRemoveRedEye btn"
               type="button"
               onClick={() => setShowConfirmPassword(!showConfirmPassword)}
             >
-              {showConfirmPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+              {showConfirmPassword ? (
+                <MdOutlineRemoveRedEye size={20} />
+              ) : (
+                <AiOutlineEyeInvisible size={20} />
+              )}
             </button>
           </div>
           {errors.confirmPassword && (
