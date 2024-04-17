@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import { Stage, Layer, Line, Image } from "react-konva";
-import { Paper, Slider, IconButton, Popper } from "@mui/material";
+import { Popper } from "@mui/material";
 import { MuiColorInput } from "mui-color-input";
 
 import { BsDownload, BsRecordCircle } from "react-icons/bs";
@@ -28,7 +28,6 @@ import { toolsData } from "./data";
 import ReactImageUploading from "react-images-uploading";
 
 const Sketchbook = () => {
-  
   const [lines, setLines] = useState([]);
   const [brushSz, setBrushSz] = useState(2);
   const [selectedTool, setSelectedTool] = useState("brush");
@@ -52,9 +51,6 @@ const Sketchbook = () => {
   const [mediaStream, setMediaStream] = useState(null);
   const [recordRTC, setRecordRTC] = useState(null);
   const { isDarkMode } = useTheme();
-
-
-  
 
   // Drawing event handlers
 
@@ -145,8 +141,6 @@ const Sketchbook = () => {
     };
   };
 
-  
-
   // Drawing action handlers
 
   const handleBSChange = (e) => {
@@ -236,7 +230,7 @@ const Sketchbook = () => {
       <Stage
         className={`sketchbook-section ${
           isDarkMode ? "dark-mode" : "white-mode"
-        }`}      
+        }`}
         width={window.innerWidth}
         height={window.innerHeight}
         onMouseDown={handleMouseDown}
@@ -245,16 +239,10 @@ const Sketchbook = () => {
         ref={stageRef}
       >
         <Layer>
+          {images.map((imageData, index) => (
+            <Image key={index} image={imageData} x={250} y={250} />
+          ))}
 
-        {images.map((imageData, index) => (
-    <Image
-      key={index}
-      image={imageData}
-      x={250}
-      y={250}
-    />
-  ))}
-        
           {lines.map((line, i) => (
             <Line
               key={i}
@@ -307,8 +295,8 @@ const Sketchbook = () => {
                *  color picker only for the brush and eraser tools
                */
               ["brush", "eraser"].includes(tool.content) ? (
-                <Fragment key={tool.id}>
-                  <IconButton
+                <Fragment className="border-2 border-red-600" key={tool.id}>
+                  {/* <IconButton
                     color={selectedTool === tool.content ? "primary" : ""}
                     title={tool.title}
                     onClick={(e) => {
@@ -317,7 +305,17 @@ const Sketchbook = () => {
                     }}
                   >
                     {tool.icon}
-                  </IconButton>
+                  </IconButton> */}
+                  <button
+                    className={` hover:bg-gray-100 rounded-full p-3 focus:outline-none ${selectedTool === tool.content ? "text-blue-500" : "text-gray-600"}`}
+                    title={tool.title}
+                    onClick={(e) => {
+                      setSelectedTool(tool.content);
+                      handlePopoverOpen(e);
+                    }}
+                  >
+                    {tool.icon}
+                  </button>
 
                   <Popper
                     id={toolsPopoverId}
@@ -326,17 +324,36 @@ const Sketchbook = () => {
                     placement="left"
                     sx={{ zIndex: 100 }}
                   >
-                    <Paper sx={{ p: 2, width: 300 }}>
+                    <div className="border-2 space-y-2 p-2 w-[300px] bg-white">
                       <div>
                         <h3>Brush size: {brushSz}</h3>
-                        <Slider
-                          defaultValue={2}
-                          aria-label="Small"
-                          valueLabelDisplay="auto"
-                          min={1}
-                          max={50}
-                          onChange={handleBSChange}
-                        />
+                        <div className="w-full">
+                          <input
+                            type="range"
+                            className="w-full h-1 rounded-lg  my-2 appearance-none bg-blue-200"
+                            min="1"
+                            max="50"
+                            step="1"
+                            value={brushSz}
+                            onChange={(e) => setBrushSz(e.target.value)}
+                            style={{
+                              // Customize the slider thumb size
+                              "--thumb-size": "20px", // Adjust the size as needed
+                              // Customize the slider thumb color
+                              "--thumb-color": "blue", // Adjust the color as needed
+                            }}
+                          />
+                          <style>{`
+    input[type="range"]::-webkit-slider-thumb {
+      width: var(--thumb-size);
+      height: var(--thumb-size);
+      background-color: var(--thumb-color);
+      border-radius: 50%;
+      appearance: none;
+      cursor: pointer;
+    }
+  `}</style>
+                        </div>
                       </div>
 
                       {selectedTool === "brush" ? (
@@ -348,90 +365,124 @@ const Sketchbook = () => {
                           />
                         </div>
                       ) : null}
-                      <IconButton
-                        sx={{ mt: "2px" }}
+                      <button
+                        className={` hover:bg-gray-100 rounded-full p-3 focus:outline-none`}
+                        // style={{
+                        //   border: "2px solid red",
+                        // }}
                         onClick={() => setToolsPopoverEl(null)}
                       >
                         <HiXMark />
-                      </IconButton>
-                    </Paper>
+                      </button>
+                    </div>
                   </Popper>
                 </Fragment>
               ) : (
-                <IconButton
-                  color={selectedTool === tool.content ? "primary" : ""}
+                <button
+                  // style={{
+                  //   border: "2px solid red",
+                  // }}
+                  // color={selectedTool === tool.content ? "primary" : ""}
+                  className={` hover:bg-gray-100 rounded-full p-3 focus:outline-none ${selectedTool === tool.content ? "text-blue-500" : "text-gray-600"}`}
                   key={tool.id}
                   title={tool.title}
                   onClick={() => setSelectedTool(tool.content)}
                 >
                   {tool.icon}
-                </IconButton>
+                </button>
               )
             )}
-            <ReactImageUploading multiple
-                  value={images}
-                  onChange={(imageList, addUpdateIndex) => {
-                    const updatedImages = imageList.map((imageData) => {
-                      const imageElement = new window.Image();
-                      imageElement.src = imageData.data_url;
-                      return imageElement;
-                    });
-                    setImages(updatedImages);
-                  }}
-                  maxNumber={maxNumber}
-                  dataURLKey="data_url"> 
-        {({
-          imageList,
-          onImageUpload,
-          isDragging,
-          dragProps,
-        })=>(
-          <div style={isDragging ? { color: 'red' } : undefined} {...dragProps}
-          >
-            
-            <IconButton onClick={onImageUpload} title="Insert image">
-              <MdOutlinePermMedia />
-            </IconButton>
-            
-            </div>
-            
-        )} 
-              </ReactImageUploading>
-            <IconButton onClick={() => handleClear()} title="Clear">
-              <FaRegTrashAlt />
-            </IconButton>
+            <ReactImageUploading
+              multiple
+              value={images}
+              onChange={(imageList, addUpdateIndex) => {
+                const updatedImages = imageList.map((imageData) => {
+                  const imageElement = new window.Image();
+                  imageElement.src = imageData.data_url;
+                  return imageElement;
+                });
+                setImages(updatedImages);
+              }}
+              maxNumber={maxNumber}
+              dataURLKey="data_url"
+            >
+              {({ imageList, onImageUpload, isDragging, dragProps }) => (
+                <div
+                  style={isDragging ? { color: "red" } : undefined}
+                  {...dragProps}
+                >
+                  <button
+                    className={` hover:bg-gray-100 rounded-full p-3 focus:outline-none`}
+                    // style={{
+                    //   border: "2px solid red",
+                    // }}
+                    onClick={onImageUpload}
+                    title="Insert image"
+                  >
+                    <MdOutlinePermMedia size={20} />
+                  </button>
+                </div>
+              )}
+            </ReactImageUploading>
+            <button
+              className={` hover:bg-gray-100 rounded-full p-3 focus:outline-none`}
+              onClick={() => handleClear()}
+              title="Clear"
+            >
+              <FaRegTrashAlt size={20} />
+            </button>
 
-            <IconButton onClick={() => handleUndo()} title="Undo">
-              <FaUndo />
-            </IconButton>
+            <button
+              className={` hover:bg-gray-100 rounded-full p-3 focus:outline-none`}
+              onClick={() => handleUndo()}
+              title="Undo"
+            >
+              <FaUndo size={20} />
+            </button>
 
-            <IconButton onClick={() => handleRedo()} title="Redo">
-              <FaRedo />
-            </IconButton>
+            <button
+              className={` hover:bg-gray-100 rounded-full p-3 focus:outline-none`}
+              onClick={() => handleRedo()}
+              title="Redo"
+            >
+              <FaRedo size={20} />
+            </button>
 
-            <IconButton onClick={() => setOpen(true)} title="Download">
-              <BsDownload />
-            </IconButton>
+            <button
+              className={` hover:bg-gray-100 rounded-full p-3 focus:outline-none`}
+              onClick={() => setOpen(true)}
+              title="Download"
+            >
+              <BsDownload size={20} />
+            </button>
 
-            <IconButton
+            <button
+              className={` hover:bg-gray-100 rounded-full p-3 focus:outline-none`}
               onClick={() => {
                 handleDownload("pdf");
               }}
               title="Download as PDF"
             >
-              <FaRegFilePdf />
-            </IconButton>
+              <FaRegFilePdf size={20} />
+            </button>
 
-            <IconButton>
-              <IoIosShareAlt title="Share" />
-            </IconButton>
+            <button
+              className={` hover:bg-gray-100 rounded-full p-3 focus:outline-none`}
+            >
+              <IoIosShareAlt title="Share" size={20} />
+            </button>
 
-            <IconButton
+            <button
+              className={` hover:bg-gray-100 rounded-full p-3 focus:outline-none`}
               onClick={toggleRecording}
               title={recording ? "Stop Recording" : "Start Recording"}
             >
-              {recording ? <FaRegStopCircle /> : <BsRecordCircle />}
-            </IconButton>
+              {recording ? (
+                <FaRegStopCircle size={20} />
+              ) : (
+                <BsRecordCircle size={20} />
+              )}
+            </button>
           </div>
         </div>
       </aside>

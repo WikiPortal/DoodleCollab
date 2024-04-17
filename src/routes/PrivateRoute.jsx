@@ -10,16 +10,13 @@ const PrivateRoute = ({ children }) => {
   const { error, isLoading } = useQuery({
     queryKey: ["token"],
     queryFn: () =>
-      axios.get(
-        `${apiUrl}/api/users/validateToken`,
-        {
-          headers: {
-            Authorization: `Bearer ${
-              localStorage && localStorage.getItem("token")
-            }`,
-          },
-        }
-      ),
+      axios.get(`${apiUrl}/api/users/validateToken`, {
+        headers: {
+          Authorization: `Bearer ${
+            localStorage && localStorage.getItem("token")
+          }`,
+        },
+      }),
     enabled: !!localStorage,
   });
 

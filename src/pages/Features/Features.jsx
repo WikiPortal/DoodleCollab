@@ -1,12 +1,8 @@
-import Grid from "@mui/system/Unstable_Grid";
 import img1 from "../../assets/Features/img1.png";
 import img2 from "../../assets/Features/img2.png";
 import { useTheme } from "../../context/ThemeContext";
 import { Link } from "react-router-dom";
-
 import { FaArrowDown } from "react-icons/fa";
-import { Divider } from "@mui/material";
-
 import "./features.css";
 
 const Features = () => {
@@ -33,7 +29,7 @@ const Features = () => {
             <FaArrowDown className="text-[#7743DB] -rotate-90 shrink-0" />
           </Link>
 
-          <Divider sx={{ width: "100%", marginBlock: "1rem" }} />
+          <hr className="my-4 border-t border-gray-300" />
 
           <Link
             to="https://winterofcode.com/ "
@@ -44,7 +40,7 @@ const Features = () => {
             <FaArrowDown className="text-[#7743DB] -rotate-90 shrink-0" />{" "}
           </Link>
 
-          <Divider sx={{ width: "100%", marginBlock: "1rem" }} />
+          <hr className="my-4 border-t border-gray-300" />
 
           <Link
             to="https://iwoc.codes/"
